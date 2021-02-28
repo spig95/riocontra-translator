@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded",
      */
     function onClickTranslate (event) {
       // Change text inside button
-      this.textContent = "Riocontred";
+      document.getElementById("translate-button").textContent = "Riocontred";
       // Get text to be translated
       let toBeTrasnslated =
        document.getElementById("wannabe-translated").value;
@@ -24,9 +24,19 @@ document.addEventListener("DOMContentLoaded",
       else
         translation = translator.translateSentence(toBeTrasnslated)
       console.log("Translation: " + translation)
+
+      
+      document
+        .getElementById("user-input")
+        .textContent = "Tu vuoi dire all'ozi: '" + toBeTrasnslated + "'.";
+      
+      document.getElementById("wannabe-translated").value = ""
+
       document
         .getElementById("translation")
-        .textContent = translation;
+        .textContent = "Ma l'ozi direbbe: '" + translation + "'.";;
+
+
     }
     
     /**
@@ -34,19 +44,29 @@ document.addEventListener("DOMContentLoaded",
      */
     function riocontrAgain (event) {
       this.textContent = "Riocontra un'altra talvo!";
-      document.getElementById("wannabe-translated").value = ""
     }
 
     /**
      * Translate when the translate-button is clicked
      */
-    document.querySelector("#translate-button")
+    document.getElementById("translate-button")
       .addEventListener("click", onClickTranslate);
+    
+    /**
+     * Translate when enter is pressed
+     */
+    document.getElementById('wannabe-translated')
+      .addEventListener("keyup", function (event) {
+        let key = event.key || event.keyCode;
+        if (key === "Enter") {
+          onClickTranslate(event)
+        }
+      });
     
     /**
      * Get ready for new translation when the translate-button looses focus
      */
-    document.querySelector("#translate-button")
+    document.getElementById("translate-button")
       .addEventListener("blur", riocontrAgain);
 
   }
