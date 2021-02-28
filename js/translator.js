@@ -11,11 +11,20 @@ var bad_pairs = ["gc", "cg", "mc", "cm", "sn"]
 export class Translator {
     constructor(
         percentage,
+        nezioTechnique,
         erreMossa,
         erreMossaToAllConsonants,
         supertofe) {
 
         this.percentage = percentage;
+
+        if (nezioTechnique == undefined) {
+            this.nezioTechnique = true
+        } else if (typeof(nezioTechnique) === "boolean") {
+            this.nezioTechnique = nezioTechnique
+        } else {
+            throw "nezioTechnique should be a boolean. Got " + nezioTechnique
+        }
 
         if (erreMossa == undefined) {
             this.erreMossa = true
@@ -26,7 +35,7 @@ export class Translator {
         }
 
         if (erreMossaToAllConsonants == undefined) {
-        this.erreMossaToAllConsonants = true
+        this.erreMossaToAllConsonants = false
         } else if (typeof(erreMossaToAllConsonants) === "boolean") {
             this.erreMossaToAllConsonants = erreMossaToAllConsonants
         } else {
@@ -47,8 +56,7 @@ export class Translator {
     translateSentence (sentence) {
         console.log("input sentence: ", sentence);
         let splitted = splitSentence(sentence);
-        console.log("splitted: ");
-        console.log(splitted);
+        console.log("splitted: ", splitted);
         // Loop over splitted sentence, translate each word and recompose the 
         // translated sentence
         let translatedSentence = new String
@@ -76,17 +84,30 @@ export class Translator {
         //     return translation
 
         // Return if the string is too short
-        if (word.length < 3)
-            return word;
+        if (word.length <= 3) {
+            // TODO: zio, zia should be in basic translation above
+            if (word === "zio"){
+                return "ozi";
+            } else if (word === "zia") {
+                return "iza";
+            } else {
+                return word;
+            }
+        }
+            
 
         // Check the zione technique
         if (word.length > 5 && word.slice(-5, -1) == 'zion') {
-            console.log(word.slice(-6))
-            if (word[-6] === "n")
-                return word.slice(0, -6) + "nezio";
-            else
-                return word.slice(0, -5) + "nezio";
-        }
+            if (this.nezioTechnique) {
+                if (word[-6] === "n")
+                    return word.slice(0, -6) + "nezio";
+                else
+                    return word.slice(0, -5) + "nezio";
+            } else {
+                // return normal world
+                return word
+            }
+        };
 
         // At this point, we can apply the real riocontra!
         let syllabs = divide(word)
@@ -101,6 +122,7 @@ export class Translator {
     };
 
     getRiocontraFromSyllabs (syllabs) { 
+        console.log("Get riocontra from syllabs: ", syllabs)
         let invertedSyllabs
         let n_syllabs = syllabs.length
 
@@ -117,6 +139,7 @@ export class Translator {
         }
 
         // Sum inverted syllabs to form the word
+        console.log(invertedSyllabs)
         let wordFromSyllabs = invertedSyllabs.reduce((a, b) => a + b, "")
         return wordFromSyllabs
     }

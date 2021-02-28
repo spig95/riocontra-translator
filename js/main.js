@@ -2,50 +2,51 @@ import { Translator } from './translator.js'
  
 document.addEventListener("DOMContentLoaded",
   function (event) {
-
-    // TODO: read parameters somewhere
-    var translator = new Translator(100)
-
-    
     /**
      * Get sentence inserted by user and translates it.
      */
     function onClickTranslate (event) {
-      // Change text inside button
-      document.getElementById("translate-button").textContent = "Riocontred";
+      // Instantiate translator with correct parameters
+      let nezioCheckBox = document.getElementById("nezioCheckbox");
+      let erreMossaCheckbox = document.getElementById("erreMossaCheckbox")
+      let erreMossaAllConsonantsCheckbox = document.getElementById("erreMossaAllConsonantsCheckbox")
+      let superTofeCheckbox = document.getElementById("superTofeCheckbox")
+
+      var translator = new Translator(
+        100,
+        nezioCheckBox.checked,
+        erreMossaCheckbox.checked,
+        erreMossaAllConsonantsCheckbox.checked,
+        superTofeCheckbox.checked,
+      )
+
       // Get text to be translated
       let toBeTrasnslated =
        document.getElementById("wannabe-translated").value;
       // Translate and output (if input is not empty)
       let translation
-      if (toBeTrasnslated === "")
-        translation = "Il silenzio è dei babbi di gnole o dei rosbi... \
-                      scrivi qualsaco!" ;
-      else
+      if (toBeTrasnslated === "") {
+        document
+          .getElementById("user-input")
+          .textContent = "";
+        document
+          .getElementById("translation")
+          .textContent = "Il silenzio è dei babbi di gnole o dei rosbi... \
+            scrivi qualsaco e premi 'riocontralo'!" ;
+      } else {
         translation = translator.translateSentence(toBeTrasnslated)
-      console.log("Translation: " + translation)
+        console.log("Translation: " + translation);
 
-      
-      document
-        .getElementById("user-input")
-        .textContent = "Tu vuoi dire all'ozi: '" + toBeTrasnslated + "'.";
-      
-      document.getElementById("wannabe-translated").value = ""
-
-      document
-        .getElementById("translation")
-        .textContent = "Ma l'ozi direbbe: '" + translation + "'.";;
-
+        document
+          .getElementById("user-input")
+          .textContent = "Tu vuoi dire all'ozi: '" + toBeTrasnslated + "'.";
+          
+        document
+          .getElementById("translation")
+          .textContent = "Ma l'ozi direbbe: '" + translation + "'.";
+      }
 
     }
-    
-    /**
-     * Empty the input field and change the button text to "riocontra again"
-     */
-    function riocontrAgain (event) {
-      this.textContent = "Riocontra un'altra talvo!";
-    }
-
     /**
      * Translate when the translate-button is clicked
      */
@@ -62,12 +63,6 @@ document.addEventListener("DOMContentLoaded",
           onClickTranslate(event)
         }
       });
-    
-    /**
-     * Get ready for new translation when the translate-button looses focus
-     */
-    document.getElementById("translate-button")
-      .addEventListener("blur", riocontrAgain);
 
   }
 );

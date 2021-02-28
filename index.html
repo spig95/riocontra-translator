@@ -3,21 +3,48 @@
   <head>
     <meta charset="utf-8">
     <script type="module" src="js/main.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
   </head>
 <body>
   <h1 id="title">Riocontra engine</h1>
+
+  <div>
+    <section>
+      Scegli correttamente il tuo lolive di riocontra...
+    </section>
+
+    <ul>
+      <li>
+        Vuoi usare la tecnica del 'nezio'?
+        <input type="checkbox" id="nezioCheckbox">
+      </li>
+      <li>
+        Vuoi usare la tecnica dell'erre mossa?
+        <input type="checkbox" id="erreMossaCheckbox">
+      </li>
+      <li>
+        Vuoi usare l'erre mossa con tutte le consonanti?
+        <input type="checkbox" id="erreMossaAllConsonantsCheckbox">
+      </li>
+      <li>
+        Sei pronto per il supertofe?
+        <input type="checkbox" id="superTofeCheckbox">
+      </li>
+    </ul>
+  </div>
   
-  <p>
+  <div id="input-div">
     Cosa dici all'ozi della dastra?
     <input id="wannabe-translated" type="text">
     <button id="translate-button">
       Riocontralo!
     </button>
-  </p>
+  </div>
 
   
-  <div>
-    <p id="translation"></p>
+  <div id="output-div">
+    <section id="user-input"></section>
+    <section id="translation"></section>
   </div>
 </body>
 </html>
