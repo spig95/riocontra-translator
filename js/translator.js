@@ -195,14 +195,12 @@ export class Translator {
 
         if (this.supertofe) {
             // This is a advanced supertofe technique
-            console.log(syllabs.slice(0, 2))
             let firstInverted = this.invertTwoSyllabs(syllabs.slice(0, 2))
-            console.log(syllabs.slice(-3))
             let lastInverted = this.invertThreeSyllabs(syllabs.slice(-3))
             let invertedSyllabs = 
-                firstInverted + 
-                syllabs.slice(2, syllabs.length - 3) +
-                lastInverted
+                firstInverted
+                .concat(syllabs.slice(2, syllabs.length - 3))
+                .concat(lastInverted)
             // Check if we can pronounce it
             if (this.doesItSoundBad(invertedSyllabs)) {
                 return syllabs;
