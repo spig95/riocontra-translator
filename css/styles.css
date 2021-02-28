@@ -1,0 +1,305 @@
+* {
+    box-sizing: border-box;
+  }
+
+:root {
+    --action-color-darkest: rgb(184, 17, 8);
+    --action-color-dark: #ed3f35;
+    --action-color-light: #f48325;
+    --action-color-lightest: #f1c29c;
+    --neutral-color-dark: #333;
+    --neutral-color-light: #d9d9d9;
+    --neutral-color-lightest: #f2f2f2;
+  }
+
+h1 {
+    font-size: 2rem;
+}
+
+#buttons {
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+}
+
+#input-div,
+#finalInfo {
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+}
+
+#finalInfo {
+    clear: both;
+    font-style: italic;
+}
+
+/* buttons background 
+note: we also have #oziButton:focus, as it button never appear on focus, even after click
+*/
+.btn-level, 
+#oziButton:focus{
+    background-color: var(--action-color-lightest);
+}
+
+.btn.focus, .btn:focus {
+    text-decoration: none;
+    color: black;
+    background-color: var(--action-color-light);
+    box-shadow: 0 0 0 0.1rem var(--action-color-darkest);
+}
+
+.btn-main-action {
+    background-color: var(--action-color-dark);
+    color: black;
+}
+
+.btn-main-action:hover, .btn:hover {
+    background-color: var(--action-color-darkest);
+    color: black;
+}
+
+/* Ozi button never appear on focus, even after click */
+#oziButton:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+#oziButton > a{
+    text-decoration: line-through;
+}
+
+#buttons > .row > div > .btn {
+    margin: 2px 2px;
+    width: 100%;
+}
+
+#buttons > .row > div {
+    text-align: center;
+}
+
+#buttons > .row > div > #advancedSettingsButton {
+    padding: 0;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    text-align: left;
+    width: auto;
+}
+
+#header {
+    padding: 5px 0;
+}
+
+#header, 
+footer{
+    background-color: var(--neutral-color-dark);
+    color: var(--neutral-color-lightest);
+}
+
+/* Class added when scrolling in essentials.js */
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1020; /* As in Bootstrap */
+}
+
+/* When sticky is added by js, the content has a padding */
+.sticky ~ .content{
+    padding-top: 50px;
+  }
+
+#collapsableLinks > hr {
+    border-color: var(--neutral-color-light);
+}
+
+.my-dark-link {
+    color: var(--neutral-color-light);
+    font-style: normal;
+    text-decoration: none;
+}
+
+.my-dark-link:hover {
+    text-decoration: underline;
+    color: black;
+}
+
+a, .btn-link {
+    color: var(--action-color-dark);
+}
+
+a:hover {
+    color: var(--action-color-darkest);
+}
+
+.highlight-text {
+    color: var(--action-color-dark);
+    font-weight: bold;
+}
+
+#levelSelection{
+    padding-bottom: 2px;
+    background-color: var(--neutral-color-light);
+}
+
+.highlighted-box {
+    font-size: large;
+    font-style: normal !important;
+    padding: 1rem;
+    max-width: 90%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 20px;
+    background-color: var(--neutral-color-light);
+}
+
+/*Up-arrow to collapse level description */
+.up-arrow-button {
+    margin-top: -1rem;
+    margin-bottom: 0;
+    padding: 0;
+}
+.up-arrow-button > button {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0;
+} 
+
+#pageTitle {
+    text-decoration: none;
+    color: inherit;
+    font-weight: 500;
+    font-size: x-large;
+}
+
+/* Vertical alignment */
+#pageTitle,
+.headersubtitle,
+#pageCredits,
+#burgerButton {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.headersubtitle {
+    font-weight: 200;
+}
+
+#supertofeSec > .form-check,
+#erreMossaSec > .form-check {
+    margin-left: 2rem;
+}
+
+/* Footer fixed at the bottom of the page if fits. Works fix a fixed height 
+   footer only */
+#content-wrapper {
+    min-height: calc(100vh - 3.2em);
+    /* Relies on the --vh variable computed in JavaScrips */
+    min-height: calc(calc(var(--vh, 1vh) * 100) - 3.2em);
+}
+footer {
+    vertical-align: center;
+    position: relative;
+    clear: both;
+    height: 3.2em;
+}
+
+/* Central vertical alignment of numerical input instruction*/
+.num-input-instruction {
+    margin-top: auto; 
+    margin-bottom: auto; 
+    margin-right: 1rem;
+}
+
+/* Shorter numerical input */
+.num-input {
+    max-width: 6rem;
+}
+
+/* Avoid jumping transition in desktop mode*/
+hr.first-hr {
+    margin-top: 0;
+}
+
+#verticalSpacer {
+    height: 5rem;
+}
+
+@media (min-width: 1200px) {
+    #pageTitle {
+        font-size: xx-large;
+    }
+}
+
+@media (max-width: 992px)  {
+    #buttons > .row > div > .btn,
+    #advancedSettingsButton {
+        font-size: 0.8rem;
+    }
+
+    #buttons > .row > div > .btn,
+    #advancedSettingsButton{
+        padding: 0;
+    }
+
+    #pageTitle {
+        font-size: large;
+    }
+
+    .headersubtitle,
+    #pageCredits,
+    #copyRight,
+    .navbar-toggler-icon {
+        font-size: small;
+    }
+}
+
+@media (max-width: 767px) {
+    #pageTitle {
+        font-size: medium;
+    }
+
+    #buttons > .row > div > #advancedSettingsButton {
+        text-align: center;
+        width: 100%;
+    }
+
+    /*Reduce space between level description paragraphs and setting sections*/
+    .level-description > span> p,
+    .level-description > hr,
+    #advancedSettings > section {
+        margin-top: 0;
+        margin-bottom: 0.25rem;
+    }
+
+    hr,
+    #copyRight {
+        margin-top: 0.25rem;
+    }
+
+    #advancedSettings > hr {
+        margin: 0.5rem 0;
+    }
+
+    /*Force the input button to a new line*/
+    .num-input-instruction {
+        min-width: 100%;
+    }
+
+    .form-control.num-input {
+        margin-left: 2rem;
+    }
+
+    #verticalSpacer {
+        height: 2.5rem;
+    }
+
+    .highlighted-box {
+        font-size: 1.15rem;
+  }
+}
+
+@media (max-width: 375px) {
+    .headersubtitle,
+    #copyRight,
+    #pageCredits {
+        font-size: 0.6rem !important;
+    }
+}
