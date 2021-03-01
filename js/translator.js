@@ -15,15 +15,20 @@ export class Translator {
         erreMossa,
         erreMossaToAllConsonants,
         supertofe) {
-
-        this.percentage = percentage;
+        
+        if ((percentage == undefined) || (percentage < 0) || (percentage > 100)
+        ) {
+            throw "Please define a percentage between 0 and 100";
+        } else {
+            this.percentage = percentage;
+        }
 
         if (nezioTechnique == undefined) {
             this.nezioTechnique = true
         } else if (typeof(nezioTechnique) === "boolean") {
             this.nezioTechnique = nezioTechnique
         } else {
-            throw "nezioTechnique should be a boolean. Got " + nezioTechnique
+            throw "nezioTechnique should be a boolean. Got " + nezioTechnique;
         }
 
         if (erreMossa == undefined) {
@@ -31,7 +36,7 @@ export class Translator {
         } else if (typeof(erreMossa) === "boolean") {
             this.erreMossa = erreMossa
         } else {
-            throw "erreMossa should be a boolean. Got " + erreMossa
+            throw "erreMossa should be a boolean. Got " + erreMossa;
         }
 
         if (erreMossaToAllConsonants == undefined) {
@@ -62,13 +67,13 @@ export class Translator {
         let translatedSentence = new String
         splitted.forEach(
             function(word) {
-            if (isSpecialChar(word))
+            if (isSpecialChar(word)) {
                 // Just add it to the sentence
                 translatedSentence += word;
-            else
+            } else {
                 // Translate and add
                 translatedSentence += this.translateWord(word);
-            },
+            }},
             this // Second argument of forEach specifies who is "this"
         ); 
         return translatedSentence;
@@ -110,15 +115,21 @@ export class Translator {
         };
 
         // At this point, we can apply the real riocontra!
-        let syllabs = divide(word)
-        let translatedWord = this.getRiocontraFromSyllabs(syllabs)
-        if (this.translateWord === null) {
+        let u = Math.random()
+        if (100 * u < this.percentage) { // We do not translate all the words
+            let syllabs = divide(word)
+            let translatedWord = this.getRiocontraFromSyllabs(syllabs)
+            if (this.translateWord === null) {
+                return word
+            }
+            else {
+                // If nothing worked, we do not translate
+                return translatedWord;
+            }
+        } else {
             return word
         }
-        else {
-            // If nothing worked, we do not translate
-            return translatedWord;
-        }
+
     };
 
     getRiocontraFromSyllabs (syllabs) { 

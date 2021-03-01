@@ -7,13 +7,14 @@ document.addEventListener("DOMContentLoaded",
      */
     function onClickTranslate (event) {
       // Instantiate translator with correct parameters
+      let percentage = document.getElementById('percentageInput').value;
       let nezioCheckBox = document.getElementById("nezioCheckbox");
       let erreMossaCheckbox = document.getElementById("erreMossaCheckbox")
       let erreMossaAllConsonantsCheckbox = document.getElementById("erreMossaAllConsonantsCheckbox")
       let superTofeCheckbox = document.getElementById("superTofeCheckbox")
 
       var translator = new Translator(
-        100,
+        percentage,
         nezioCheckBox.checked,
         erreMossaCheckbox.checked,
         erreMossaAllConsonantsCheckbox.checked,
