@@ -2,9 +2,39 @@ import { Translator } from './translator.js'
  
 document.addEventListener("DOMContentLoaded",
   function (event) {
+
+    function setRosbiSettings(event) {
+      document.getElementById('percentageInput').value = 0;
+      document.getElementById("nezioCheckbox").checked = false;
+      document.getElementById("erreMossaCheckbox").checked = false;
+      document.getElementById("erreMossaAllConsonantsCheckbox").checked = false;
+      document.getElementById("superTofeCheckbox").checked = false;
+    }
+
+    function setBobaSettings(event) {
+      document.getElementById('percentageInput').value = 25;
+      document.getElementById("nezioCheckbox").checked = true;
+      document.getElementById("erreMossaCheckbox").checked = true;
+      document.getElementById("superTofeCheckbox").checked = false;
+    }
+
+    function setChioveSettings(event) {
+      document.getElementById('percentageInput').value = 50;
+      document.getElementById("nezioCheckbox").checked = true;
+      document.getElementById("erreMossaAllConsonantsCheckbox").checked = true;
+      document.getElementById("superTofeCheckbox").checked = true;
+    }
+
+    function setSupercazzolaroSettings(event) {
+      document.getElementById('percentageInput').value = 100;
+      document.getElementById("nezioCheckbox").checked = true;
+      document.getElementById("erreMossaAllConsonantsCheckbox").checked = true;
+      document.getElementById("superTofeCheckbox").checked = true;
+    }
+
     /**
      * Get sentence inserted by user and translates it.
-     */
+     */     
     function onClickTranslate (event) {
       // Instantiate translator with correct parameters
       let percentage = document.getElementById('percentageInput').value;
@@ -44,7 +74,10 @@ document.addEventListener("DOMContentLoaded",
           
         document
           .getElementById("translation")
-          .textContent = "Ma l'ozi direbbe: '" + translation + "'.";
+          .innerHTML = "<section> Ma l'ozi direbbe: '" + translation + "'." +
+            "</section>" + 
+            "<section> Cambia impostanezio e cacli ancora su 'Riocontralo!' " +
+            "per una nuova traduzione ... </section>";
       }
 
     }
@@ -64,7 +97,18 @@ document.addEventListener("DOMContentLoaded",
           onClickTranslate(event)
         }
       });
+    
+    document.getElementById('rosbiButton')
+      .addEventListener("click", setRosbiSettings)
+    
+    document.getElementById('bobaButton')
+      .addEventListener("click", setBobaSettings)
 
+    document.getElementById('chioveButton')
+      .addEventListener("click", setChioveSettings)
+
+    document.getElementById('supercazzolaroButton')
+      .addEventListener("click", setSupercazzolaroSettings)
   }
 );
 
