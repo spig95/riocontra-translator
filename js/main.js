@@ -1,9 +1,12 @@
 import { Translator } from './translator.js'
+
+document.activeMode = "advancedSetting";
  
 document.addEventListener("DOMContentLoaded",
   function (event) {
 
     function setRosbiSettings(event) {
+      document.activeMode = "rosbi"
       document.getElementById('percentageInput').value = 0;
       document.getElementById("nezioCheckbox").checked = false;
       document.getElementById("erreMossaCheckbox").checked = false;
@@ -13,6 +16,7 @@ document.addEventListener("DOMContentLoaded",
     }
 
     function setBobaSettings(event) {
+      document.activeMode = "boba"
       document.getElementById('percentageInput').value = 25;
       document.getElementById("nezioCheckbox").checked = true;
       document.getElementById("erreMossaCheckbox").checked = true;
@@ -21,6 +25,7 @@ document.addEventListener("DOMContentLoaded",
     }
 
     function setChioveSettings(event) {
+      document.activeMode = "chiove"
       document.getElementById('percentageInput').value = 50;
       document.getElementById("nezioCheckbox").checked = true;
       document.getElementById("erreMossaAllConsonantsCheckbox").checked = true;
@@ -29,11 +34,16 @@ document.addEventListener("DOMContentLoaded",
     }
 
     function setSupercazzolaroSettings(event) {
+      document.activeMode = "supercazzolaro"
       document.getElementById('percentageInput').value = 100;
       document.getElementById("nezioCheckbox").checked = true;
       document.getElementById("erreMossaAllConsonantsCheckbox").checked = true;
       document.getElementById("superTofeCheckbox").checked = true;
       onClickTranslate(event)
+    }
+
+    function activateAdvancedSettings(event) {
+      document.activeMode = "advancedSetting"
     }
 
     /**
@@ -68,12 +78,19 @@ document.addEventListener("DOMContentLoaded",
       } else {
         translation = translator.translateSentence(toBeTrasnslated)
         console.log("Translation: " + translation);
+
+        let introString;
+        if (document.activeMode === "advancedSetting") {
+          introString = "Tradunezio: '"
+        } else {
+          introString = "Il " + document.activeMode + " direbbe: '"
+        }
         
         document
           .getElementById("translation")
-          .innerHTML = "<section> Ma l'ozi direbbe: '" + translation + "'." +
+          .innerHTML = "<section>" + introString + translation + "'." +
             "</section>" + 
-            "<section> Cambia impostanezio e cacli ancora su 'Riocontralo!' " +
+            "<section id='finalInfo'> Cambia impostanezio o cacli ancora su 'Riocontralo!' " +
             "per una nuova traduzione ... </section>";
       }
 
@@ -106,6 +123,9 @@ document.addEventListener("DOMContentLoaded",
 
     document.getElementById('supercazzolaroButton')
       .addEventListener("click", setSupercazzolaroSettings)
+
+    document.getElementById('advancedSettingsButton')
+      .addEventListener("click", activateAdvancedSettings)
   }
 );
 
