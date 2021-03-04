@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded",
       document.getElementById("erreMossaCheckbox").checked = false;
       document.getElementById("erreMossaAllConsonantsCheckbox").checked = false;
       document.getElementById("superTofeCheckbox").checked = false;
+      onClickTranslate(event)
     }
 
     function setBobaSettings(event) {
@@ -16,6 +17,7 @@ document.addEventListener("DOMContentLoaded",
       document.getElementById("nezioCheckbox").checked = true;
       document.getElementById("erreMossaCheckbox").checked = true;
       document.getElementById("superTofeCheckbox").checked = false;
+      onClickTranslate(event)
     }
 
     function setChioveSettings(event) {
@@ -23,6 +25,7 @@ document.addEventListener("DOMContentLoaded",
       document.getElementById("nezioCheckbox").checked = true;
       document.getElementById("erreMossaAllConsonantsCheckbox").checked = true;
       document.getElementById("superTofeCheckbox").checked = true;
+      onClickTranslate(event)
     }
 
     function setSupercazzolaroSettings(event) {
@@ -30,6 +33,7 @@ document.addEventListener("DOMContentLoaded",
       document.getElementById("nezioCheckbox").checked = true;
       document.getElementById("erreMossaAllConsonantsCheckbox").checked = true;
       document.getElementById("superTofeCheckbox").checked = true;
+      onClickTranslate(event)
     }
 
     /**
@@ -58,20 +62,13 @@ document.addEventListener("DOMContentLoaded",
       let translation
       if (toBeTrasnslated === "") {
         document
-          .getElementById("user-input")
-          .textContent = "";
-        document
           .getElementById("translation")
           .textContent = "Il silenzio è dei babbi di gnole o dei rosbi... \
             scrivi qualsaco e premi 'riocontralo'!" ;
       } else {
         translation = translator.translateSentence(toBeTrasnslated)
         console.log("Translation: " + translation);
-
-        document
-          .getElementById("user-input")
-          .textContent = "Tu vuoi dire all'ozi: '" + toBeTrasnslated + "'.";
-          
+        
         document
           .getElementById("translation")
           .innerHTML = "<section> Ma l'ozi direbbe: '" + translation + "'." +
