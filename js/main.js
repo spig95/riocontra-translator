@@ -140,6 +140,9 @@ document.addEventListener("DOMContentLoaded",
 
     document.getElementById('advancedSettingsButton')
       .addEventListener("click", activateAdvancedSettings)
+    
+    // Call the following functions when the document is loaded
+    setRosbiSettings()
   }
 );
 
