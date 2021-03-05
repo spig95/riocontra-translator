@@ -11,11 +11,12 @@
   </head>
 <body>
 
-  <h1 id="title" class="text-center">Riocontra engine</h1>
-
-  <h2 class="text-center">
-    L'unico tosi italiano che ti teperme di affrontare la tavi della dastra.
-  </h2>
+  <h1 id="title" class="text-center">
+    Riocontra engine <br>
+    <small>L'unico tosi italiano che ti teperme di affrontare la tavi della 
+      dastra.
+    </small>
+  </h1>
 
 
   <div id="levelSelection">
@@ -37,42 +38,64 @@
         Il Chiove
       </button>
 
-      <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Non esiste 
-        intelligenza artifilecia in grado di imitare l'Ozi. D'altronde, il training non deve avvenire nel cloud, 
-        ma nella dastra!" disabled>
-        Ozi della Dastra.
+      <button type="button" class="btn btn-secondary disabled" data-toggle="modal" data-target="#oziPopUp">
+        <a data-toggle="tooltip" data-placement="top" title="Non esiste intelligenza artifilecia in grado di imitare l'Ozi.">
+          Ozi della Dastra          
+        </a>
       </button>
 
       <button id="supercazzolaroButton" class="btn btn-primary collapsed" data-toggle="collapse" data-target="#supercazzolaroContent" aria-expanded="false" aria-controls="supercazzolaroContent">
         Supercazzolaro
       </button>
 
-      <button id="advancedSettingsButton" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+      <button id="advancedSettingsButton" class="btn btn-link collapsed" data-toggle="collapse" data-target="#advancedSettings" role="button" aria-expanded="false" aria-controls="advancedSettings">
         Impostanezio avanteza
       </button>
 
     </div>
 
 
-    <div class="collapse" id="rosbiContent" data-parent="#levelSelection">
+    <div id="rosbiContent" class="collapse" data-parent="#levelSelection">
       <p>Il Rosbi non conosce il riocontra.</p>
       <p>Si avvicina incautamente all'ozi della dastra parlando un italiano perfetto.</p>
     </div>
 
-    <div class="collapse" id="bobaContent" data-parent="#levelSelection">
+    <div id="bobaContent" class="collapse" data-parent="#levelSelection">
       <p>Il Boba è un timido, reso tale dal bullismo dei tefra a lascuo.</p>
       <p>Traduce solo il 25% delle parole, e conosce poche tecniche, tra cui 
         quella del nezio.</p>
     </div>
 
-    <div class="collapse" id="chioveContent" data-parent="#levelSelection">
+    <div id="chioveContent" class="collapse" data-parent="#levelSelection">
       <p>Il Chiove ne sa, e non ha paura di mostrarlo.</p>
       <p>Il Chiove traduce la giusta quantità di parole, e dalla sua elevata 
         esperienza conosce tutte le tecniche del riocontra.
       </p>
     </div>
 
-    <div class="collapse" id="supercazzolaroContent" data-parent="#levelSelection">
+    <div id="oziPopUp" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Non nibiledispo</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Non esiste intelligenza artifilecia in grado di imitare l'ozi della dastra. <br> <br>
+
+            D'altronde, a pensarci nebe, le intelligenze artificiali si allenano nel cloud, ma il riocontra si può
+            imparare solo nella dastra!
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Scegli un altro lolive!</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="supercazzolaroContent" class="collapse" data-parent="#levelSelection">
       <p>L'uomo di teoria, che conosce tutte le regole ma non viene dalla dastra.</p>
       <p>Quando usa il riocontra, vuole supercazzolare. Traduce tutte le parole applicando alla 
         perfezione tetu le lerego. Si distingue dall'ozi e dal chiove: 
@@ -81,7 +104,7 @@
       </p>
     </div>
 
-    <div class="collapse" id="collapseExample" data-parent="#levelSelection">
+    <div id="advancedSettings" class="collapse" data-parent="#levelSelection">
       Nutobenve nelle Impostanezio avanteza, dove i revi intendiroti possono sperimentare la migliore combinezio di riocontra. 
         <div>
           Quante parole traduci in media?
