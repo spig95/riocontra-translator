@@ -1,49 +1,60 @@
 import { Translator } from './translator.js'
 
-document.activeMode = "advancedSetting";
- 
+document.activeButton = "rosbiButton";
+document.oldactiveButton = "rosbiButton";
+
 document.addEventListener("DOMContentLoaded",
   function (event) {
 
     function setRosbiSettings(event) {
-      document.activeMode = "rosbi"
+      document.oldactiveButton = document.activeButton
+      document.activeButton = "rosbiButton"
       document.getElementById('percentageInput').value = 0;
       document.getElementById("nezioCheckbox").checked = false;
       document.getElementById("erreMossaCheckbox").checked = false;
       document.getElementById("erreMossaAllConsonantsCheckbox").checked = false;
       document.getElementById("superTofeCheckbox").checked = false;
+      displayCurrentMode()
       onClickTranslate(event)
     }
 
     function setBobaSettings(event) {
-      document.activeMode = "boba"
+      document.oldactiveButton = document.activeButton
+      document.activeButton = "bobaButton"
       document.getElementById('percentageInput').value = 25;
       document.getElementById("nezioCheckbox").checked = true;
       document.getElementById("erreMossaCheckbox").checked = true;
       document.getElementById("superTofeCheckbox").checked = false;
+      displayCurrentMode()
       onClickTranslate(event)
     }
 
     function setChioveSettings(event) {
-      document.activeMode = "chiove"
+      document.oldactiveButton = document.activeButton
+      document.activeButton = "chioveButton"
       document.getElementById('percentageInput').value = 50;
       document.getElementById("nezioCheckbox").checked = true;
       document.getElementById("erreMossaAllConsonantsCheckbox").checked = true;
       document.getElementById("superTofeCheckbox").checked = true;
+      displayCurrentMode()
       onClickTranslate(event)
     }
 
     function setSupercazzolaroSettings(event) {
-      document.activeMode = "supercazzolaro"
+      document.oldactiveButton = document.activeButton
+      document.activeButton = "supercazzolaroButton"
       document.getElementById('percentageInput').value = 100;
       document.getElementById("nezioCheckbox").checked = true;
       document.getElementById("erreMossaAllConsonantsCheckbox").checked = true;
       document.getElementById("superTofeCheckbox").checked = true;
+      displayCurrentMode()
       onClickTranslate(event)
     }
 
     function activateAdvancedSettings(event) {
-      document.activeMode = "advancedSetting"
+      document.oldactiveButton = document.activeButton
+      document.activeButton = "advancedSettingsButton"
+      displayCurrentMode()
     }
 
     /**
@@ -80,10 +91,10 @@ document.addEventListener("DOMContentLoaded",
         console.log("Translation: " + translation);
 
         let introString;
-        if (document.activeMode === "advancedSetting") {
+        if (document.activeButton === "advancedSettingsButton") {
           introString = "Tradunezio: '"
         } else {
-          introString = "Il " + document.activeMode + " direbbe: '"
+          introString = "Il " + document.activeButton.slice(0, -6) + " direbbe: '"
         }
         
         document
@@ -95,15 +106,18 @@ document.addEventListener("DOMContentLoaded",
       }
 
     }
-    /**
-     * Translate when the translate-button is clicked
-     */
+
+    function displayCurrentMode (event) {
+        let oldButtonId = document.oldactiveButton
+        let newButtonId = document.activeButton
+        document.getElementById(oldButtonId).classList.remove("focus")
+        document.getElementById(newButtonId).classList.add("focus")
+    }
+
+
     document.getElementById("translate-button")
       .addEventListener("click", onClickTranslate);
     
-    /**
-     * Translate when enter is pressed
-     */
     document.getElementById('wannabe-translated')
       .addEventListener("keyup", function (event) {
         let key = event.key || event.keyCode;
