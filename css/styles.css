@@ -2,10 +2,6 @@
     box-sizing: border-box;
   }
 
-#buttons {
-    margin-bottom: 10px;
-}
-
 #input-div {
     margin-top: 15px;
 }
@@ -17,6 +13,26 @@
 #finalInfo {
     margin-top: 10px;
     font-style: italic;
+}
+
+/* buttons stuff */
+#buttons {
+    margin-bottom: 10px;
+}
+
+.btn-level{
+    background-color: #9fdfbf;
+}
+
+.btn-level.focus, .btn-level:focus{
+    background-color: #339966;
+    box-shadow: 0 0 0 0.1rem #194d33;
+}
+
+/* Ozi button never appear on focus, even after click */
+#oziButton:focus {
+    outline: none;
+    box-shadow: none;
 }
 
 #oziButton > a{
