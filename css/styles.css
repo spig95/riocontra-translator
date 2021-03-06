@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+  }
+
 #buttons {
     margin-bottom: 10px;
 }
@@ -16,5 +20,42 @@
 }
 
 #oziButton > a{
-    text-decoration: line-through
+    text-decoration: line-through;
 }
+
+
+#header {
+    padding: 5px 0;
+    background-color:#D3D3D3;
+}
+
+#askLevel {
+    padding: 3px;
+}
+
+#levelSelection {
+    background-color: #F5F5F5;
+    padding-bottom: 2px;
+}
+
+#pageTitle {
+    font-weight: 500;
+    font-size: large;
+}
+
+#pageSubTitle {
+    font-style: italic;
+    text-align: right;
+}
+
+#buttons > .row > .col-lg > .btn {
+    margin: 2px 2px;
+    width: 100%;
+}
+
+
+@media (max-width: 768px) {
+    #pageTitle {
+        text-align: center;
+    }
+  }
