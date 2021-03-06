@@ -31,6 +31,7 @@
 
 /* Ozi button never appear on focus, even after click */
 #oziButton:focus {
+    background-color: #9fdfbf;
     outline: none;
     box-shadow: none;
 }
