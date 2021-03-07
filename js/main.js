@@ -12,6 +12,18 @@ document.getCurrentMode = function() {
   return document.activeButton.slice(0, -6);
 };
 
+document.writeTranslationOutput = function(translation, divID, imgPath) {
+  document.getElementById("output").innerHTML = 
+    "<div id='" + divID + "'>" +
+      "<img src='" + imgPath + "'>" +
+      "<div class='comics-speech'>" +
+        "<div class='comics-content'>" +
+          translation + 
+        "</div>" +
+      "</div>" +
+    "</div>"
+}
+
 document.addEventListener("DOMContentLoaded",
   function (event) {
 
@@ -89,26 +101,56 @@ document.addEventListener("DOMContentLoaded",
       let toBeTrasnslated =
        document.getElementById("wannabe-translated").value;
       // Translate and output (if input is not empty)
-      let translation
       if (toBeTrasnslated === "") {
-        document
-          .getElementById("output-div")
-          .innerHTML = "";
+        // Erase all content if the input is empty
+        document.getElementById("output").innerHTML = "";
+        document.getElementById("finalInfo").innerHTML = ""
       } else {
-        translation = translator.translateSentence(toBeTrasnslated)
+        // Compute translation
+        let translation = translator.translateSentence(toBeTrasnslated)
         console.log("Translation: " + translation);
-        document
+
+        // Add HTML division inside output container with an id depending on the
+        // mode
+        if (document.getCurrentMode() === "rosbi") {
+          document.writeTranslationOutput(
+            translation, 
+            "rosbiTranslation",
+            "img/rosbi.svg");
+        } else if (document.getCurrentMode() === "boba") {
+          document.writeTranslationOutput(
+            translation, 
+            "bobaTranslation",
+            "img/boba.png");
+        } else if (document.getCurrentMode() === "chiove") {
+          document.writeTranslationOutput(
+            translation, 
+            "chioveTranslation",
+            "img/chiove.svg");
+        } else if (document.getCurrentMode() === "supercazzolaro") {
+          document.writeTranslationOutput(
+            translation, 
+            "supercazzolaroTranslation",
+            "img/supercazzolaro.svg");
+        }else {
+          // Temporary
+          document
           .getElementById("output-div")
           .innerHTML = 
-            "<div id='translation'>" +
+            "<div id='genericTranslation'>" +
             "<section>" + 
             "Tradunezio: '" + translation + "'." +
-            "</section>" + 
+            "</section></div>" + 
             "<section id='finalInfo'> " +
             "Cambia impostanezio o cacli ancora su 'Riocontralo!' " +
             "per una nuova traduzione ... " + 
-            "</section>" +
-            "</div>";
+            "</section>";
+        }
+
+        // Give some final info
+        document.getElementById("finalInfo").textContent = 
+          "Cambia impostanezio o cacli ancora su 'Riocontralo!' " +
+          "per una nuova traduzione ... ";
       }
 
     }

@@ -1,0 +1,159 @@
+.comics-content {
+    overflow: auto;
+}
+
+#output {
+    position: relative
+}
+
+/************************ rosbi specific params *******************************/
+#rosbiTranslation > img {
+    width: 25%;
+}
+
+#rosbiTranslation > .comics-speech {
+    position: absolute;
+    left: 20%;
+    bottom: 45%;
+}
+
+#rosbiTranslation > .comics-speech > .comics-content {
+    max-height: 80px;
+}
+
+
+@media (max-width: 768px) {
+    #rosbiTranslation > img {
+        padding-top: 30px;
+        width: 40%;
+        bottom: 0;
+        position: relative; 
+    }
+
+
+    #rosbiTranslation > .comics-speech {
+        font-size: small;
+        position: absolute;
+        bottom: 40%;
+        left: 30%;
+    }
+
+    #rosbiTranslation > .comics-speech > .comics-content {
+        max-height: 65px;
+    }
+  }
+  
+
+/************************ boba specific params *******************************/
+#bobaTranslation > img {
+    width: 20%;
+}
+
+#bobaTranslation > .comics-speech {
+    position: absolute;
+    left: 17%;
+    bottom: 50%;
+}
+
+#bobaTranslation > .comics-speech > .comics-content {
+    max-height: 80px;
+}
+
+
+@media (max-width: 768px) {
+    #bobaTranslation > img {
+        padding-top: 40px;
+        width: 30%;
+        bottom: 0;
+        position: relative; 
+    }
+
+
+    #bobaTranslation > .comics-speech {
+        font-size: small;
+        position: absolute;
+        left: 22%;
+        bottom: 60%;
+    }
+
+    #bobaTranslation > .comics-speech > .comics-content {
+        max-height: 45px;
+    }
+  }
+
+
+/************************ chiove specific params *******************************/
+#chioveTranslation > img {
+    padding-top: 20px;
+    width: 10%;
+}
+
+#chioveTranslation > .comics-speech {
+    position: absolute;
+    left: 13%;
+    bottom: 70%;
+}
+
+#chioveTranslation > .comics-speech > .comics-content {
+    max-height: 50px;
+}
+
+
+@media (max-width: 768px) {
+    #chioveTranslation > img {
+        padding-top: 40px;
+        width: 20%;
+        bottom: 0;
+        position: relative; 
+    }
+
+
+    #chioveTranslation > .comics-speech {
+        font-size: small;
+        position: absolute;
+        left: 22%;
+        bottom: 60%;
+    }
+
+    #chioveTranslation > .comics-speech > .comics-content {
+        max-height: 45px;
+    }
+  }
+
+/************************ supercazzolaro specific params *******************************/
+#supercazzolaroTranslation > img {
+    width: 25%;
+}
+
+#supercazzolaroTranslation > .comics-speech {
+    position: absolute;
+    left: 23%;
+    bottom: 50%;
+}
+
+#supercazzolaroTranslation > .comics-speech > .comics-content {
+    max-height: 50px;
+}
+
+
+@media (max-width: 768px) {
+    #supercazzolaroTranslation > img {
+        padding-top: 50px;
+        width: 40%;
+        bottom: 0;
+        position: relative; 
+    }
+
+
+    #supercazzolaroTranslation > .comics-speech {
+        font-size: small;
+        position: absolute;
+        left: 35%;
+        bottom: 45%;
+    }
+
+    #supercazzolaroTranslation > .comics-speech > .comics-content {
+        max-height: 65px;
+    }
+  }
+  
