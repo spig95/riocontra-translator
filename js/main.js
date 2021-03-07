@@ -90,13 +90,7 @@ document.addEventListener("DOMContentLoaded",
         translation = translator.translateSentence(toBeTrasnslated)
         console.log("Translation: " + translation);
 
-        let introString;
-        if (document.activeButton === "advancedSettingsButton") {
-          introString = "Tradunezio: '"
-        } else {
-          introString = "Il " + document.activeButton.slice(0, -6) + " direbbe: '"
-        }
-        
+        let introString = "Tradunezio: '";
         document
           .getElementById("translation")
           .innerHTML = "<section>" + introString + translation + "'." +
@@ -108,10 +102,20 @@ document.addEventListener("DOMContentLoaded",
     }
 
     function displayCurrentMode (event) {
-        let oldButtonId = document.oldactiveButton
-        let newButtonId = document.activeButton
-        document.getElementById(oldButtonId).classList.remove("focus")
-        document.getElementById(newButtonId).classList.add("focus")
+        document.getElementById(document.oldactiveButton).classList.remove("focus")
+        if (document.activeButton != "advancedSettingsButton") {
+          // If the mode is one of the buttons, we keep showin the focus on that button, otherwise we let
+          // the focus go away.
+          document.getElementById(document.activeButton).classList.add("focus")
+        }
+
+        let modeString;
+        if (document.activeButton === "advancedSettingsButton") {
+          modeString = "Attualmente stai usando le impostanezio avanteza."
+        } else {
+          modeString = "Riocontra engine in " + document.activeButton.slice(0, -6) + " mode."
+        }
+        document.getElementById("showCurrentSetting").textContent = modeString
     }
 
 

@@ -90,6 +90,11 @@
     margin-left: 15px;
 }
 
+#showCurrentSetting {
+    margin-top: 5px;
+    font-weight: 500;
+}
+
 
 @media (max-width: 768px) {
     #pageTitle {
@@ -108,5 +113,8 @@
     #buttons > .row > .col-lg > .btn {
         padding: 1px;
         width: 75%;
+    }
+    #showCurrentSetting {
+        text-align: center;
     }
   }
