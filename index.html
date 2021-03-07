@@ -44,7 +44,7 @@
 
             <div class="col-lg col-md-12">
               <button id="chioveButton" class="btn btn-level collapsed" data-toggle="collapse" data-target="#chioveContent" aria-expanded="false" aria-controls="#chioveContent">
-                Il Chiove
+                Chiove
               </button>
             </div>
 
@@ -71,17 +71,20 @@
         </div> <!-- buttons -->
 
         <div id="rosbiContent" class="collapse" data-parent="#levelSelection">
+          <hr>
           <p>Il Rosbi non conosce il riocontra.</p>
           <p>Si avvicina incautamente all'ozi della dastra parlando un italiano perfetto.</p>
         </div>
 
         <div id="bobaContent" class="collapse" data-parent="#levelSelection">
+          <hr>
           <p>Il Boba è un timido, reso tale dal bullismo dei tefra a lascuo.</p>
           <p>Traduce solo il 25% delle parole, e conosce poche tecniche, tra cui 
             quella del nezio.</p>
         </div>
 
         <div id="chioveContent" class="collapse" data-parent="#levelSelection">
+          <hr>
           <p>Il Chiove ne sa, e non ha paura di mostrarlo.</p>
           <p>Il Chiove traduce la giusta quantità di parole, e dalla sua elevata 
             esperienza conosce tutte le tecniche del riocontra.
@@ -111,6 +114,7 @@
         </div>
 
         <div id="supercazzolaroContent" class="collapse" data-parent="#levelSelection">
+          <hr>
           <p>L'uomo di teoria, che conosce tutte le regole ma non viene dalla dastra.</p>
           <p>Quando usa il riocontra, vuole supercazzolare. Traduce tutte le parole applicando alla 
             perfezione tetu le lerego. Si distingue dall'ozi e dal chiove: 
@@ -120,20 +124,24 @@
         </div>
 
         <div id="advancedSettings" class="collapse" data-parent="#levelSelection">
-          Nutobenve nelle Impostanezio avanteza, dove i revi intendiroti possono sperimentare la migliore combinezio di riocontra. 
-            <div>
-              Quante parole traduci in media?
-              <input type="number" min="1" max="100" value="50", id="percentageInput"> % 
-            </div>
+          <hr>
+          <p>Nutobenve nelle impostanezio avanteza, dove i revi intendiroti possono sperimentare la migliore 
+            combinezio di riocontra. 
+          </p>
 
-            <div class="form-check">
+          <section>
+            Quante parole traduci in media?
+            <input type="number" min="1" max="100" value="50", id="percentageInput"> % 
+          </section>
+
+          <section class="form-check">
               <input id="nezioCheckbox" class="form-check-input" type="checkbox" value="" id="defaultCheck1">
               <label class="form-check-label" for="defaultCheck1">
                 Spunta se vuoi usare la tecnica del 'nezio'
               </label>
-            </div>
+          </section>
 
-            <section>
+          <section id="erreMossaSec">
               Vuoi usare la tecnica dell'erre mossa?
               <div class="form-check">
                 <label class="form-check-label">
@@ -152,14 +160,15 @@
               </div>
             </section>
             
-            <div class="form-check">
+            <section class="form-check">
               <input id="superTofeCheckbox" class="form-check-input" type="checkbox" value="" id="defaultCheck1">
               <label class="form-check-label" for="defaultCheck1">
                 Spunta se sei pronto per il supertofe
               </label>
-            </div>
+            </section>
 
-        </div>
+        </div> <!-- advancedSettings-->
+
       </div>
     </div> <!-- levelSelection -->
 

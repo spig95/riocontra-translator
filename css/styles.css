@@ -17,7 +17,7 @@
 
 /* buttons stuff */
 #buttons {
-    margin-bottom: 10px;
+    margin-bottom: 2px;
 }
 
 .btn-level{
@@ -40,6 +40,12 @@
     text-decoration: line-through;
 }
 
+#advancedSettingsButton {
+    padding: 0;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
 
 #header {
     padding: 5px 0;
@@ -57,12 +63,14 @@
 
 #pageTitle {
     font-weight: 500;
-    font-size: large;
+    font-size: x-large;
 }
 
 #pageSubTitle {
     font-style: italic;
     text-align: right;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 #buttons > .row > .col-lg > .btn {
@@ -70,9 +78,35 @@
     width: 100%;
 }
 
+#buttons > .row > .col-lg {
+    text-align: center;
+}
+
+#advancedSettings > section {
+    margin-bottom: 10px;
+}
+
+#erreMossaSec > .form-check {
+    margin-left: 15px;
+}
+
 
 @media (max-width: 768px) {
     #pageTitle {
         text-align: center;
+        font-size: medium;
+    }
+
+    #pageSubTitle {
+        font-size: medium;
+    }
+
+    #askLevel {
+        font-size: small;
+    }
+
+    #buttons > .row > .col-lg > .btn {
+        padding: 1px;
+        width: 75%;
     }
   }
