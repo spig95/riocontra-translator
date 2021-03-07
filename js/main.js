@@ -84,19 +84,20 @@ document.addEventListener("DOMContentLoaded",
       if (toBeTrasnslated === "") {
         document
           .getElementById("translation")
-          .textContent = "Il silenzio è dei babbi di gnole o dei rosbi... \
-            scrivi qualsaco e premi 'riocontralo'!" ;
+          .innerHTML = "";
       } else {
         translation = translator.translateSentence(toBeTrasnslated)
         console.log("Translation: " + translation);
-
-        let introString = "Tradunezio: '";
         document
           .getElementById("translation")
-          .innerHTML = "<section>" + introString + translation + "'." +
+          .innerHTML = 
+            "<section>" + 
+            "Tradunezio: '" + translation + "'." +
             "</section>" + 
-            "<section id='finalInfo'> Cambia impostanezio o cacli ancora su 'Riocontralo!' " +
-            "per una nuova traduzione ... </section>";
+            "<section id='finalInfo'> " +
+            "Cambia impostanezio o cacli ancora su 'Riocontralo!' " +
+            "per una nuova traduzione ... " + 
+            "</section>";
       }
 
     }

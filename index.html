@@ -72,21 +72,24 @@
 
         <div id="rosbiContent" class="collapse" data-parent="#levelSelection">
           <hr>
-          <p>Il Rosbi non conosce il riocontra.</p>
-          <p>Si avvicina incautamente all'ozi della dastra parlando un italiano perfetto.</p>
+          <p>Il <span class="font-weight-bold">rosbi</span> non conosce il riocontra.</p>
+          <p>Si avvicina incautamente all'ozi della dastra parlando un italiano perfetto, 
+            sperando di imparare qualcosa. Putroppo il riocontra gli resta incomprensibile e non impara nemmeno le regole
+            più basilari.
+          </p>
         </div>
 
         <div id="bobaContent" class="collapse" data-parent="#levelSelection">
           <hr>
-          <p>Il Boba è un timido, reso tale dal bullismo dei tefra a lascuo.</p>
-          <p>Traduce solo il 25% delle parole, e conosce poche tecniche, tra cui 
+          <p>Il <span class="font-weight-bold">boba di gnole</span> è un timido, reso tale dal bullismo dei tefra a lascuo.</p>
+          <p>Per via della sua timidezza, traduce solo il 25% delle parole. Inoltre conosce poche tecniche, tra cui 
             quella del nezio.</p>
         </div>
 
         <div id="chioveContent" class="collapse" data-parent="#levelSelection">
           <hr>
-          <p>Il Chiove ne sa, e non ha paura di mostrarlo.</p>
-          <p>Il Chiove traduce la giusta quantità di parole, e dalla sua elevata 
+          <p>Il <span class="font-weight-bold">chiove</span> ne sa, e non ha paura di mostrarlo.</p>
+          <p>Il chiove traduce la giusta quantità di parole, e dalla sua elevata 
             esperienza conosce tutte le tecniche del riocontra.
           </p>
         </div>
@@ -115,20 +118,22 @@
 
         <div id="supercazzolaroContent" class="collapse" data-parent="#levelSelection">
           <hr>
-          <p>L'uomo di teoria, che conosce tutte le regole ma non viene dalla dastra.</p>
-          <p>Quando usa il riocontra, vuole supercazzolare. Traduce tutte le parole applicando alla 
-            perfezione tetu le lerego. Si distingue dall'ozi e dal chiove: 
-            da grandi poteri derivano grandi responsabilità, il supercazzolaro 
+          <p>Il <span class="font-weight-bold">supercazzolaro</span> 
+            è l'uomo di teoria, che conosce tutte le regole ma non viene dalla 
+            dastra.
+          </p>
+          <p>Quando usa il riocontra, vuole supercazzolare. Traduce tutte le 
+            parole applicando alla perfezione tetu le lerego. Non sarà mai ai livelli dell'ozi: 
+            da grandi poteri derivano grandi responsabilità, ma purtroppo il supercazzolaro 
             sa solo abusare, non ponderare.
           </p>
         </div>
 
         <div id="advancedSettings" class="collapse" data-parent="#levelSelection">
           <hr>
-          <p>Nutobenve nelle impostanezio avanteza, dove i revi intendiroti possono sperimentare la migliore 
-            combinezio di riocontra. 
-          </p>
-
+          Nutobenve nelle <span class="font-weight-bold">impostanezio avanteza</span>, dove i revi intendiroti possono sperimentare la migliore 
+          combinezio di riocontra. 
+          <hr>
           <section>
             Quante parole traduci in media?
             <input type="number" min="1" max="100" value="50", id="percentageInput"> % 
@@ -176,12 +181,14 @@
       <div id="showCurrentSetting"></div>
     </div>
 
-    <div id="input-div">
-      <div class="container">
-        <input id="wannabe-translated" type="text">
-        <button id="translate-button">
-          Riocontralo!
-        </button>
+    <div class="container">
+      <div class="input-group mb-3">
+        <input id="wannabe-translated" type="text" class="form-control" placeholder="Soca dici all'ozi?" aria-label="Soca dici all'ozi?" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+          <button id="translate-button" class="btn btn-outline-secondary" type="button">
+            riocontralo!
+          </button>
+        </div>
       </div>
     </div>
 

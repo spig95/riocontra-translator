@@ -107,14 +107,21 @@
     }
 
     #askLevel {
-        font-size: small;
+        font-size: 0.8em;
+    }
+
+    #buttons > .row > .col-lg > .btn,
+    #advancedSettingsButton {
+        padding: 0;
+        font-size: 0.8em;
     }
 
     #buttons > .row > .col-lg > .btn {
-        padding: 1px;
-        width: 75%;
+        width: 50%;
     }
+
     #showCurrentSetting {
+        font-size: 1em;
         text-align: center;
     }
   }
