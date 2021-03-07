@@ -3,6 +3,15 @@ import { Translator } from './translator.js'
 document.activeButton = "rosbiButton";
 document.oldactiveButton = "rosbiButton";
 
+/**
+ * Check the active button and return the current active mode
+ * 
+ * @returns rosbi, boba, chiove, supercazzolaro or advancedSettings
+ */
+document.getCurrentMode = function() {
+  return document.activeButton.slice(0, -6);
+};
+
 document.addEventListener("DOMContentLoaded",
   function (event) {
 
@@ -83,38 +92,40 @@ document.addEventListener("DOMContentLoaded",
       let translation
       if (toBeTrasnslated === "") {
         document
-          .getElementById("translation")
+          .getElementById("output-div")
           .innerHTML = "";
       } else {
         translation = translator.translateSentence(toBeTrasnslated)
         console.log("Translation: " + translation);
         document
-          .getElementById("translation")
+          .getElementById("output-div")
           .innerHTML = 
+            "<div id='translation'>" +
             "<section>" + 
             "Tradunezio: '" + translation + "'." +
             "</section>" + 
             "<section id='finalInfo'> " +
             "Cambia impostanezio o cacli ancora su 'Riocontralo!' " +
             "per una nuova traduzione ... " + 
-            "</section>";
+            "</section>" +
+            "</div>";
       }
 
     }
 
     function displayCurrentMode (event) {
         document.getElementById(document.oldactiveButton).classList.remove("focus")
-        if (document.activeButton != "advancedSettingsButton") {
+        if (document.getCurrentMode() != "advancedSettings") {
           // If the mode is one of the buttons, we keep showin the focus on that button, otherwise we let
           // the focus go away.
           document.getElementById(document.activeButton).classList.add("focus")
         }
 
         let modeString;
-        if (document.activeButton === "advancedSettingsButton") {
+        if (document.getCurrentMode() === "advancedSettings") {
           modeString = "Attualmente stai usando le impostanezio avanteza."
         } else {
-          modeString = "Riocontra engine in " + document.activeButton.slice(0, -6) + " mode."
+          modeString = "Riocontra engine in " + document.getCurrentMode() + " mode."
         }
         document.getElementById("showCurrentSetting").textContent = modeString
     }
