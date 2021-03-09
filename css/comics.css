@@ -5,8 +5,8 @@
     border:solid 2px #000;
     border-radius:12px;
     display:inline-block;
-    margin:.5em;
-    padding:.5em 1em;
+    margin:0;
+    padding:.25em .5em;
     position:relative;
     min-width: 150px;
     min-height: 50px;

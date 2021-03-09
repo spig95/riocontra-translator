@@ -14,11 +14,11 @@ document.getCurrentMode = function() {
 
 document.writeTranslationOutput = function(translation, divID, imgPath) {
   document.getElementById("output").innerHTML = 
-    "<div id='" + divID + "'>" +
+    "<div id='" + divID + "' class='container'>" +
       "<img src='" + imgPath + "'>" +
       "<div class='comics-speech'>" +
         "<div class='comics-content'>" +
-          translation + 
+           translation + 
         "</div>" +
       "</div>" +
     "</div>"
@@ -132,19 +132,12 @@ document.addEventListener("DOMContentLoaded",
             translation, 
             "supercazzolaroTranslation",
             "img/supercazzolaro.svg");
-        }else {
-          // Temporary
-          document
-          .getElementById("output-div")
-          .innerHTML = 
-            "<div id='genericTranslation'>" +
-            "<section>" + 
-            "Tradunezio: '" + translation + "'." +
-            "</section></div>" + 
-            "<section id='finalInfo'> " +
-            "Cambia impostanezio o cacli ancora su 'Riocontralo!' " +
-            "per una nuova traduzione ... " + 
-            "</section>";
+        } else {
+          // advancedSettings
+          document.writeTranslationOutput(
+            translation, 
+            "advancedSettingsTranslation",
+            "img/advancedSettings.svg");
         }
 
         // Give some final info

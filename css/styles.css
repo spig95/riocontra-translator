@@ -7,6 +7,7 @@
 }
 
 #finalInfo {
+    clear: both;
     margin-top: 10px;
     font-style: italic;
 }
@@ -69,12 +70,12 @@
     margin-bottom: auto;
 }
 
-#buttons > .row > .col-lg > .btn {
+#buttons > .row > .col-md > .btn {
     margin: 2px 2px;
     width: 100%;
 }
 
-#buttons > .row > .col-lg {
+#buttons > .row > .col-md {
     text-align: center;
 }
 
@@ -92,7 +93,21 @@
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 992px)  {
+    #buttons > .row > .col-md > .btn,
+    #advancedSettingsButton,
+    #askLevel {
+        padding: 0;
+        font-size: 0.8em;
+    }
+
+    #showCurrentSetting {
+        font-size: 1em;
+        text-align: center;
+    }
+}
+
+@media (max-width: 767px) {
     #pageTitle {
         text-align: center;
         font-size: medium;
@@ -102,23 +117,8 @@
         font-size: medium;
     }
 
-    #askLevel {
-        font-size: 0.8em;
-    }
-
-    #buttons > .row > .col-lg > .btn,
-    #advancedSettingsButton {
-        padding: 0;
-        font-size: 0.8em;
-    }
-
-    #buttons > .row > .col-lg > .btn {
+    #buttons > .row > .col-md > .btn {
         width: 50%;
-    }
-
-    #showCurrentSetting {
-        font-size: 1em;
-        text-align: center;
     }
   }
   
