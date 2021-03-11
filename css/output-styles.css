@@ -1,39 +1,60 @@
-.comics-content {
-    overflow: auto;
+#rosbiTranslation > .image {
+    background-image: url("../img/rosbi.svg");
 }
 
-#output > div > img {
-    width: 250px;
-    float: left; /* bring comics up at the right */
+#bobaTranslation > .image {
+    background-image: url("../img/boba.png");
 }
 
-#output > div > .comics-speech > {
-    vertical-align: top; /* bring comics at the top */
-    margin: 0;
+#chioveTranslation > .image {
+    background-image: url("../img/chiove.png");
 }
 
-#output > div > .comics-speech > .comics-content {
-    max-width: 350px;
+#supercazzolaroTranslation > .image {
+    background-image: url("../img/supercazzolaro.svg");
+}
+
+
+#advancedSettingsTranslation > .image {
+    background-image: url("../img/advancedSettings.png");
+}
+
+
+#output > .container > .image {
+    height: 250px;
+    max-width: 700px; 
+    background-size: auto 250px;
+    background-repeat: no-repeat;
+    background-position: bottom left;
+}
+
+#output > .container > .image > .comics-speech {
+    vertical-align: top; 
+    margin-left: 250px;
+}
+
+
+#output > .container > .image > .comics-speech > div{
+    overflow: auto; 
     max-height: 100px;
 }
 
 
-@media (max-width: 992px) {
-    #output > div > img {
-        padding-top: 100px;
-        width: 75px;
+@media (max-width: 767px) {
+    #output > .container > .image {
+        height: 125px;
+        background-size: auto 100px;
     }
     
-    #output > div > .comics-speech > .comics-content {
-        max-width: 160px;
-        max-height: 100px;
+    #output > .container > .image > .comics-speech {
+        vertical-align: top; 
+        font-size: small;
+        margin-left: 90px;
     }
-}
-
-
-#output > #chioveTranslation > img {
-    margin-left: 100px;
-    width: 125px;
-    margin-right: 50px;
-    float: left; /* bring comics up at the right */
+    
+    
+    #output > .container > .image > .comics-speech > div{
+        overflow: auto; 
+        max-height: 75px;
+    }
 }

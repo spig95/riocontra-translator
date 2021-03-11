@@ -15,10 +15,11 @@ document.getCurrentMode = function() {
 document.writeTranslationOutput = function(translation, divID, imgPath) {
   document.getElementById("output").innerHTML = 
     "<div id='" + divID + "' class='container'>" +
-      "<img src='" + imgPath + "'>" +
-      "<div class='comics-speech'>" +
-        "<div class='comics-content'>" +
-           translation + 
+      "<div class='image'>" +
+        "<div class='comics-speech'>" +
+          "<div class='comics-content'>" +
+            translation + 
+          "</div>" +
         "</div>" +
       "</div>" +
     "</div>"
@@ -121,23 +122,23 @@ document.addEventListener("DOMContentLoaded",
           document.writeTranslationOutput(
             translation, 
             "bobaTranslation",
-            "img/boba.png");
+            "img/rosbi.svg");
         } else if (document.getCurrentMode() === "chiove") {
           document.writeTranslationOutput(
             translation, 
             "chioveTranslation",
-            "img/chiove.svg");
+            "img/rosbi.svg");
         } else if (document.getCurrentMode() === "supercazzolaro") {
           document.writeTranslationOutput(
             translation, 
             "supercazzolaroTranslation",
-            "img/supercazzolaro.svg");
+            "img/rosbi.svg");
         } else {
           // advancedSettings
           document.writeTranslationOutput(
             translation, 
             "advancedSettingsTranslation",
-            "img/advancedSettings.svg");
+            "img/rosbi.svg");
         }
 
         // Give some final info
