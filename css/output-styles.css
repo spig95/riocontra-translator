@@ -42,14 +42,14 @@
 
 @media (max-width: 767px) {
     #output > .container > .image {
-        height: 125px;
+        height: 110px;
         background-size: auto 100px;
     }
     
     #output > .container > .image > .comics-speech {
         vertical-align: top; 
         font-size: small;
-        margin-left: 90px;
+        margin-left: 110px;
     }
     
     

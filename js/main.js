@@ -156,14 +156,6 @@ document.addEventListener("DOMContentLoaded",
           // the focus go away.
           document.getElementById(document.activeButton).classList.add("focus")
         }
-
-        let modeString;
-        if (document.getCurrentMode() === "advancedSettings") {
-          modeString = "Attualmente stai usando le impostanezio avanteza."
-        } else {
-          modeString = "Riocontra engine in " + document.getCurrentMode() + " mode."
-        }
-        document.getElementById("showCurrentSetting").textContent = modeString
     }
 
 

@@ -88,11 +88,6 @@
     margin-left: 15px;
 }
 
-#showCurrentSetting {
-    margin-top: 5px;
-    font-weight: 500;
-}
-
 
 @media (max-width: 992px)  {
     #buttons > .row > div > .btn,
@@ -100,11 +95,6 @@
     #askLevel {
         padding: 0;
         font-size: 0.8em;
-    }
-
-    #showCurrentSetting {
-        font-size: 1em;
-        text-align: center;
     }
 
     #pageTitle {
