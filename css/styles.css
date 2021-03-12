@@ -37,12 +37,22 @@
     text-decoration: line-through;
 }
 
-#advancedSettingsButton {
+#buttons > .row > div > .btn {
+    margin: 2px 2px;
+    width: 100%;
+}
+
+#buttons > .row > div {
+    text-align: center;
+}
+
+#buttons > .row > div > #advancedSettingsButton {
     padding: 0;
     margin-top: 2px;
     margin-bottom: 2px;
+    text-align: left;
+    width: auto;
 }
-
 
 #header {
     padding: 5px 0;
@@ -70,15 +80,6 @@
     margin-bottom: auto;
 }
 
-#buttons > .row > .col-md > .btn {
-    margin: 2px 2px;
-    width: 100%;
-}
-
-#buttons > .row > .col-md {
-    text-align: center;
-}
-
 #advancedSettings > section {
     margin-bottom: 10px;
 }
@@ -94,7 +95,7 @@
 
 
 @media (max-width: 992px)  {
-    #buttons > .row > .col-md > .btn,
+    #buttons > .row > div > .btn,
     #advancedSettingsButton,
     #askLevel {
         padding: 0;
@@ -105,20 +106,25 @@
         font-size: 1em;
         text-align: center;
     }
+
+    #pageTitle {
+        font-size: medium;
+    }
+
+    #pageSubTitle {
+        font-size: small;
+    }
 }
 
 @media (max-width: 767px) {
     #pageTitle {
         text-align: center;
-        font-size: medium;
     }
 
-    #pageSubTitle {
-        font-size: medium;
+    #buttons > .row > div > #advancedSettingsButton {
+        text-align: center;
+        width: 100%;
     }
 
-    #buttons > .row > .col-md > .btn {
-        width: 50%;
-    }
   }
   
