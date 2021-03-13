@@ -150,11 +150,15 @@ document.addEventListener("DOMContentLoaded",
     }
 
     function displayCurrentMode (event) {
+        // If the mode is one of the buttons, we keep showin the focus on 
+        // that button, otherwise we let the focus go away
         document.getElementById(document.oldactiveButton).classList.remove("focus")
+        document.getElementById(document.activeButton).classList.add("focus")
         if (document.getCurrentMode() != "advancedSettings") {
-          // If the mode is one of the buttons, we keep showin the focus on that button, otherwise we let
-          // the focus go away.
-          document.getElementById(document.activeButton).classList.add("focus")
+          document.getElementById("currentModeInfo").innerHTML = "";
+        } else {
+          document.getElementById("currentModeInfo").innerHTML = "Stai \
+            usando le impostanezio avanteza!";
         }
     }
 

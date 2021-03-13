@@ -2,8 +2,9 @@
     box-sizing: border-box;
   }
 
-#input-div {
-    margin-top: 15px;
+#input-div,
+#currentModeInfo {
+    margin-top: 10px;
 }
 
 #finalInfo {
@@ -21,7 +22,10 @@
     background-color: #9fdfbf;
 }
 
-.btn-level.focus, .btn-level:focus{
+.btn-level.focus, .btn-level:focus,
+#advancedSettingsButton.focus, #advancedSettingsButton:focus{
+    text-decoration: none;
+    color: black;
     background-color: #339966;
     box-shadow: 0 0 0 0.1rem #194d33;
 }
