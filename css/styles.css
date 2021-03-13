@@ -72,6 +72,18 @@
     padding-bottom: 2px;
 }
 
+/*Up-arrow to collapse level description */
+.up-arrow-button {
+    margin-top: -1em;
+    margin-bottom: 0;
+    padding: 0;
+}
+.up-arrow-button > button {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0;
+} 
+
 #pageTitle {
     font-weight: 500;
     font-size: x-large;
@@ -89,7 +101,7 @@
 }
 
 #erreMossaSec > .form-check {
-    margin-left: 15px;
+    margin-left: 2em;
 }
 
 
@@ -120,9 +132,11 @@
         width: 100%;
     }
 
-    /*Reduce space between level description paragraphs */
+    /*Reduce space between level description paragraphs and setting sections*/
     .level-description > p,
-    .level-description > hr {
+    .level-description > hr,
+    #advancedSettings > hr,
+    #advancedSettings > section {
         margin-bottom: 0.25em;
     }
 
