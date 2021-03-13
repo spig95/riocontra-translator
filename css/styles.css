@@ -120,5 +120,11 @@
         width: 100%;
     }
 
+    /*Reduce space between level description paragraphs */
+    .level-description > p,
+    .level-description > hr {
+        margin-bottom: 0.25em;
+    }
+
   }
   
