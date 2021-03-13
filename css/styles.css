@@ -26,7 +26,7 @@
 #advancedSettingsButton.focus, #advancedSettingsButton:focus{
     text-decoration: none;
     color: black;
-    background-color: #339966;
+    background-color: #53c68c;
     box-shadow: 0 0 0 0.1rem #194d33;
 }
 
@@ -60,7 +60,8 @@
 
 #header {
     padding: 5px 0;
-    background-color:#D3D3D3;
+    background-color: #262626;
+    color: #f2f2f2;
 }
 
 #askLevel {
@@ -68,7 +69,7 @@
 }
 
 #levelSelection {
-    background-color: #F5F5F5;
+    background-color: #d9d9d9;
     padding-bottom: 2px;
 }
 

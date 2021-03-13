@@ -12,7 +12,7 @@ document.getCurrentMode = function() {
   return document.activeButton.slice(0, -6);
 };
 
-document.writeTranslationOutput = function(translation, divID, imgPath) {
+document.writeTranslationOutput = function(translation, divID) {
   document.getElementById("output").innerHTML = 
     "<div id='" + divID + "' class='container'>" +
       "<div class='image'>" +
@@ -77,6 +77,7 @@ document.addEventListener("DOMContentLoaded",
       document.oldactiveButton = document.activeButton
       document.activeButton = "advancedSettingsButton"
       displayCurrentMode()
+      onClickTranslate(event)
     }
 
     /**
@@ -116,29 +117,24 @@ document.addEventListener("DOMContentLoaded",
         if (document.getCurrentMode() === "rosbi") {
           document.writeTranslationOutput(
             translation, 
-            "rosbiTranslation",
-            "img/rosbi.svg");
+            "rosbiTranslation");
         } else if (document.getCurrentMode() === "boba") {
           document.writeTranslationOutput(
             translation, 
-            "bobaTranslation",
-            "img/rosbi.svg");
+            "bobaTranslation");
         } else if (document.getCurrentMode() === "chiove") {
           document.writeTranslationOutput(
             translation, 
-            "chioveTranslation",
-            "img/rosbi.svg");
+            "chioveTranslation");
         } else if (document.getCurrentMode() === "supercazzolaro") {
           document.writeTranslationOutput(
             translation, 
-            "supercazzolaroTranslation",
-            "img/rosbi.svg");
+            "supercazzolaroTranslation");
         } else {
           // advancedSettings
           document.writeTranslationOutput(
             translation, 
-            "advancedSettingsTranslation",
-            "img/rosbi.svg");
+            "advancedSettingsTranslation");
         }
 
         // Give some final info
