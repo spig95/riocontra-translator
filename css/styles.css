@@ -116,12 +116,10 @@ footer,
 
 /* Footer fixed at the bottom of the page if fits. Works fix a fixed height 
    footer only */
-html {
-    height: -webkit-fill-available;
-}
 #content-wrapper {
     min-height: calc(100vh - 3.2em);
-    min-height: calc(-webkit-fill-available - 3.2em);
+    /* Relies on the --vh variable computed in JavaScrips */
+    min-height: calc(calc(var(--vh, 1vh) * 100) - 3.2em);
 }
 footer {
     vertical-align: center;
