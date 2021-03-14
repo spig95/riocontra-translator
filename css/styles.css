@@ -19,20 +19,20 @@
 }
 
 .btn-level{
-    background-color: #9fdfbf;
+    background-color: #e6ac00;
 }
 
 .btn-level.focus, .btn-level:focus,
 #advancedSettingsButton.focus, #advancedSettingsButton:focus{
     text-decoration: none;
     color: black;
-    background-color: #339966;
-    box-shadow: 0 0 0 0.1rem #194d33;
+    background-color: #997300;
+    box-shadow: 0 0 0 0.1rem #806000;
 }
 
 /* Ozi button never appear on focus, even after click */
 #oziButton:focus {
-    background-color: #9fdfbf;
+    background-color: #e6ac00;
     outline: none;
     box-shadow: none;
 }
