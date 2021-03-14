@@ -118,6 +118,7 @@ footer,
    footer only */
 #content-wrapper {
     min-height: calc(100vh - 3.2em);
+    min-height: calc(-webkit-fill-available - 3.2em);
 }
 footer {
     vertical-align: center;
