@@ -163,11 +163,18 @@
           <hr>
           Nutobenve nelle <span class="font-weight-bold">impostanezio avanteza</span>, dove i revi intendiroti possono sperimentare la migliore 
           combinezio di riocontra. 
+
           <hr>
-          <section>
-            Quante parole traduci in media?
-            <input type="number" min="1" max="100" value="50", id="percentageInput"> % 
+
+          <section class="input-group input-group-sm">
+              <span style="margin-top: auto; margin-bottom: auto; margin-right: 1em;">Quante parole traduci in media?</span> 
+              <input type="number" min="1" max="100" value="50", id="percentageInput" class="form-control" aria-label="" style="max-width: 5em;">
+              <div class="input-group-append">
+                <span class="input-group-text">%</span>
+              </div>
           </section>
+
+          <hr>
 
           <section class="form-check">
               <input id="nezioCheckbox" class="form-check-input" type="checkbox" value="" id="defaultCheck1">
@@ -175,6 +182,8 @@
                 Spunta se vuoi usare la tecnica del 'nezio'
               </label>
           </section>
+
+          <hr>
 
           <section id="erreMossaSec">
               Vuoi usare la tecnica dell'erre mossa?
@@ -194,6 +203,8 @@
                 </label>
               </div>
             </section>
+
+            <hr>
             
             <section class="form-check">
               <input id="superTofeCheckbox" class="form-check-input" type="checkbox" value="" id="defaultCheck1">

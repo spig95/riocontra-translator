@@ -15,7 +15,7 @@
 
 /* buttons stuff */
 #buttons {
-    margin-bottom: 2px;
+    margin-bottom: 1em;
 }
 
 .btn-level{
@@ -112,10 +112,6 @@ footer,
     font-style: italic;
 }
 
-#advancedSettings > section {
-    margin-bottom: 10px;
-}
-
 #erreMossaSec > .form-check {
     margin-left: 2em;
 }
@@ -132,6 +128,18 @@ footer {
     position: relative;
     clear: both;
     height: 3.2em;
+}
+
+/* Central vertical alignment of percentage instruction*/
+.percentage-instructions {
+    margin-top: auto; 
+    margin-bottom: auto; 
+    margin-right: 1em;
+}
+
+/* Shorter percentage input */
+.percentage-input {
+    max-width: 6em;
 }
 
 
@@ -169,9 +177,11 @@ footer {
     .level-description > hr,
     #advancedSettings > hr,
     #advancedSettings > section {
+        margin-top: 0;
         margin-bottom: 0.25em;
     }
 
+    hr,
     #copyRight {
         margin-top: 0.25em;
     }
