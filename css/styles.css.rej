@@ -1,0 +1,10 @@
+diff a/css/styles.css b/css/styles.css	(rejected hunks)
+@@ -26,7 +26,7 @@
+ #advancedSettingsButton.focus, #advancedSettingsButton:focus{
+     text-decoration: none;
+     color: black;
+-    background-color: #339966;
++    background-color: #53c68c;
+     box-shadow: 0 0 0 0.1rem #194d33;
+ }
+ 

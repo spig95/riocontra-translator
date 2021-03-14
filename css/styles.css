@@ -26,7 +26,7 @@
 #advancedSettingsButton.focus, #advancedSettingsButton:focus{
     text-decoration: none;
     color: black;
-    background-color: #53c68c;
+    background-color: #339966;
     box-shadow: 0 0 0 0.1rem #194d33;
 }
 
