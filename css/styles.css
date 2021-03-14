@@ -130,15 +130,15 @@ footer {
     height: 3.2em;
 }
 
-/* Central vertical alignment of percentage instruction*/
-.percentage-instruction {
+/* Central vertical alignment of numerical input instruction*/
+.num-input-instruction {
     margin-top: auto; 
     margin-bottom: auto; 
     margin-right: 1em;
 }
 
-/* Shorter percentage input */
-#percentage-input {
+/* Shorter numerical input */
+.num-input {
     max-width: 6em;
 }
 
