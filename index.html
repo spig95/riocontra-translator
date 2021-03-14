@@ -14,6 +14,8 @@
   
   <body>
 
+    <div id="content-wrapper"> <!-- Allow a sticky footer -->
+
     <div id="header">
       <div class="container">
         <div class="row">  
@@ -21,7 +23,7 @@
             RIOCONTRA ENGINE
           </div>
           <div id="pageSubTitle" class="col-9 col-md-7">L'unico tosi italiano che ti teperme di affrontare la tavi della 
-            dastra.
+            dastra
           </div>
         </div>
       </div>
@@ -29,7 +31,7 @@
 
     <div id="levelSelection">
       <div class="container">
-        <div id="askLevel" class="text-center">Scegli correttamente il tuo lolive di riocontra... </div> 
+        <div id="askLevel" class="text-center">Scegli chi... </div> 
         <div id="buttons">
           <div class="row">
             <div class="col-md col-6">
@@ -135,7 +137,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> <!-- oziPopUp -->
 
         <div id="supercazzolaroContent" class="level-description collapse" data-parent="#levelSelection">
           <hr>
@@ -208,11 +210,6 @@
     </div> <!-- levelSelection -->
 
     <div class="container">
-      <div id="currentModeInfo">
-      </div>
-    </div>
-
-    <div class="container">
       <div id="input-div" class="input-group mb-3">
         <input id="wannabe-translated" type="text" class="form-control" placeholder="Soca dici all'ozi?" aria-label="Soca dici all'ozi?" aria-describedby="basic-addon2">
         <div class="input-group-append">
@@ -223,31 +220,39 @@
       </div>
     </div>
 
+    <div class="container">
+      <div id="currentModeInfo">
+      </div>
+    </div>
+
     <div id="output">
     </div>
     
     <div>
       <div id="finalInfo" class="container">
       </div>
-    </div>
-
-    <!-- <div>
-      <div id="prova" class="container">
-        <div style="
-          height: 125px;
-          background-image: url('img/rosbi.svg'); 
-          background-size: 100px;
-          background-repeat: no-repeat;
-          background-position: bottom left;">
-        <div class="comics-speech" 
-             style="vertical-align: top; margin-left: 75px;">
-          <div style="overflow: auto; max-height: 75px;">
-            dfd dfd dfd dfddfd dfddfd dfddfd dfd dfd dfddfd dfddfd dfd fd dfddfd dfd fd dfddfd dfd fd dfddfd dfdfd dfddfd dfdfd dfddfd dfd
+    </div>  
+  
+  </div> <!-- content-wrapper -->
+  <footer id="footer">
+    <div class="container">
+      <div class="row">  
+        <div id="copyRight" class="col-3 col-md-5">
+          Version 1.0 <br>
+          &copy Lospigo
         </div>
+        <div id="pageCredits" class="col-9 col-md-7 text-right">
+          Liberamente ispirato dal 
+            <cite> 
+              <a href="https://volumevolume.it/negozio/aldofre-e-nigiova-di-nobru-il-riocontra-illutostra/" target="_blank">
+                Riocontra Illustrota
+              </a>
+            </cite> 
+          di Aldofre e Nigiova Di Nobru
         </div>
       </div>
-    </div> -->
-
+    </div>
+  </footer>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>

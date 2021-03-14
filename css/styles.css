@@ -60,7 +60,12 @@
 
 #header {
     padding: 5px 0;
-    background-color: #262626;
+}
+
+#header, 
+footer,
+#pageCredits > cite > a {
+    background-color: #333;
     color: #f2f2f2;
 }
 
@@ -90,11 +95,15 @@
     font-size: x-large;
 }
 
-#pageSubTitle {
-    font-style: italic;
+#pageSubTitle,
+#pageCredits {
     text-align: right;
     margin-top: auto;
     margin-bottom: auto;
+}
+
+#pageSubTitle {
+    font-style: italic;
 }
 
 #advancedSettings > section {
@@ -103,6 +112,18 @@
 
 #erreMossaSec > .form-check {
     margin-left: 2em;
+}
+
+/* Footer fixed at the bottom of the page if fits. Works fix a fixed height 
+   footer only */
+#content-wrapper {
+    min-height: calc(100vh - 3.2em);
+}
+footer {
+    vertical-align: center;
+    position: relative;
+    clear: both;
+    height: 3.2em;
 }
 
 
@@ -118,7 +139,9 @@
         font-size: medium;
     }
 
-    #pageSubTitle {
+    #pageSubTitle,
+    #pageCredits,
+    #copyRight {
         font-size: small;
     }
 }
@@ -141,5 +164,21 @@
         margin-bottom: 0.25em;
     }
 
+    #copyRight {
+        margin-top: 0.25em;
+    }
+
   }
+
+@media (max-width: 320px) {
+    #pageTitle,
+    #pageSubTitle {
+        font-size: 0.8em;
+    }
+
+    #copyRight,
+    #pageCredits {
+        font-size: 0.6em !important;
+    }
+}
   
