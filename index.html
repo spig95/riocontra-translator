@@ -177,7 +177,7 @@
           <hr>
 
           <section id="erreMossaSec">
-              Vuoi usare la tecnica dell'erre mossa?
+              Vuoi usare la tecnica dell'<a href="#" data-toggle="modal" data-target="#erreMossaPopUp">erre mossa</a>?
               <div class="form-check">
                 <label class="form-check-label">
                   <input checked type="radio" class="form-check-input" name="optErreMossa">No ziegra
@@ -255,6 +255,42 @@
             </div>
           </div>
         </div> <!-- nezioPopUp -->
+
+        <div id="erreMossaPopUp" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">La tecnica dell'erre mossa</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <p>
+                  Il riocontra è schiavo del suono, e non ammette parole che terminano per 'erre'. Se dopo un'inversione
+                  semplice la parola al riocontra termina per 'erre', la si sposta in centro. Ecco alcuni esempi:
+                </p>
+                <ul>
+                  <li>Merda &rarr; daMer &rarr; darme</li>
+                  <li>Furto &rarr; toFur &rarr; torfu</li>
+                  <li>Carte &rarr; teCar &rarr; terca</li>
+                </ul>
+                <p>
+                  Secondo il gusto personale, certi praticanti del riocontra amano applicare la tecnica dell'erre mossa
+                  anche ad altre consonanti. Una tecnica che va usata con cautela, e rende difficile l'ascolto del 
+                  riocontra anche ai più esperti. Ecco alcuni esempi:
+                </p>
+                <ul>
+                  <li>Talpa &rarr; paTal &rarr; palta</li>
+                  <li>Malta &rarr; taMal &rarr; talma</li>
+                </ul>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiaro, sono tonpro!</button>
+              </div>
+            </div>
+          </div>
+        </div> <!-- erreMossaPopUp -->
 
       </div>
     </div> <!-- levelSelection -->
