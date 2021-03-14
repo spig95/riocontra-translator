@@ -69,6 +69,12 @@ footer,
     color: #f2f2f2;
 }
 
+
+#pageCredits > cite > a {
+    font-style: normal;
+    text-decoration: underline;
+}
+
 #askLevel {
     padding: 3px;
 }
