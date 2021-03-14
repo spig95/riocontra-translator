@@ -131,15 +131,21 @@ footer {
 }
 
 /* Central vertical alignment of percentage instruction*/
-.percentage-instructions {
+.percentage-instruction {
     margin-top: auto; 
     margin-bottom: auto; 
     margin-right: 1em;
 }
 
 /* Shorter percentage input */
-.percentage-input {
+#percentage-input {
     max-width: 6em;
+}
+
+
+/* Avoid jumping transition in desktop mode*/
+hr.first-hr {
+    margin-top: 0;
 }
 
 
