@@ -139,7 +139,7 @@ document.addEventListener("DOMContentLoaded",
 
         // Give some final info
         document.getElementById("finalInfo").textContent = 
-          "Cambia impostanezio o cacli ancora su 'Riocontralo!' " +
+          "Seleziona un altro traduttore (rosbi, supercazzolaro, chiove ...) e cacli ancora su 'Riocontralo!' " +
           "per una nuova traduzione ... ";
       }
 
