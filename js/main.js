@@ -1,7 +1,7 @@
 import { Translator } from './translator.js'
 
-document.activeButton = "rosbiButton";
-document.oldactiveButton = "rosbiButton";
+document.activeButton = "supercazzolaroButton";
+document.oldactiveButton = "supercazzolaroButton";
 
 /**
  * Check the active button and return the current active mode
@@ -139,8 +139,8 @@ document.addEventListener("DOMContentLoaded",
 
         // Give some final info
         document.getElementById("finalInfo").textContent = 
-          "Seleziona un altro traduttore (rosbi, supercazzolaro, chiove ...) e cacli ancora su 'Riocontralo!' " +
-          "per una nuova traduzione ... ";
+          "Seleziona un altro traduttore (rosbi, supercazzolaro, chiove, ...) e cacli ancora su 'Riocontralo!' " +
+          "per una nuova traduzione.";
       }
 
     }
@@ -149,9 +149,10 @@ document.addEventListener("DOMContentLoaded",
         // If the mode is one of the buttons, we keep showin the focus on 
         // that button, otherwise we let the focus go away
         document.getElementById(document.oldactiveButton).classList.remove("focus")
-        document.getElementById(document.activeButton).classList.add("focus")
         if (document.getCurrentMode() != "advancedSettings") {
-          document.getElementById("currentModeInfo").innerHTML = "";
+          document.getElementById(document.activeButton).classList.add("focus")
+          document.getElementById("currentModeInfo").innerHTML = "\
+            Traduttore in " + document.getCurrentMode() + " mode.";
         } else {
           document.getElementById("currentModeInfo").innerHTML = "Stai \
             usando le impostanezio avanteza!";
@@ -186,7 +187,7 @@ document.addEventListener("DOMContentLoaded",
       .addEventListener("click", activateAdvancedSettings)
     
     // Call the following functions when the document is loaded
-    setRosbiSettings()
+    setSupercazzolaroSettings()
   }
 );
 
