@@ -102,6 +102,10 @@ document.addEventListener("DOMContentLoaded",
       // Get text to be translated
       let toBeTrasnslated =
        document.getElementById("wannabe-translated").value;
+
+              // Remove focus from input group (hides keyboard on smartphone)
+              document.getElementById("wannabe-translated").blur()
+
       // Translate and output (if input is not empty)
       if (toBeTrasnslated === "") {
         // Erase all content if the input is empty
