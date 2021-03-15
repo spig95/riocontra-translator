@@ -156,7 +156,8 @@ document.addEventListener("DOMContentLoaded",
         if (document.getCurrentMode() != "advancedSettings") {
           document.getElementById(document.activeButton).classList.add("focus")
           document.getElementById("currentModeInfo").innerHTML = "\
-            Traduttore in " + document.getCurrentMode() + " mode.";
+            Traduttore in <span class='font-weight-bold'>" + 
+            document.getCurrentMode() + " </span> mode.";
         } else {
           document.getElementById("currentModeInfo").innerHTML = "Stai \
             usando le impostanezio avanteza!";
