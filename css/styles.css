@@ -2,6 +2,7 @@
     box-sizing: border-box;
   }
 
+#buttons,
 #input-div,
 #currentModeInfo {
     margin-top: 0.5rem;
@@ -15,10 +16,6 @@
 }
 
 /* buttons stuff */
-#buttons {
-    margin-bottom: 1em;
-}
-
 .btn-level{
     background-color: #e6ac00;
 }
