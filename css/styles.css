@@ -5,8 +5,13 @@
 #buttons,
 #input-div,
 #currentModeInfo {
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+#askLevel {
+    padding-top: 0.5rem;
+    padding-bottom: 0;
 }
 
 #finalInfo {
@@ -70,10 +75,6 @@ footer,
 #pageCredits > cite > a {
     font-style: normal;
     text-decoration: underline;
-}
-
-#askLevel {
-    padding: 3px;
 }
 
 #levelSelection {
@@ -150,8 +151,12 @@ hr.first-hr {
     #buttons > .row > div > .btn,
     #advancedSettingsButton,
     #askLevel {
-        padding: 0;
         font-size: 0.8em;
+    }
+
+    #buttons > .row > div > .btn,
+    #advancedSettingsButton{
+        padding: 0;
     }
 
     #pageTitle {
