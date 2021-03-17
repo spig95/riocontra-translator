@@ -169,12 +169,18 @@ export class Translator {
 
     invertTwoSyllabs (syllabs) {
         let originalSyllabs = syllabs.slice();
-        let invertedSyllabs
+        let invertedSyllabs;
 
-        syllabs = this.removeDoubleConsonants(syllabs)
+        syllabs = this.removeDoubleConsonants(syllabs);
 
         console.log(syllabs)
         invertedSyllabs = syllabs.reverse();
+
+        // Check if the syllabs are the same, in this case return the original 
+        // ones (this fixes some corner cases)
+        if (syllabs[0] === syllabs[1]) {
+            return originalSyllabs;
+        }
 
         // Erremossa technique
         if ((this.erreMossa) | (this.erreMossaToAllConsonants)) {
