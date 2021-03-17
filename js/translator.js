@@ -90,6 +90,11 @@ export class Translator {
         if (isSpecialChar(word))
             throw "Cannot translate a special character:" + word;
         
+        // Do not translate a word that is capitalized
+        if (word.charAt(0) == word.charAt(0).toUpperCase()) {
+            return word
+        }
+        
         // todo: search for seba words. EG:
         // translation = search_basic_translation(word)
         // if translation is not None:
