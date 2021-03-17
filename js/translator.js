@@ -127,7 +127,7 @@ export class Translator {
         };
 
         // At this point, we can apply the real riocontra!
-        let u = Math.random()
+        let u = Math.random();
         if (100 * u < this.percentage) { // We do not translate all the words
             let syllabs = divide(word)
             let translatedWord = this.getRiocontraFromSyllabs(syllabs)
@@ -205,22 +205,59 @@ export class Translator {
     };
 
     invertThreeSyllabs (syllabs) {
-        let invertedSyllabs
-        invertedSyllabs = this.invertTwoSyllabs(
-            new Array (
-                syllabs[0],
-                syllabs[1] + syllabs[2]
-        ))
-        // If the word did not change, we can try a different combination.
-        if (invertedSyllabs === syllabs) {
+        let u = Math.random();
+        if (u > 0.5) { // We do not translate all the words
+            let syllabs = divide(word)
+            let translatedWord = this.getRiocontraFromSyllabs(syllabs)
+            if (this.translateWord === null) {
+                return word
+            }
+            else {
+                // If nothing worked, we do not translate
+                return translatedWord;
+            }
+        } else {
+            return word
+        }
+    }
+
+    invertThreeSyllabs (syllabs) {
+        let invertedSyllabs;
+        let u = Math.random();
+        if (u > 0.5) {
+            // Put together a couple of syllabs and invert using old method
             invertedSyllabs = this.invertTwoSyllabs(
                 new Array (
-                syllabs[0] + syllabs[1],
-                syllabs[2]
-            ))
+                    syllabs[0] + syllabs[1],
+                    syllabs[2]
+            ));
+            // If the word did not change, we can try a different combination.
+            if (invertedSyllabs === syllabs) {
+                invertedSyllabs = this.invertTwoSyllabs(
+                    new Array (
+                    syllabs[0],
+                    syllabs[1] + syllabs[2]
+                ));
+            };
+            // We return invertedSyllabs (they can be non inverted if the 
+            // inversion failed inside invertTwoSyllabs)
+            return invertedSyllabs;
+        } else {
+            // Same as before, but try in the other order
+            invertedSyllabs = this.invertTwoSyllabs(
+                new Array (
+                    syllabs[0],
+                    syllabs[1] + syllabs[2]
+            ));
+            if (invertedSyllabs === syllabs) {
+                invertedSyllabs = this.invertTwoSyllabs(
+                    new Array (
+                    syllabs[0] + syllabs[1],
+                    syllabs[2]
+                ));
+            };
+            return invertedSyllabs;
         }
-        // We return invertedSyllabs (they can be non inverted if the inversion failed inside invertTwoSyllabs)
-        return invertedSyllabs
     };
 
     invertFourSyllabs (syllabs) {
