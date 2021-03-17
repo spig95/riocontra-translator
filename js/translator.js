@@ -64,18 +64,25 @@ export class Translator {
         console.log("splitted: ", splitted);
         // Loop over splitted sentence, translate each word and recompose the 
         // translated sentence
-        let translatedSentence = new String
-        splitted.forEach(
-            function(word) {
+        let translatedSentence = "";
+        for (let i = 0; i < splitted.length; i++) {
+            let word = splitted[i];
             if (isSpecialChar(word)) {
                 // Just add it to the sentence
                 translatedSentence += word;
+            } else if (i === 0) {
+                // Handle capital letter
+                let translatedWord = this.translateWord(word)
+                let capitalizedTranslation = 
+                    translatedWord.charAt(0).toUpperCase() +
+                    translatedWord.slice(1).toLowerCase();
+                translatedSentence += capitalizedTranslation;
             } else {
-                // Translate and add
-                translatedSentence += this.translateWord(word);
-            }},
-            this // Second argument of forEach specifies who is "this"
-        ); 
+                // Just translate and add to sentence
+                translatedSentence += this.translateWord(word)
+            };
+        };
+
         return translatedSentence;
     };
 
@@ -286,12 +293,5 @@ export class Translator {
 //     translation = basics_translations.get(s, None)
 // return translation
 
-
-// word = recompose_word_from_syllabs(syllabs)
-
-// # triplets = [word[i:i+3] for i in range(len(word) - 3)]
-// # if any([])
-
-// return word
 
 
