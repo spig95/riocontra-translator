@@ -166,12 +166,13 @@ export class Translator {
     }
 
     invertTwoSyllabs (syllabs) {
+        console.log("Inverting 2 syllabs:" + syllabs)
         let originalSyllabs = syllabs.slice();
         let invertedSyllabs;
 
         syllabs = this.removeDoubleConsonants(syllabs);
-
-        console.log(syllabs)
+        console.log("Double consonants removed:" + syllabs)
+        
         invertedSyllabs = syllabs.reverse();
 
         // Check if the syllabs are the same, in this case return the original 
@@ -271,7 +272,12 @@ export class Translator {
                 return invertedSyllabs;
             }
         } else {
-            return syllabs
+            // Cesempli
+            return this.invertTwoSyllabs(
+                new Array (
+                    syllabs.slice(0, -1).reduce((a, b) => a + b, ""),
+                    syllabs.pop()  //Last elem
+            ));
         }
     };
 
@@ -295,7 +301,12 @@ export class Translator {
                 return invertedSyllabs;
             }
         } else {
-            return syllabs
+            // Cesempli
+            return this.invertTwoSyllabs(
+                new Array (
+                    syllabs.slice(0,-1).reduce((a, b) => a + b, ""),
+                    syllabs.pop()  //Last elem
+            ));
         }
     };
 
