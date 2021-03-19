@@ -204,23 +204,6 @@ export class Translator {
     };
 
     invertThreeSyllabs (syllabs) {
-        let u = Math.random();
-        if (u > 0.5) { // We do not translate all the words
-            let syllabs = divide(word)
-            let translatedWord = this.getRiocontraFromSyllabs(syllabs)
-            if (this.translateWord === null) {
-                return word
-            }
-            else {
-                // If nothing worked, we do not translate
-                return translatedWord;
-            }
-        } else {
-            return word
-        }
-    }
-
-    invertThreeSyllabs (syllabs) {
         let invertedSyllabs;
         let u = Math.random();
         if (u > 0.5) {
