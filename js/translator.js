@@ -77,9 +77,12 @@ export class Translator {
                     translatedWord.charAt(0).toUpperCase() +
                     translatedWord.slice(1).toLowerCase();
                 translatedSentence += capitalizedTranslation;
+            } else if (word.charAt(0) == word.charAt(0).toUpperCase()) {
+                // Do not translate a word that is capitalized
+                return word;
             } else {
                 // Just translate and add to sentence
-                translatedSentence += this.translateWord(word)
+                translatedSentence += this.translateWord(word);
             };
         };
 
@@ -89,11 +92,6 @@ export class Translator {
     translateWord (word) {
         if (isSpecialChar(word))
             throw "Cannot translate a special character:" + word;
-        
-        // Do not translate a word that is capitalized
-        if (word.charAt(0) == word.charAt(0).toUpperCase()) {
-            return word
-        }
         
         // todo: search for seba words. EG:
         // translation = search_basic_translation(word)
