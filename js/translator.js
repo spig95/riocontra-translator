@@ -144,109 +144,151 @@ export class Translator {
 
     getRiocontraFromSyllabs (syllabs) { 
         console.log("Get riocontra from syllabs: ", syllabs)
-        let invertedSyllabs
-        let n_syllabs = syllabs.length
+        let invertedSyllabs;
+        let n_syllabs = syllabs.length;
 
-        if (n_syllabs === 2) {
-            invertedSyllabs = this.invertTwoSyllabs(syllabs)
-        } else if (n_syllabs === 3) {
-            invertedSyllabs = this.invertThreeSyllabs(syllabs)
+        if (n_syllabs <= 3) {
+            invertedSyllabs = this.basicInversion(syllabs);
         } else if (n_syllabs === 4) {
-            invertedSyllabs = this.invertFourSyllabs(syllabs)
+            invertedSyllabs = this.invertFourSyllabs(syllabs);
         } else if (n_syllabs > 4) {
-            invertedSyllabs = this.invertLongWords(syllabs)
+            invertedSyllabs = this.invertLongWords(syllabs);
         } else {
-            invertedSyllabs = syllabs
+            invertedSyllabs = syllabs;
         }
 
         // Sum inverted syllabs to form the word
-        console.log(invertedSyllabs)
-        let wordFromSyllabs = invertedSyllabs.reduce((a, b) => a + b, "")
-        return wordFromSyllabs
-    }
+        console.log(invertedSyllabs);
+        let wordFromSyllabs = invertedSyllabs.reduce((a, b) => a + b, "");
+        return wordFromSyllabs;
+    };
 
-    invertTwoSyllabs (syllabs) {
-        console.log("Inverting 2 syllabs:" + syllabs)
+    // Divid the word in two chunks and inverts them, applying some easy rules.
+    // It also checks if impertofe needs to be applied
+    basicInversion (syllabs) {
+        console.log("Basic inversion of " + syllabs);
         let originalSyllabs = syllabs.slice();
-        let invertedSyllabs;
+        let n_syllabs = syllabs.length;
 
-        syllabs = this.removeDoubleConsonants(syllabs);
-        console.log("Double consonants removed:" + syllabs)
-        
-        invertedSyllabs = syllabs.reverse();
+        // Declare first chunck and second chunck, they will be inverted
+        let firstChunk;
+        let secondChunk;
 
+        // Needed when we apply impertofe. There we do not check if we 
+        // need to remove doubles
+        let skipDoublesRemoval = false;
+
+        if (n_syllabs == 1) {
+            // Nothing to do
+            return syllabs;
+        } else if (n_syllabs == 2) {
+            let firstLetter = syllabs[0][0];
+            let lastLetter = syllabs.slice(-1)[0].slice(-1)[0];
+            if (isVowel(firstLetter) && isVowel(lastLetter)) {
+                // 2 syllab words starting and ending with a vowel cannot be 
+                // inverted, they sonund bad
+                return syllabs;
+            } else {
+                firstChunk = syllabs[0];
+                secondChunk = syllabs[1];
+            }
+        } else {
+            let firstLetter = syllabs[0][0];
+            let lastLetter = syllabs.slice(-1)[0].slice(-1)[0];
+            if (isVowel(firstLetter) && isVowel(lastLetter)) {
+                console.log("Impertofe needed");
+                // We cannot invert, but we can apply impertofe (invert the 
+                // second chunck)
+                let tempSecondChunk = syllabs.slice(1);
+                // Before inverting: remove a double letter between first and 
+                // second chunk
+                let lastLetterFirstChunk = syllabs[0].slice(-1)[0];
+                let firstLetterSecondChunck = tempSecondChunk[0][0]
+                if (lastLetterFirstChunk == firstLetterSecondChunck) {
+                    syllabs[0] = syllabs[0].slice(0, -1)
+                }
+                // Invert the second chunck
+                let inverted = this.basicInversion(tempSecondChunk);
+                // Two dirty tricks are now needed:
+                //  - Skip the doubles removal
+                //  - Define FLIPPED first and second chunks (the first syllab
+                //    has to be again the first one at the end)
+                skipDoublesRemoval = true
+                secondChunk = syllabs[0];
+                firstChunk = inverted.reduce((a, b) => a + b, "");
+            } else {
+                // Two ways of defining the second chunck, equally valid. We
+                // take one of them with 50% chance
+                let u = Math.random();
+                if (u < 0.5) {
+                    firstChunk = syllabs.slice(0, -1).reduce((a, b) => a + b, "");
+                    secondChunk = syllabs.slice(-1).reduce((a, b) => a + b, "");
+                    console.log("First case " + firstChunk + "," + secondChunk)
+                } else {
+                    firstChunk = syllabs.slice(0, -2).reduce((a, b) => a + b, "");
+                    secondChunk = syllabs.slice(-2).reduce((a, b) => a + b, "");
+                    console.log("Second case " + firstChunk + "," + secondChunk)
+                }
+            }
+        };
+
+        // Define combined chunks (not yet inverted)
+        let chunks = new Array(firstChunk, secondChunk);
+        console.log("First and second chunks " + chunks)
+
+        // Remove doubles from the original world
+        if (!skipDoublesRemoval) {
+            chunks = this.removeDoubleLetters(chunks);
+            console.log("Doubles removed " + chunks);
+        }
+
+        // Finally: THE INVERSION
+        let invertedChunks = chunks.reverse();
+        console.log("invertedChunks " + invertedChunks)
+
+        // We need to remove doubles once again
+        if (!skipDoublesRemoval) {
+            invertedChunks = this.removeDoubleLetters(invertedChunks);
+            console.log("Doubles removed " + chunks)
+        };
+    
         // Check if the syllabs are the same, in this case return the original 
         // ones (this fixes some corner cases)
-        if (syllabs[0] === syllabs[1]) {
+        if (invertedChunks[0] === invertedChunks[1]) {
             return originalSyllabs;
         }
 
         // Erremossa technique
         if ((this.erreMossa) | (this.erreMossaToAllConsonants)) {
-            let lastInvSyllab = invertedSyllabs.slice(-1)[0]
-            let lastLetter = lastInvSyllab.slice(-1)[0]
+            let lastInvChunk = invertedChunks.slice(-1)[0]
+            let lastLetter = lastInvChunk.slice(-1)[0]
             if (
                 ((this.erreMossa) & (lastLetter === "r")) |
                 ((this.erreMossaToAllConsonants) & !(isVowel(lastLetter)))
                 ) {
-                    invertedSyllabs = [
-                        invertedSyllabs[0], lastLetter, lastInvSyllab.slice(0, -1)
+                    invertedChunks = [
+                        invertedChunks[0], lastLetter, lastInvChunk.slice(0, -1)
                     ];
                 }
         } 
 
-        // Check if we can pronounce it
-        if (this.doesItSoundBad(invertedSyllabs)) {
+        // Check if we can pronounce the final outcome
+        if (this.doesItSoundBad(invertedChunks)) {
             return originalSyllabs;
         } else {
-            return invertedSyllabs;
+            console.log("Returning " + invertedChunks)
+            return invertedChunks;
         }
-    };
 
-    invertThreeSyllabs (syllabs) {
-        let invertedSyllabs;
-        let u = Math.random();
-        if (u > 0.5) {
-            // Put together a couple of syllabs and invert using old method
-            invertedSyllabs = this.invertTwoSyllabs(
-                new Array (
-                    syllabs[0] + syllabs[1],
-                    syllabs[2]
-            ));
-            // If the word did not change, we can try a different combination.
-            if (invertedSyllabs === syllabs) {
-                invertedSyllabs = this.invertTwoSyllabs(
-                    new Array (
-                    syllabs[0],
-                    syllabs[1] + syllabs[2]
-                ));
-            };
-            // We return invertedSyllabs (they can be non inverted if the 
-            // inversion failed inside invertTwoSyllabs)
-            return invertedSyllabs;
-        } else {
-            // Same as before, but try in the other order
-            invertedSyllabs = this.invertTwoSyllabs(
-                new Array (
-                    syllabs[0],
-                    syllabs[1] + syllabs[2]
-            ));
-            if (invertedSyllabs === syllabs) {
-                invertedSyllabs = this.invertTwoSyllabs(
-                    new Array (
-                    syllabs[0] + syllabs[1],
-                    syllabs[2]
-                ));
-            };
-            return invertedSyllabs;
-        }
     };
 
     invertFourSyllabs (syllabs) {
-        if (this.supertofe) {
+        let u = Math.random()
+        // If supertofe is on, apply it only sometimes
+        if (this.supertofe && u > 0.5) {
             // Supertofe: invert first two, invert last two and then concatenate
-            let firstInverted = this.invertTwoSyllabs(syllabs.slice(0, 2));
-            let lastInverted = this.invertTwoSyllabs(syllabs.slice(-2));
+            let firstInverted = this.basicInversion(syllabs.slice(0, 2));
+            let lastInverted = this.basicInversion(syllabs.slice(-2));
             let invertedSyllabs = firstInverted.concat(lastInverted);
             // Check if we can pronounce it
             if (this.doesItSoundBad(invertedSyllabs)) {
@@ -255,8 +297,7 @@ export class Translator {
                 return invertedSyllabs;
             }
         } else {
-            // Cesempli
-            return this.invertTwoSyllabs(
+            return this.basicInversion(
                 new Array (
                     syllabs.slice(0, -1).reduce((a, b) => a + b, ""),
                     syllabs.pop()  //Last elem
@@ -269,10 +310,12 @@ export class Translator {
             throw "Apply only on words with at least 5 syllabs. Got " + syllabs
         }
 
-        if (this.supertofe) {
+        let u = Math.random()
+        // If supertofe is on, apply it only sometimes
+        if (this.supertofe && u > 0.5) {
             // This is a advanced supertofe technique
-            let firstInverted = this.invertTwoSyllabs(syllabs.slice(0, 2))
-            let lastInverted = this.invertThreeSyllabs(syllabs.slice(-3))
+            let firstInverted = this.basicInversion(syllabs.slice(0, 2))
+            let lastInverted = this.basicInversion(syllabs.slice(-3))
             let invertedSyllabs = 
                 firstInverted
                 .concat(syllabs.slice(2, syllabs.length - 3))
@@ -285,7 +328,7 @@ export class Translator {
             }
         } else {
             // Cesempli
-            return this.invertTwoSyllabs(
+            return this.basicInversion(
                 new Array (
                     syllabs.slice(0,-1).reduce((a, b) => a + b, ""),
                     syllabs.pop()  //Last elem
@@ -310,7 +353,7 @@ export class Translator {
         }
     };
 
-    removeDoubleConsonants (syllabs) {
+    removeDoubleLetters (syllabs) {
         for (let i = 0; i < syllabs.length - 1 ; i++) {
             let prev = syllabs[i]
             let succ = syllabs[i+1]
