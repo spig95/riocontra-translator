@@ -16,6 +16,7 @@
 }
 
 #finalInfo {
+    margin-top: 3rem;
     clear: both;
     font-style: italic;
 }
@@ -152,7 +153,8 @@ hr.first-hr {
     #buttons > .row > div > .btn,
     #advancedSettingsButton,
     #askLevel,
-    #eraseTranslation {
+    #eraseTranslation,
+    #finalInfo {
         font-size: 0.8rem;
     }
 
