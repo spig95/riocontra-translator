@@ -63,29 +63,46 @@ export class Translator {
         console.log("Splitted in words: ", splitted);
         // Loop over splitted sentence, translate each word and recompose the 
         // translated sentence
-        let translatedSentence = "";
+        let translations = [];
         for (let i = 0; i < splitted.length; i++) {
             let word = splitted[i];
             if (isSpecialChar(word)) {
                 // Just add it to the sentence
-                translatedSentence += word;
-            } else if (i === 0) {
-                // Handle capital letter
-                let translatedWord = this.translateWord(word)
-                let capitalizedTranslation = 
-                    translatedWord.charAt(0).toUpperCase() +
-                    translatedWord.slice(1).toLowerCase();
-                translatedSentence += capitalizedTranslation;
-            } else if (word.charAt(0) == word.charAt(0).toUpperCase()) {
-                // Do not translate a word that is capitalized
-                return word;
+                translations.push(word);
+            } else if (word.charAt(0) == word.charAt(0).toUpperCase() && i!=0) {
+                // Do not translate a word that is capitalized, except if it is
+                // the first one
+                translations.push(word);
             } else {
-                // Just translate and add to sentence
-                translatedSentence += this.translateWord(word);
-            };
+                // Translate this word only if the next one is not <'>, 
+                // otherwise articles will be translated (eg 'dell')
+                
+                // Get next word (if not at the end)
+                if (i < splitted.length -1) {
+                    var next = splitted[i+1];
+                } else {
+                    var next = "dummy"
+                }
+
+                // Check and translate if needed
+                if (next==="'") {
+                    translations.push(word);
+                } else {
+                    translations.push(this.translateWord(word));
+                }
+            }
         };
 
-        return translatedSentence;
+        // Handle capital letter for first word
+        if (translations.length > 0) {
+            let translatedWord = translations[0]
+            let capitalizedTranslation = 
+                translatedWord.charAt(0).toUpperCase() +
+                translatedWord.slice(1).toLowerCase();
+            translations[0] = capitalizedTranslation;
+        }
+
+        return translations.reduce((a, b) => a + b, "");
     };
 
     translateWord (word) {
