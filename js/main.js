@@ -134,7 +134,7 @@ document.addEventListener("DOMContentLoaded",
         document.getElementById("finalInfo").textContent = 
           "Scrivi una frase in italiano e premi su 'riocontralo!' per la sua " +
           "tradunezio in riocontra. Scegli a chi affidare la " +
-          "tradunezio (rosbi, chiove, supercazzolaro), o se sei un esperto " +
+          "tradunezio (rosbi, boba, chiove, supercazzolaro), o se sei un esperto " +
           "usa le impostanezio avanteza!";
       } else {
         // Compute translation
