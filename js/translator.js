@@ -58,9 +58,9 @@ export class Translator {
     };
 
     translateSentence (sentence) {
-        console.log("input sentence: ", sentence);
+        console.log("Input sentence: ", sentence);
         let splitted = splitSentence(sentence);
-        console.log("splitted: ", splitted);
+        console.log("Splitted in words: ", splitted);
         // Loop over splitted sentence, translate each word and recompose the 
         // translated sentence
         let translatedSentence = "";
@@ -157,7 +157,7 @@ export class Translator {
         }
 
         // Sum inverted syllabs to form the word
-        console.log(invertedSyllabs);
+        console.log("Inverted: " + invertedSyllabs);
         let wordFromSyllabs = invertedSyllabs.reduce((a, b) => a + b, "");
         return wordFromSyllabs;
     };
@@ -243,7 +243,7 @@ export class Translator {
 
         // Finally: THE INVERSION
         let invertedChunks = chunks.reverse();
-        console.log("invertedChunks " + invertedChunks)
+        console.log("InvertedChunks " + invertedChunks)
 
         // We need to remove doubles once again
         if (!skipDoublesRemoval) {
@@ -311,7 +311,6 @@ export class Translator {
 
         let u = Math.random();
         // If supertofe is on, apply it only sometimes
-        console.log("weeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee " + u + this.supertofePercentage)
         if (100 * u < this.supertofePercentage) {
             // This is a advanced supertofe technique
             let firstInverted = this.basicInversion(syllabs.slice(0, 2))
