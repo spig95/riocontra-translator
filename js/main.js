@@ -22,7 +22,21 @@ document.writeTranslationOutput = function(translation, divID) {
           "</div>" +
         "</div>" +
       "</div>" +
-    "</div>"
+    "</div>";
+  // Show the "cancel element"
+  document.getElementById("eraseTranslation").classList = "close";
+}
+
+/**
+ * Delete all user input and hide the delete button
+ */
+document.eraseTranslation = function(x) {
+  console.log("Erase translation")
+  document.getElementById("output").innerHTML = "";
+  document.getElementById("finalInfo").innerHTML = "";
+  document.getElementById("wannabe-translated").value = "";
+  // Hides the "cancel element"
+  document.getElementById("eraseTranslation").classList = "close d-none";
 }
 
 document.addEventListener("DOMContentLoaded",
@@ -116,8 +130,7 @@ document.addEventListener("DOMContentLoaded",
       // Translate and output (if input is not empty)
       if (toBeTrasnslated === "") {
         // Erase all content if the input is empty
-        document.getElementById("output").innerHTML = "";
-        document.getElementById("finalInfo").innerHTML = ""
+        document.eraseTranslation();
       } else {
         // Compute translation
         let translation = translator.translateSentence(toBeTrasnslated)
@@ -200,6 +213,11 @@ document.addEventListener("DOMContentLoaded",
     
     // Call the following functions when the document is loaded
     setSupercazzolaroSettings()
+    
+    // Cancel current translation
+    document.getElementById("eraseTranslation")
+      .addEventListener("click", document.eraseTranslation)
+
   }
 );
 

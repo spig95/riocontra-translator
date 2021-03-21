@@ -39,6 +39,12 @@
     max-height: 100px;
 }
 
+/*Override bootstrap style */
+.close {
+    font-size: 1em;
+    font-weight: bolder;
+}
+
 
 @media (max-width: 767px) {
     #output > .container > .image {

@@ -151,7 +151,8 @@ hr.first-hr {
 @media (max-width: 992px)  {
     #buttons > .row > div > .btn,
     #advancedSettingsButton,
-    #askLevel {
+    #askLevel,
+    #eraseTranslation {
         font-size: 0.8rem;
     }
 
