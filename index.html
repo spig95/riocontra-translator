@@ -170,7 +170,9 @@
           <hr>
           
           <section class="input-group input-group-sm">
-            <div class="num-input-instruction">Quante parole traduci in media?</div>  
+            <div class="num-input-instruction">Quante parole traduci in 
+              <a href="#" data-toggle="modal" data-target="#percentagePopUp">media</a>?
+            </div>  
             <input id="percentageInput" type="number" min="1" max="100" value="50" class="form-control num-input" aria-label="">
             <div class="input-group-append">
                 <span class="input-group-text">%</span>
@@ -231,7 +233,8 @@
           <hr>
 
           <section class="input-group input-group-sm">
-              <div class="num-input-instruction">Fissa il random seed (per i veri nerd):</div> 
+              <div class="num-input-instruction">Fissa il 
+                <a href="#" data-toggle="modal" data-target="#seedPopUp">random seed</a> (per i veri nerd):</div> 
               <input id="seedInput" type="number" min="0" class="form-control num-input" aria-label="" placeholder="TODO">
           </section>
 
@@ -245,6 +248,30 @@
         
 
         <!-- pop up explanations -->
+        <div id="percentagePopUp" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Quante parole vengono tradotte?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <p>
+                  Questo traduttore di riocontra non traduce tutte le parole, ma sceglie casualmente quali tradurre per 
+                  imitare al meglio l'imprevedibilità della dastra.
+                </p>
+                <p>
+                  La percentuale indica quante parole saranno tradotte. Ad esempio, impostando 100% tutte le parole 
+                  saranno tradotte, impostando 50% solo metà delle parole veranno tradotte (in media). Trovare la giusta
+                  percentuale è un'abilità molto apprezzata nella dastra.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div> <!-- percentagePopUp -->
+
         <div id="nezioPopUp" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -338,6 +365,34 @@
             </div>
           </div>
         </div> <!-- supertofePopUp -->
+
+
+        <div id="seedPopUp" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Scegliere il random seed</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <p>
+                  Se sei un nerd, probabilmente sai come funziona un random number generator, e che di fatto non è per 
+                  niente casuale. Con questo parametro puoi fissare il seed del random number generator, per poter
+                  riprodurre la stessa tradunezio più volte.
+                </p>
+                <p>
+                  <span class="font-weight-bold">Nota:</span> il vero ozi della dastra sceglierebbe il CAP di Lambrooklin 
+                  (Labrate): 20131. 
+                </p>
+                <p>
+                  <span class="font-weight-bold">Nota (2):</span> questa funzione non è ancora integrata. 
+                </p>
+              </div>
+            </div>
+          </div>
+        </div> <!-- seedPopUp -->
 
       </div>
     </div> <!-- levelSelection -->
