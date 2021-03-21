@@ -69,10 +69,10 @@ export class Translator {
             if (isSpecialChar(word)) {
                 // Just add it to the sentence
                 translations.push(word);
-            } else if (word.charAt(0) == word.charAt(0).toUpperCase() && i!=0) {
-                // Do not translate a word that is capitalized, except if it is
-                // the first one
-                translations.push(word);
+            // } else if (word.charAt(0) == word.charAt(0).toUpperCase() && i!=0) {
+            //     // Do not translate a word that is capitalized, except if it is
+            //     // the first one
+            //     translations.push(word);
             } else {
                 // Translate this word only if the next one is not <'>, 
                 // otherwise articles will be translated (eg 'dell')
@@ -85,21 +85,23 @@ export class Translator {
                 }
 
                 // Check and translate if needed
-                if (next==="'") {
+                if (next === "'") {
                     translations.push(word);
                 } else {
-                    translations.push(this.translateWord(word));
+                    let translated = this.translateWord(word);
+                    if (word.charAt(0) === word.charAt(0).toUpperCase()) {
+                        // Capitalize if the original was capitalized
+                        translated = this.capitalizeWord(translated);
+                    }
+                    // Add translated word to translations
+                    translations.push(translated);
                 }
             }
         };
 
-        // Handle capital letter for first word
+        // Capitalize first word
         if (translations.length > 0) {
-            let translatedWord = translations[0]
-            let capitalizedTranslation = 
-                translatedWord.charAt(0).toUpperCase() +
-                translatedWord.slice(1).toLowerCase();
-            translations[0] = capitalizedTranslation;
+            translations[0] = this.capitalizeWord(translations[0]);
         }
 
         return translations.reduce((a, b) => a + b, "");
@@ -378,6 +380,13 @@ export class Translator {
             }
         }
         return syllabs;
+    }
+
+    // Turn all to lower case, turn first char to upper case
+    capitalizeWord (word) {
+        console.log("Capitalizing " + word)
+        return word.charAt(0).toUpperCase() +
+            word.slice(1).toLowerCase();
     }
 
 
