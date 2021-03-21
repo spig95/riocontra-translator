@@ -196,12 +196,24 @@
             </section>
 
             <hr>
-            
-            <section class="form-check">
-              <input id="superTofeCheckbox" class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-              <label class="form-check-label" for="defaultCheck1">
-                Spunta se sei pronto per il <a href="#" data-toggle="modal" data-target="#supertofePopUp">supertofe</a>!
-              </label>
+
+            <section id="supertofeSec">
+              Vuoi usare la tecnica del <a href="#" data-toggle="modal" data-target="#supertofePopUp">supertofe</a>?
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input id="supertofeNo" checked type="radio" class="form-check-input" name="optSupertofe">No ziegra
+                </label>
+              </div>
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input id="supertofeSometimes" type="radio" class="form-check-input" name="optSupertofe">Qualche volta
+                </label>
+              </div>
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input id="supertofeAlways" type="radio" class="form-check-input" name="optSupertofe">Sempre
+                </label>
+              </div>
             </section>
             
             <hr>
@@ -336,7 +348,7 @@
       </div>
     </div>
 
-    <div class="container">
+    <div class="container text-center">
       <div id="currentModeInfo">
       </div>
     </div>
@@ -345,7 +357,7 @@
     </div>
     
     <div>
-      <div id="finalInfo" class="container">
+      <div id="finalInfo" class="container text-center">
       </div>
     </div>  
   

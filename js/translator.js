@@ -14,7 +14,7 @@ export class Translator {
         nezioTechnique,
         erreMossa,
         erreMossaToAllConsonants,
-        supertofe) {
+        supertofePercentage) {
         
         if ((percentage == undefined) || (percentage < 0) || (percentage > 100)
         ) {
@@ -48,12 +48,11 @@ export class Translator {
                 erreMossaToAllConsonants;
         }
         
-        if (supertofe == undefined) {
-            this.supertofe = true
-        } else if (typeof(supertofe) === "boolean") {
-            this.supertofe = supertofe
+        if ((supertofePercentage == undefined) || (supertofePercentage < 0) || (supertofePercentage > 100)
+        ) {
+            throw "Please define a percentage between 0 and 100. Got " + supertofePercentage;
         } else {
-            throw "supertofe should be a boolean. Got " + supertofe
+            this.supertofePercentage = supertofePercentage;
         }
 
     };
@@ -285,7 +284,7 @@ export class Translator {
     invertFourSyllabs (syllabs) {
         let u = Math.random()
         // If supertofe is on, apply it only sometimes
-        if (this.supertofe && u > 0.5) {
+        if (100 * u < this.supertofePercentage) {
             // Supertofe: invert first two, invert last two and then concatenate
             let firstInverted = this.basicInversion(syllabs.slice(0, 2));
             let lastInverted = this.basicInversion(syllabs.slice(-2));
@@ -310,9 +309,10 @@ export class Translator {
             throw "Apply only on words with at least 5 syllabs. Got " + syllabs
         }
 
-        let u = Math.random()
+        let u = Math.random();
         // If supertofe is on, apply it only sometimes
-        if (this.supertofe && u > 0.5) {
+        console.log("weeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee " + u + this.supertofePercentage)
+        if (100 * u < this.supertofePercentage) {
             // This is a advanced supertofe technique
             let firstInverted = this.basicInversion(syllabs.slice(0, 2))
             let lastInverted = this.basicInversion(syllabs.slice(-3))

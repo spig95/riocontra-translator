@@ -4,7 +4,8 @@
 
 #buttons,
 #input-div,
-#currentModeInfo {
+#currentModeInfo,
+#finalInfo {
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
 }
@@ -16,7 +17,6 @@
 
 #finalInfo {
     clear: both;
-    margin-top: 10px;
     font-style: italic;
 }
 
@@ -110,6 +110,7 @@ footer,
     font-style: italic;
 }
 
+#supertofeSec > .form-check,
 #erreMossaSec > .form-check {
     margin-left: 2em;
 }

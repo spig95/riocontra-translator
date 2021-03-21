@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded",
       document.getElementById("nezioCheckbox").checked = false;
       document.getElementById("erreMossaCheckbox").checked = false;
       document.getElementById("erreMossaAllConsonantsCheckbox").checked = false;
-      document.getElementById("superTofeCheckbox").checked = false;
+      document.getElementById("supertofeNo").checked = false;
       displayCurrentMode()
       onClickTranslate(event)
     }
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded",
       document.getElementById('percentageInput').value = 25;
       document.getElementById("nezioCheckbox").checked = true;
       document.getElementById("erreMossaCheckbox").checked = true;
-      document.getElementById("superTofeCheckbox").checked = false;
+      document.getElementById("supertofeNo").checked = false;
       displayCurrentMode()
       onClickTranslate(event)
     }
@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded",
       document.getElementById('percentageInput').value = 50;
       document.getElementById("nezioCheckbox").checked = true;
       document.getElementById("erreMossaAllConsonantsCheckbox").checked = true;
-      document.getElementById("superTofeCheckbox").checked = true;
+      document.getElementById("supertofeSometimes").checked = true;
       displayCurrentMode()
       onClickTranslate(event)
     }
@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded",
       document.getElementById('percentageInput').value = 100;
       document.getElementById("nezioCheckbox").checked = true;
       document.getElementById("erreMossaAllConsonantsCheckbox").checked = true;
-      document.getElementById("superTofeCheckbox").checked = true;
+      document.getElementById("supertofeAlways").checked = true;
       displayCurrentMode()
       onClickTranslate(event)
     }
@@ -89,14 +89,21 @@ document.addEventListener("DOMContentLoaded",
       let nezioCheckBox = document.getElementById("nezioCheckbox");
       let erreMossaCheckbox = document.getElementById("erreMossaCheckbox")
       let erreMossaAllConsonantsCheckbox = document.getElementById("erreMossaAllConsonantsCheckbox")
-      let superTofeCheckbox = document.getElementById("superTofeCheckbox")
+      let supertofePercentage;
+      if (document.getElementById("supertofeNo").checked) {
+        supertofePercentage = 0;
+      } else if (document.getElementById("supertofeSometimes").checked) {
+        supertofePercentage = 50;
+      } else if (document.getElementById("supertofeAlways").checked) {
+        supertofePercentage = 100;
+      }
 
       var translator = new Translator(
         percentage,
         nezioCheckBox.checked,
         erreMossaCheckbox.checked,
         erreMossaAllConsonantsCheckbox.checked,
-        superTofeCheckbox.checked,
+        supertofePercentage,
       )
 
       // Get text to be translated
