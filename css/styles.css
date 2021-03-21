@@ -16,7 +16,7 @@
 }
 
 #finalInfo {
-    margin-top: 3rem;
+    margin-top: 5rem;
     clear: both;
     font-style: italic;
 }
@@ -156,6 +156,10 @@ hr.first-hr {
     #eraseTranslation,
     #finalInfo {
         font-size: 0.8rem;
+    }
+
+    #finalInfo {
+        margin-top: 1.5rem
     }
 
     #buttons > .row > div > .btn,

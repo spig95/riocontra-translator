@@ -131,6 +131,11 @@ document.addEventListener("DOMContentLoaded",
       if (toBeTrasnslated === "") {
         // Erase all content if the input is empty
         document.eraseTranslation();
+        document.getElementById("finalInfo").textContent = 
+          "Scrivi una frase in italiano e premi su 'riocontralo!' per la sua " +
+          "tradunezio in riocontra. Scegli a chi affidare la " +
+          "tradunezio (rosbi, chiove, supercazzolaro), o se sei un esperto " +
+          "usa le impostanezio avanteza!";
       } else {
         // Compute translation
         let translation = translator.translateSentence(toBeTrasnslated)
@@ -163,7 +168,8 @@ document.addEventListener("DOMContentLoaded",
 
         // Give some final info
         document.getElementById("finalInfo").textContent = 
-          "Seleziona un altro traduttore (rosbi, supercazzolaro, chiove, ...) e cacli ancora su 'Riocontralo!' " +
+          "Seleziona un altro traduttore (rosbi, boba, chiove, ...) " +
+          "e cacli ancora su 'Riocontralo!' " +
           "per una nuova traduzione.";
       }
 
