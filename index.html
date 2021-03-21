@@ -161,9 +161,21 @@
         </div>
 
         <div id="advancedSettings" class="collapse" data-parent="#levelSelection">
+          
           <hr class="first-hr">
+          
           Nutobenve nelle <span class="font-weight-bold">impostanezio avanteza</span>, dove i revi intendiroti possono sperimentare la migliore 
           combinezio di riocontra. 
+
+          <hr>
+          
+          <section class="input-group input-group-sm">
+            <div class="num-input-instruction">Quante parole traduci in media?</div>  
+            <input id="percentageInput" type="number" min="1" max="100" value="50" class="form-control num-input" aria-label="">
+            <div class="input-group-append">
+                <span class="input-group-text">%</span>
+            </div>
+          </section>
 
           <hr>
 
@@ -193,11 +205,11 @@
                   <input id="erreMossaAllConsonantsCheckbox" type="radio" class="form-check-input" name="optErreMossa">Erre mossa a tutte le consonanti
                 </label>
               </div>
-            </section>
+          </section>
 
-            <hr>
+          <hr>
 
-            <section id="supertofeSec">
+          <section id="supertofeSec">
               Vuoi usare la tecnica del <a href="#" data-toggle="modal" data-target="#supertofePopUp">supertofe</a>?
               <div class="form-check">
                 <label class="form-check-label">
@@ -214,22 +226,15 @@
                   <input id="supertofeAlways" type="radio" class="form-check-input" name="optSupertofe">Sempre
                 </label>
               </div>
-            </section>
-            
-            <hr>
-
-            <section class="input-group input-group-sm">
-                <span class="num-input-instruction">Quante parole traduci in media?</span>
-                <input id="percentageInput" type="number" min="1" max="100" value="50" class="form-control num-input" aria-label="">
-                <div class="input-group-append">
-                  <span class="input-group-text">%</span>
-                </div>
-            </section>
-
-          <section class="input-group input-group-sm mb-3">
-              <span class="num-input-instruction">Fissa il random seed (per i veri nerd):</span> 
-              <input type="number" min="0" class="form-control num-input" aria-label="" placeholder="TODO">
           </section>
+            
+          <hr>
+
+          <section class="input-group input-group-sm">
+              <div class="num-input-instruction">Fissa il random seed (per i veri nerd):</div> 
+              <input id="seedInput" type="number" min="0" class="form-control num-input" aria-label="" placeholder="TODO">
+          </section>
+
           <div class="up-arrow-button text-right">
             <button class="btn collapsed" data-toggle="collapse" data-target="#advancedSettings" aria-expanded="false" aria-controls="advancedSettings">
               <img src="img/arrow-bar-up.svg" alt="Collapse">

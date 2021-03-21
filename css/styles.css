@@ -84,7 +84,7 @@ footer,
 
 /*Up-arrow to collapse level description */
 .up-arrow-button {
-    margin-top: -1em;
+    margin-top: -1rem;
     margin-bottom: 0;
     padding: 0;
 }
@@ -112,7 +112,7 @@ footer,
 
 #supertofeSec > .form-check,
 #erreMossaSec > .form-check {
-    margin-left: 2em;
+    margin-left: 2rem;
 }
 
 /* Footer fixed at the bottom of the page if fits. Works fix a fixed height 
@@ -133,12 +133,12 @@ footer {
 .num-input-instruction {
     margin-top: auto; 
     margin-bottom: auto; 
-    margin-right: 1em;
+    margin-right: 1rem;
 }
 
 /* Shorter numerical input */
 .num-input {
-    max-width: 6em;
+    max-width: 6rem;
 }
 
 
@@ -152,7 +152,7 @@ hr.first-hr {
     #buttons > .row > div > .btn,
     #advancedSettingsButton,
     #askLevel {
-        font-size: 0.8em;
+        font-size: 0.8rem;
     }
 
     #buttons > .row > div > .btn,
@@ -188,28 +188,39 @@ hr.first-hr {
     /*Reduce space between level description paragraphs and setting sections*/
     .level-description > p,
     .level-description > hr,
-    #advancedSettings > hr,
     #advancedSettings > section {
         margin-top: 0;
-        margin-bottom: 0.25em;
+        margin-bottom: 0.25rem;
     }
 
     hr,
     #copyRight {
-        margin-top: 0.25em;
+        margin-top: 0.25rem;
     }
 
+    #advancedSettings > hr {
+        margin: 0.5rem 0;
+    }
+
+    /*Force the input button to a new line*/
+    .num-input-instruction {
+        min-width: 100%;
+    }
+
+    .form-control.num-input {
+        margin-left: 2rem;
+    }
   }
 
 @media (max-width: 320px) {
     #pageTitle,
     #pageSubTitle {
-        font-size: 0.8em;
+        font-size: 0.8rem;
     }
 
     #copyRight,
     #pageCredits {
-        font-size: 0.6em !important;
+        font-size: 0.6rem !important;
     }
 }
   
