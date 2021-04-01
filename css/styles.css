@@ -96,6 +96,8 @@ footer,
 } 
 
 #pageTitle {
+    text-decoration: none;
+    color: inherit;
     font-weight: 500;
     font-size: x-large;
 }
