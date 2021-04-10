@@ -168,7 +168,7 @@ document.addEventListener("DOMContentLoaded",
 
         // Give some final info
         document.getElementById("finalInfo").textContent = 
-          "Seleziona un altro traduttore (rosbi, boba, chiove, ...) " +
+          "Seleziona un altro traduttore (rosbi, boba, chiove, supercazzolaro ...) " +
           "e cacli ancora su 'Riocontralo!' " +
           "per una nuova traduzione.";
       }
