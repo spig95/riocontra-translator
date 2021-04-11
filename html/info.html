@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="bootstrap-4.6.0-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/comics.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/output-styles.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/essentials.js"></script> 
+    
+    <script type="module" src="js/main.js"></script>
+  </head>
+  
+  <body>
+
+    <div id="content-wrapper"> <!-- Allow a sticky footer -->
+
+    <div id="header">
+    </div>
+
+    <div id="levelSelection">
+      <div class="container">
+        <div id="askLevel" class="text-center">Scegli attentamente chi deve fare la tradunezio... </div> 
+        <div id="buttons">
+          <div class="row">
+            <div class="col-md col-6">
+              <button id="rosbiButton" class="btn btn-level collapsed" data-toggle="collapse" data-target="#rosbiContent" aria-expanded="false" aria-controls="rosbiContent">
+                Rosbi
+              </button>
+            </div>
+          
+            <div class="col-md col-6">
+              <button id="bobaButton" class="btn btn-level collapsed" data-toggle="collapse" data-target="#bobaContent" aria-expanded="false" aria-controls="bobaContent">
+                Boba
+              </button>
+            </div>
+
+            <div class="col-md col-6">
+              <button id="chioveButton" class="btn btn-level collapsed" data-toggle="collapse" data-target="#chioveContent" aria-expanded="false" aria-controls="#chioveContent">
+                Chiove
+              </button>
+            </div>
+
+            <div class="col-md col-6">
+              <button id="oziButton" type="button" class="btn btn-level" data-toggle="modal" data-target="#oziPopUp">
+                <a data-toggle="tooltip" data-placement="top" title="Non esiste intelligenza artifilecia in grado di imitare l'Ozi.">
+                  <a>Ozi della Dastra<a>
+                </a>
+              </button>
+            </div>
+
+            <div class="col-md col-6">
+              <button id="supercazzolaroButton" class="col btn btn-level collapsed" data-toggle="collapse" data-target="#supercazzolaroContent" aria-expanded="false" aria-controls="supercazzolaroContent">
+                Supercazzolaro
+              </button>
+            </div>
+
+          
+          <div class="col-md-12 col-6 text-left">
+            <button id="advancedSettingsButton" class="btn btn-link collapsed" data-toggle="collapse" data-target="#advancedSettings" role="button" aria-expanded="false" aria-controls="advancedSettings">
+                Impostanezio avanteza
+            </button>
+          </div>
+
+        </div>
+
+        </div> <!-- buttons -->
+
+        <div id="rosbiContent" class="level-description collapse" data-parent="#levelSelection">
+          <hr class="first-hr">
+          <p>Il <span class="font-weight-bold">rosbi</span> non conosce il riocontra.</p>
+          <p>Si avvicina incautamente all'ozi della dastra parlando un italiano perfetto, 
+            sperando di imparare qualcosa. Putroppo il riocontra gli resta incomprensibile e non impara nemmeno le regole
+            più basilari.
+          </p>
+          <div class="up-arrow-button text-right">
+            <button class="btn collapsed" data-toggle="collapse" data-target="#rosbiContent" aria-expanded="false" aria-controls="rosbiContent">
+              <img src="img/arrow-bar-up.svg" alt="Collapse">
+            </button>
+          </div>
+        </div>
+
+        <div id="bobaContent" class="level-description collapse" data-parent="#levelSelection">
+          <hr class="first-hr">
+          <p>Il <span class="font-weight-bold">boba</span> è un timido, reso tale dal bullismo dei tefra a lascuo.</p>
+          <p>Per via della sua timidezza, traduce solo il <a href="#" data-toggle="modal" data-target="#percentagePopUp">25%</a> delle parole. Inoltre conosce poche tecniche, tra cui 
+            quella del 
+            <a href="#" data-toggle="modal" data-target="#nezioPopUp">nezio</a>.
+          </p>
+          <div class="up-arrow-button text-right">
+            <button class="btn collapsed" data-toggle="collapse" data-target="#bobaContent" aria-expanded="false" aria-controls="bobaContent">
+              <img src="img/arrow-bar-up.svg" alt="Collapse">
+            </button>
+          </div>
+        </div>
+
+        <div id="chioveContent" class="level-description collapse" data-parent="#levelSelection">
+          <hr class="first-hr">
+          <p>Il <span class="font-weight-bold">chiove</span> ne sa, e non ha paura di mostrarlo.</p>
+          <p>Il chiove traduce il <a href="#" data-toggle="modal" data-target="#percentagePopUp">50%</a> delle parole, e dalla sua elevata 
+            esperienza conosce tutte le tecniche del riocontra, perfino il <a href="#" data-toggle="modal" data-target="#supertofePopUp">supertofe</a>.
+          </p>
+          <div class="up-arrow-button text-right">
+            <button class="btn collapsed" data-toggle="collapse" data-target="#chioveContent" aria-expanded="false" aria-controls="chioveContent">
+              <img src="img/arrow-bar-up.svg" alt="Collapse">
+            </button>
+          </div>
+        </div>
+
+        <div id="oziPopUp" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Non nibiledispo</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <p>
+                  Non esiste intelligenza artifilecia in grado di imitare l'ozi della dastra.
+                </p>
+                <p>
+                  A pensarci nebe, le intelligenze artifilece si allenano nel cloud, ma il riocontra si può
+                  imparare solo nella dastra!
+                </p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Scegli un altro lolive!</button>
+              </div>
+            </div>
+          </div>
+        </div> <!-- oziPopUp -->
+
+        <div id="supercazzolaroContent" class="level-description collapse" data-parent="#levelSelection">
+          <hr class="first-hr">
+          <p>Il <span class="font-weight-bold">supercazzolaro</span> 
+            è l'uomo di teoria, conosce tutte le regole ma non viene dalla 
+            dastra.
+          </p>
+          <p>Usa il riocontra per supercazzolare e traduce <span class="font-weight-bold">tutte</span> le 
+            parole. Purtroppo il supercazzolaro 
+            sa solo abusare del riocontra, e non sa regolarsi come un vero ozi.
+          </p>
+          <div class="up-arrow-button text-right">
+            <button class="btn collapsed" data-toggle="collapse" data-target="#supercazzolaroContent" aria-expanded="false" aria-controls="supercazzolaroContent">
+              <img src="img/arrow-bar-up.svg" alt="Collapse">
+            </button>
+          </div>
+        </div>
+
+        <div id="advancedSettings" class="collapse" data-parent="#levelSelection">
+          
+          <hr class="first-hr">
+          
+          Nutobenve nelle <span class="font-weight-bold">impostanezio avanteza</span>, dove i revi intendiroti possono sperimentare la migliore 
+          combinezio di riocontra. 
+
+          <hr>
+          
+          <section class="input-group input-group-sm">
+            <div class="num-input-instruction">Quante parole traduci in 
+              <a href="#" data-toggle="modal" data-target="#percentagePopUp">media</a>?
+            </div>  
+            <input id="percentageInput" type="number" min="1" max="100" value="50" class="form-control num-input" aria-label="">
+            <div class="input-group-append">
+                <span class="input-group-text">%</span>
+            </div>
+          </section>
+
+          <hr>
+
+          <section class="form-check">
+              <input id="nezioCheckbox" class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+              <label class="form-check-label" for="defaultCheck1">
+                Spunta se vuoi usare la tecnica del <a href="#" data-toggle="modal" data-target="#nezioPopUp">nezio</a>.
+              </label>
+          </section>
+
+          <hr>
+
+          <section id="erreMossaSec">
+              Vuoi usare la tecnica dell'<a href="#" data-toggle="modal" data-target="#erreMossaPopUp">erre mossa</a>?
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input checked type="radio" class="form-check-input" name="optErreMossa">No ziegra
+                </label>
+              </div>
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input id="erreMossaCheckbox" type="radio" class="form-check-input" name="optErreMossa">Erre mossa tradizionale
+                </label>
+              </div>
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input id="erreMossaAllConsonantsCheckbox" type="radio" class="form-check-input" name="optErreMossa">Erre mossa a tutte le consonanti
+                </label>
+              </div>
+          </section>
+
+          <hr>
+
+          <section id="supertofeSec">
+              Vuoi usare la tecnica del <a href="#" data-toggle="modal" data-target="#supertofePopUp">supertofe</a>?
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input id="supertofeNo" checked type="radio" class="form-check-input" name="optSupertofe">No ziegra
+                </label>
+              </div>
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input id="supertofeSometimes" type="radio" class="form-check-input" name="optSupertofe">Qualche volta
+                </label>
+              </div>
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input id="supertofeAlways" type="radio" class="form-check-input" name="optSupertofe">Sempre
+                </label>
+              </div>
+          </section>
+            
+          <hr>
+
+          <section class="input-group input-group-sm">
+              <div class="num-input-instruction">Fissa il 
+                <a href="#" data-toggle="modal" data-target="#seedPopUp">random seed</a> (per i veri nerd):</div> 
+              <input id="seedInput" type="number" min="0" class="form-control num-input" aria-label="" placeholder="not active">
+          </section>
+
+          <div class="up-arrow-button text-right">
+            <button class="btn collapsed" data-toggle="collapse" data-target="#advancedSettings" aria-expanded="false" aria-controls="advancedSettings">
+              <img src="img/arrow-bar-up.svg" alt="Collapse">
+            </button>
+          </div>
+
+        </div> <!-- advancedSettings-->
+        
+
+        <!-- pop up explanations -->
+        <div id="percentagePopUp" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Quante parole vengono tradotte?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <p>
+                  Questo traduttore di riocontra non traduce tutte le parole, ma sceglie casualmente quali tradurre per 
+                  imitare al meglio l'imprevedibilità della dastra.
+                </p>
+                <p>
+                  La percentuale indica quante parole saranno tradotte. Ad esempio, impostando 100% tutte le parole 
+                  saranno tradotte, impostando 50% solo metà delle parole veranno tradotte (in media). Trovare la giusta
+                  percentuale è un'abilità molto apprezzata nella dastra.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div> <!-- percentagePopUp -->
+
+        <div id="nezioPopUp" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">La tecnica del nezio</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <p>
+                  Una delle mepri tecniche del riocontra. Trasforma la desinenza '-zione' in '-nezio', lasciando il 
+                  resto della parola invariato. Ad esempio:
+                </p>
+                <ul>
+                  <li>Maledizione &rarr; maledinezio</li>
+                  <li>Posizione &rarr; posinezio</li>
+                  <li>Perquisizione &rarr; perquisinezio</li>
+                  <li>Autocertificazione &rarr; autocertificanezio</li>
+                </ul>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Ho tocapi alla perfenezio.</button>
+              </div>
+            </div>
+          </div>
+        </div> <!-- nezioPopUp -->
+
+        <div id="erreMossaPopUp" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">La tecnica dell'erre mossa</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <p>
+                  Il riocontra è schiavo del suono, e non ammette parole che terminano per 'erre'. Se dopo un'inversione
+                  semplice la parola al riocontra termina per 'erre', la si sposta in centro. Ecco alcuni esempi:
+                </p>
+                <ul>
+                  <li>Merda &rarr; daMer &rarr; darme</li>
+                  <li>Furto &rarr; toFur &rarr; torfu</li>
+                  <li>Carte &rarr; teCar &rarr; terca</li>
+                </ul>
+                <p>
+                  Secondo il gusto personale, certi praticanti del riocontra amano applicare la tecnica dell'erre mossa
+                  anche ad altre consonanti. Una tecnica che va usata con cautela, e rende difficile l'ascolto del 
+                  riocontra anche ai più esperti. Ecco alcuni esempi:
+                </p>
+                <ul>
+                  <li>Talpa &rarr; paTal &rarr; palta</li>
+                  <li>Malta &rarr; taMal &rarr; talma</li>
+                </ul>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Pertofe!</button>
+              </div>
+            </div>
+          </div>
+        </div> <!-- erreMossaPopUp -->
+
+        <div id="supertofePopUp" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Il supertofe (super-perfetto)</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <p>
+                  Questa è una delle tecniche più avanteza del riocontra: usatela con attenezio!
+                </p>
+                <p>
+                  Quando una parola ha almeno quattro sillabe, si applica il riocontra al primo e al secondo gruppo di 
+                  sillabe separatamente, e poi si uniscono le due parti. Ecco alcuni esempi:
+                </p>
+                <ul>
+                  <li>Baciamano &rarr; Bacia - mano &rarr; Ciabanoma </li>
+                  <li>Paracadute &rarr; Para - cadute &rarr; Rapaduteca</li>
+                  <li>Dipendenza &rarr; Dipen - denza &rarr; Pendizande</li>
+                </ul>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Capito, è tafancosti!</button>
+              </div>
+            </div>
+          </div>
+        </div> <!-- supertofePopUp -->
+
+
+        <div id="seedPopUp" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Scegliere il random seed</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <p>
+                  Se sei un nerd, probabilmente sai come funziona un random number generator, e che di fatto non è per 
+                  niente casuale. Con questo parametro puoi fissare il seed del random number generator, per poter
+                  riprodurre la stessa tradunezio più volte.
+                </p>
+                <p>
+                  <span class="font-weight-bold">Nota:</span> il vero ozi della dastra sceglierebbe il CAP di Lambrooklin 
+                  (Labrate): 20131. 
+                </p>
+                <p>
+                  <span class="font-weight-bold">Nota (2):</span> questa funzione non è ancora integrata. 
+                </p>
+              </div>
+            </div>
+          </div>
+        </div> <!-- seedPopUp -->
+
+      </div>
+    </div> <!-- levelSelection -->
+
+    <div class="container">
+      <div id="input-div" class="input-group">
+        <input id="wannabe-translated" type="text" class="form-control" placeholder="Cosa dici all'ozi?" aria-label="Saco dici all'ozi?" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+          <button id="translate-button" class="btn btn-outline-secondary" type="button">
+            riocontralo!
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="container text-center">
+      <div id="currentModeInfo">
+      </div>
+    </div>
+
+    <div id="output">
+    </div>
+
+    <div class="container">
+      <button id='eraseTranslation' type='button' class='d-none' aria-label='Close'>
+        <span> Cancella</span> 
+        <span aria-hidden='true'>
+          &times;
+        </span>
+      </button>
+    </div>
+    
+    <div>
+      <div id="finalInfo" class="container text-center">
+      </div>
+    </div>  
+  
+  </div> <!-- content-wrapper -->
+  <footer id="footer">
+    <div class="container">
+      <div class="row">  
+        <div id="copyRight" class="col-4 col-md-5">
+          Version 1.0 <br>
+          &copy Lospigo
+        </div>
+        <div id="pageCredits" class="col-8 col-md-7 text-right">
+          Liberamente ispirato dal 
+            <cite> 
+              <a href="https://volumevolume.it/negozio/aldofre-e-nigiova-di-nobru-il-riocontra-illutostra/" target="_blank">
+                Riocontra Illutostra</a>
+            </cite> 
+           dei fratelli Di Nobru
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+  <script src="bootstrap-4.6.0-dist/js/bootstrap.min.js"></script>
+  </body>
+</html>

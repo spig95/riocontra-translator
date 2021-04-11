@@ -66,16 +66,25 @@
 }
 
 #header, 
-footer,
-#pageCredits > cite > a{
+footer{
     background-color: #333;
     color: #f2f2f2;
 }
 
+#collapsableLinks > hr {
+    border-color: #f2f2f2;
+}
 
-#pageCredits > cite > a {
+
+.my-dark-link {
+    color: #f2f2f2;
     font-style: normal;
+    text-decoration: none;
+}
+
+.my-dark-link:hover {
     text-decoration: underline;
+    color: black;
 }
 
 #levelSelection {
