@@ -112,7 +112,8 @@ footer{
 }
 
 #pageSubTitle,
-#pageCredits {
+#pageCredits,
+#burgerButton {
     margin-top: auto;
     margin-bottom: auto;
 }
