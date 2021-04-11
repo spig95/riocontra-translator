@@ -108,8 +108,14 @@ footer,
     margin-bottom: auto;
 }
 
+#extraSmallPagesSubTitle,
 #pageSubTitle {
     font-style: italic;
+}
+
+#extraSmallPagesSubTitle {
+    visibility: hidden;
+    height: 0;
 }
 
 #supertofeSec > .form-check,
@@ -221,12 +227,24 @@ hr.first-hr {
     }
   }
 
-@media (max-width: 320px) {
-    #pageTitle,
-    #pageSubTitle {
+@media (max-width: 375px) {
+    #pageTitle{
         font-size: 0.8rem;
     }
 
+    #pageSubTitle {
+        visibility: hidden;
+        width: 0px; 
+        height: 0px;
+    }
+
+    #extraSmallPagesSubTitle {
+        text-align: center;
+        visibility: visible;
+        height: 100%;
+    }
+
+    #extraSmallPagesSubTitle,
     #copyRight,
     #pageCredits {
         font-size: 0.6rem !important;
