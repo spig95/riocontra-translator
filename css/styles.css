@@ -67,7 +67,7 @@
 
 #header, 
 footer,
-#pageCredits > cite > a {
+#pageCredits > cite > a{
     background-color: #333;
     color: #f2f2f2;
 }
@@ -104,7 +104,6 @@ footer,
 
 #pageSubTitle,
 #pageCredits {
-    text-align: right;
     margin-top: auto;
     margin-bottom: auto;
 }
@@ -175,7 +174,8 @@ hr.first-hr {
 
     #pageSubTitle,
     #pageCredits,
-    #copyRight {
+    #copyRight,
+    .navbar-toggler-icon {
         font-size: small;
     }
 }
