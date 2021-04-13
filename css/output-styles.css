@@ -1,22 +1,22 @@
 #rosbiTranslation > .image {
-    background-image: url("../img/rosbi.svg");
+    background-image: url("/img/rosbi.svg");
 }
 
 #bobaTranslation > .image {
-    background-image: url("../img/boba.png");
+    background-image: url("/img/boba.png");
 }
 
 #chioveTranslation > .image {
-    background-image: url("../img/chiove.png");
+    background-image: url("/img/chiove.png");
 }
 
 #supercazzolaroTranslation > .image {
-    background-image: url("../img/supercazzolaro.svg");
+    background-image: url("/img/supercazzolaro.svg");
 }
 
 
 #advancedSettingsTranslation > .image {
-    background-image: url("../img/advancedSettings.png");
+    background-image: url("/img/advancedSettings.png");
 }
 
 
