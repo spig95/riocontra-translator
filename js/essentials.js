@@ -2,6 +2,6 @@
 
 // Load header and footer
 $(function(){
-    $("#header").load("/html/header.html"); 
-    $("#footer").load("/html/footer.html"); 
+    $("#header").load("/riocontra-translator/html/header.html"); 
+    $("#footer").load("/riocontra-translator/html/footer.html"); 
 });
