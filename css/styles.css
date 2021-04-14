@@ -237,7 +237,7 @@ hr.first-hr {
     }
   }
 
-@media (max-width: 375px) {
+@media (max-width: 365px) {
     #pageTitle{
         font-size: 0.8rem;
     }
