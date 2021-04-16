@@ -2,17 +2,15 @@
     box-sizing: border-box;
   }
 
-#buttons,
+#buttons {
+    padding-top: 0.5rem;
+}
+
 #input-div,
 #currentModeInfo,
 #finalInfo {
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
-}
-
-#askLevel {
-    padding-top: 0.5rem;
-    padding-bottom: 0;
 }
 
 #finalInfo {
@@ -169,7 +167,6 @@ hr.first-hr {
 @media (max-width: 992px)  {
     #buttons > .row > div > .btn,
     #advancedSettingsButton,
-    #askLevel,
     #eraseTranslation,
     #finalInfo {
         font-size: 0.8rem;
