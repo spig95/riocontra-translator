@@ -1,9 +1,10 @@
 import { Translator } from './translator.js'
 
-document.mode = "supercazzolaro";
-document.oldMode = "supercazzolaro";
+document.mode = "none";
+document.oldMode = "none";
 document.allowedModes = [
   "none",
+  "rosbi",
   "boba",
   "chiove",
   "supercazzolaro",
@@ -21,6 +22,21 @@ document.changeMode = function(newMode) {
   
 }
 
+// When the site loads or when no sentence is selected we display this
+document.displayInitMessage = function() {
+  document.getElementById("finalInfo").textContent = 
+  "Scrivi una frase in italiano e premi su 'riocontralo!' per la sua " +
+  "tradunezio in riocontra. Scegli a chi affidare la " +
+  "tradunezio (rosbi, boba, chiove, supercazzolaro), o se sei un esperto " +
+  "usa le impostanezio avanteza!";
+}
+
+// When the mode is undefined but the user wants a translation we display this
+document.displayUndefinedModeError = function() {
+  document.getElementById("finalInfo").textContent = 
+  "Attenezio! Seleziona uno dei traduttori prima di premere riocontralo!";
+  $("#selectTranslatorPopUp").modal();
+}
 
 /**
  * Add divs to output div. These are styled by output styles css
@@ -46,7 +62,7 @@ document.writeTranslationOutput = function(translation, divID) {
 document.eraseTranslation = function(x) {
   console.log("Erase translation")
   document.getElementById("output").innerHTML = "";
-  document.getElementById("finalInfo").innerHTML = "";
+  document.displayInitMessage();
   document.getElementById("wannabe-translated").value = "";
   // Hides the "cancel element"
   document.getElementById("eraseTranslation").classList = "close d-none";
@@ -141,11 +157,9 @@ document.addEventListener("DOMContentLoaded",
       if (toBeTrasnslated === "") {
         // Erase all content if the input is empty
         document.eraseTranslation();
-        document.getElementById("finalInfo").textContent = 
-          "Scrivi una frase in italiano e premi su 'riocontralo!' per la sua " +
-          "tradunezio in riocontra. Scegli a chi affidare la " +
-          "tradunezio (rosbi, boba, chiove, supercazzolaro), o se sei un esperto " +
-          "usa le impostanezio avanteza!";
+        document.displayInitMessage();
+      } else if (document.mode === "none") {
+        document.displayUndefinedModeError()
       } else {
         // Compute translation
         let translation = translator.translateSentence(toBeTrasnslated)
@@ -188,9 +202,13 @@ document.addEventListener("DOMContentLoaded",
     function displayCurrentMode (event) {
         // If the mode is one of the buttons, we keep showin the focus on 
         // that button, otherwise we let the focus go away
-        document.getElementById(document.oldMode + "Button")
-          .classList.remove("focus");
-        if (document.mode != "advancedSettings") {
+        if (document.oldMode != "none") {
+          // none does not have a button
+          document.getElementById(document.oldMode + "Button")
+            .classList.remove("focus");
+        }
+        if ((document.mode != "advancedSettings") & 
+            (document.mode != "none")) {
           document.getElementById(document.mode + "Button")
             .classList.add("focus")
           document.getElementById("currentModeInfo").innerHTML = "\
@@ -228,14 +246,13 @@ document.addEventListener("DOMContentLoaded",
 
     document.getElementById('advancedSettingsButton')
       .addEventListener("click", activateAdvancedSettings)
-    
-    // Call the following functions when the document is loaded
-    setSupercazzolaroSettings()
-    
+
     // Cancel current translation
     document.getElementById("eraseTranslation")
       .addEventListener("click", document.eraseTranslation)
-
+    
+    // Call the following function(s) when the document is loaded
+    document.displayInitMessage()
   }
 );
 
