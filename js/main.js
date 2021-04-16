@@ -22,6 +22,10 @@ document.changeMode = function(newMode) {
   
 }
 
+
+/**
+ * Add divs to output div. These are styled by output styles css
+ */
 document.writeTranslationOutput = function(translation, divID) {
   document.getElementById("output").innerHTML = 
     "<div id='" + divID + "' class='container'>" +
@@ -107,8 +111,10 @@ document.addEventListener("DOMContentLoaded",
       let percentage = document.getElementById('percentageInput').value;
       let nezioCheckBox = document.getElementById("nezioCheckbox");
       let erreMossaCheckbox = document.getElementById("erreMossaCheckbox")
-      let erreMossaAllConsonantsCheckbox = document.getElementById("erreMossaAllConsonantsCheckbox")
+      let erreMossaAllConsonantsCheckbox = 
+        document.getElementById("erreMossaAllConsonantsCheckbox")
       let supertofePercentage;
+
       if (document.getElementById("supertofeNo").checked) {
         supertofePercentage = 0;
       } else if (document.getElementById("supertofeSometimes").checked) {
@@ -129,8 +135,8 @@ document.addEventListener("DOMContentLoaded",
       let toBeTrasnslated =
        document.getElementById("wannabe-translated").value;
 
-              // Remove focus from input group (hides keyboard on smartphone)
-              document.getElementById("wannabe-translated").blur()
+      // Remove focus from input group (hides keyboard on smartphone)
+      document.getElementById("wannabe-translated").blur()
 
       // Translate and output (if input is not empty)
       if (toBeTrasnslated === "") {
