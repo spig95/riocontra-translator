@@ -1,16 +1,26 @@
 import { Translator } from './translator.js'
 
-document.activeButton = "supercazzolaroButton";
-document.oldactiveButton = "supercazzolaroButton";
+document.mode = "supercazzolaro";
+document.oldMode = "supercazzolaro";
+document.allowedModes = [
+  "none",
+  "boba",
+  "chiove",
+  "supercazzolaro",
+  "advancedSettings"
+]
 
-/**
- * Check the active button and return the current active mode
- * 
- * @returns rosbi, boba, chiove, supercazzolaro or advancedSettings
- */
-document.getCurrentMode = function() {
-  return document.activeButton.slice(0, -6);
-};
+document.changeMode = function(newMode) {
+  let isAllowed = document.allowedModes.includes(newMode);
+  if (isAllowed) {
+    document.oldMode = document.mode;
+    document.mode = newMode;
+  } else {
+      throw RuntimeException(
+        newMode + "not accepted. Choose one among " + document.allowedModes);
+  }
+  
+}
 
 document.writeTranslationOutput = function(translation, divID) {
   document.getElementById("output").innerHTML = 
@@ -43,8 +53,7 @@ document.addEventListener("DOMContentLoaded",
   function (event) {
 
     function setRosbiSettings(event) {
-      document.oldactiveButton = document.activeButton
-      document.activeButton = "rosbiButton"
+      document.changeMode("rosbi");
       document.getElementById('percentageInput').value = 0;
       document.getElementById("nezioCheckbox").checked = false;
       document.getElementById("erreMossaCheckbox").checked = false;
@@ -55,8 +64,7 @@ document.addEventListener("DOMContentLoaded",
     }
 
     function setBobaSettings(event) {
-      document.oldactiveButton = document.activeButton
-      document.activeButton = "bobaButton"
+      document.changeMode("boba")
       document.getElementById('percentageInput').value = 25;
       document.getElementById("nezioCheckbox").checked = true;
       document.getElementById("erreMossaCheckbox").checked = true;
@@ -66,8 +74,7 @@ document.addEventListener("DOMContentLoaded",
     }
 
     function setChioveSettings(event) {
-      document.oldactiveButton = document.activeButton
-      document.activeButton = "chioveButton"
+      document.changeMode("chiove")
       document.getElementById('percentageInput').value = 50;
       document.getElementById("nezioCheckbox").checked = true;
       document.getElementById("erreMossaAllConsonantsCheckbox").checked = true;
@@ -77,8 +84,7 @@ document.addEventListener("DOMContentLoaded",
     }
 
     function setSupercazzolaroSettings(event) {
-      document.oldactiveButton = document.activeButton
-      document.activeButton = "supercazzolaroButton"
+      document.changeMode("supercazzolaro")
       document.getElementById('percentageInput').value = 100;
       document.getElementById("nezioCheckbox").checked = true;
       document.getElementById("erreMossaAllConsonantsCheckbox").checked = true;
@@ -88,8 +94,7 @@ document.addEventListener("DOMContentLoaded",
     }
 
     function activateAdvancedSettings(event) {
-      document.oldactiveButton = document.activeButton
-      document.activeButton = "advancedSettingsButton"
+      document.changeMode("advancedSettings")
       displayCurrentMode()
       onClickTranslate(event)
     }
@@ -143,19 +148,19 @@ document.addEventListener("DOMContentLoaded",
 
         // Add HTML division inside output container with an id depending on the
         // mode
-        if (document.getCurrentMode() === "rosbi") {
+        if (document.mode === "rosbi") {
           document.writeTranslationOutput(
             translation, 
             "rosbiTranslation");
-        } else if (document.getCurrentMode() === "boba") {
+        } else if (document.mode === "boba") {
           document.writeTranslationOutput(
             translation, 
             "bobaTranslation");
-        } else if (document.getCurrentMode() === "chiove") {
+        } else if (document.mode === "chiove") {
           document.writeTranslationOutput(
             translation, 
             "chioveTranslation");
-        } else if (document.getCurrentMode() === "supercazzolaro") {
+        } else if (document.mode === "supercazzolaro") {
           document.writeTranslationOutput(
             translation, 
             "supercazzolaroTranslation");
@@ -178,12 +183,14 @@ document.addEventListener("DOMContentLoaded",
     function displayCurrentMode (event) {
         // If the mode is one of the buttons, we keep showin the focus on 
         // that button, otherwise we let the focus go away
-        document.getElementById(document.oldactiveButton).classList.remove("focus")
-        if (document.getCurrentMode() != "advancedSettings") {
-          document.getElementById(document.activeButton).classList.add("focus")
+        document.getElementById(document.oldMode + "Button")
+          .classList.remove("focus");
+        if (document.mode != "advancedSettings") {
+          document.getElementById(document.mode + "Button")
+            .classList.add("focus")
           document.getElementById("currentModeInfo").innerHTML = "\
             Traduttore in <span class='font-weight-bold'>" + 
-            document.getCurrentMode() + " </span> mode.";
+            document.mode + " </span> mode.";
         } else {
           document.getElementById("currentModeInfo").innerHTML = "Stai \
             usando le impostanezio avanteza!";
