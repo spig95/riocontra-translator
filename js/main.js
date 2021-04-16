@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded",
       document.getElementById("nezioCheckbox").checked = false;
       document.getElementById("erreMossaCheckbox").checked = false;
       document.getElementById("erreMossaAllConsonantsCheckbox").checked = false;
-      document.getElementById("supertofeNo").checked = false;
+      document.getElementById("supertofeNo").checked = true;
       displayCurrentMode()
       onClickTranslate(event)
     }
@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded",
       document.getElementById('percentageInput').value = 25;
       document.getElementById("nezioCheckbox").checked = true;
       document.getElementById("erreMossaCheckbox").checked = true;
-      document.getElementById("supertofeNo").checked = false;
+      document.getElementById("supertofeNo").checked = true;
       displayCurrentMode()
       onClickTranslate(event)
     }
