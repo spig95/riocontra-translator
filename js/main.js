@@ -16,8 +16,7 @@ document.changeMode = function(newMode) {
     document.oldMode = document.mode;
     document.mode = newMode;
   } else {
-      throw RuntimeException(
-        newMode + "not accepted. Choose one among " + document.allowedModes);
+      throw newMode + " not accepted. Choose one in " + document.allowedModes;
   }
   
 }
