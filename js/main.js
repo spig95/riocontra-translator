@@ -75,8 +75,7 @@ document.addEventListener("DOMContentLoaded",
       document.changeMode("rosbi");
       document.getElementById('percentageInput').value = 0;
       document.getElementById("nezioCheckbox").checked = false;
-      document.getElementById("erreMossaCheckbox").checked = false;
-      document.getElementById("erreMossaAllConsonantsCheckbox").checked = false;
+      document.getElementById("noErreMossaCheckbox").checked = true;
       document.getElementById("supertofeNo").checked = true;
       displayCurrentMode()
       onClickTranslate(event)
