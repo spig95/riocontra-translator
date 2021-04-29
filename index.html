@@ -13,6 +13,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/essentials.js"></script> 
+    <script src="/riocontra-translator/js/load_descriptions.js"></script>
     
     <script type="module" src="js/main.js"></script>
   </head>
@@ -73,10 +74,9 @@
 
         <div id="rosbiContent" class="level-description collapse" data-parent="#levelSelection">
           <hr class="first-hr">
-          <p>Il <span class="font-weight-bold">rosbi</span> non conosce il riocontra.</p>
-          <p>Si avvicina incautamente all'ozi della dastra parlando un italiano perfetto, 
-            sperando di imparare qualcosa. Putroppo il riocontra gli resta incomprensibile e non impara nemmeno le regole
-            più basilari. Consulta le 
+          <span id="rosbi-description"></span>
+          <p>
+            Consulta le 
             <a href="#" data-toggle="collapse" data-target="#advancedSettings">impostanezio avanteza</a>
             per saperne di più.
           </p>
@@ -89,11 +89,8 @@
 
         <div id="bobaContent" class="level-description collapse" data-parent="#levelSelection">
           <hr class="first-hr">
-          <p>Il <span class="font-weight-bold">boba</span> è un timido, reso tale dal bullismo dei tefra a lascuo.</p>
-          <p>Per via della sua timidezza, traduce solo il <a href="#" data-toggle="modal" data-target="#percentagePopUp">25%</a> delle parole. Inoltre conosce poche tecniche, tra cui 
-            quella del 
-            <a href="#" data-toggle="modal" data-target="#nezioPopUp">nezio</a>
-            e dell'<a href="#" data-toggle="modal" data-target="#erreMossaPopUp">erre mossa</a>.
+          <span id="boba-description"></span>
+          <p>
             Consulta le 
             <a href="#" data-toggle="collapse" data-target="#advancedSettings">impostanezio avanteza</a>
             per saperne di più.
@@ -108,12 +105,8 @@
 
         <div id="chioveContent" class="level-description collapse" data-parent="#levelSelection">
           <hr class="first-hr">
-          <p>Il <span class="font-weight-bold">chiove</span> ne sa, e non ha paura di mostrarlo.</p>
-          <p>Il chiove traduce il 
-            <a href="#" data-toggle="modal" data-target="#percentagePopUp">50%</a> 
-            delle parole, e dalla sua elevata esperienza conosce tutte le 
-            tecniche del riocontra, perfino il 
-            <a href="#" data-toggle="modal" data-target="#supertofePopUp">supertofe</a>.
+          <span id="chiove-description"></span>
+          <p>
             Consulta le 
             <a href="#" data-toggle="collapse" data-target="#advancedSettings">impostanezio avanteza</a>
             per saperne di più.
@@ -153,14 +146,8 @@
 
         <div id="supercazzolaroContent" class="level-description collapse" data-parent="#levelSelection">
           <hr class="first-hr">
-          <p>Il <span class="font-weight-bold">supercazzolaro</span> 
-            è l'uomo di teoria, conosce tutte le regole ma non viene dalla 
-            dastra.
-          </p>
+          <span id="supercazzolaro-description"></span>
           <p>
-            Usa il riocontra per supercazzolare e traduce <span class="font-weight-bold">tutte</span> le 
-            parole. Purtroppo il supercazzolaro 
-            sa solo abusare del riocontra, e non sa regolarsi come un vero ozi.
             Consulta le 
             <a href="#" data-toggle="collapse" data-target="#advancedSettings">impostanezio avanteza</a>
             per saperne di più.

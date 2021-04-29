@@ -209,7 +209,7 @@ hr.first-hr {
     }
 
     /*Reduce space between level description paragraphs and setting sections*/
-    .level-description > p,
+    .level-description > span> p,
     .level-description > hr,
     #advancedSettings > section {
         margin-top: 0;
