@@ -1,25 +1,3 @@
-#rosbiTranslation > .image {
-    background-image: url("/riocontra-translator/img/rosbi.svg");
-}
-
-#bobaTranslation > .image {
-    background-image: url("/riocontra-translator/img/boba.png");
-}
-
-#chioveTranslation > .image {
-    background-image: url("/riocontra-translator/img/chiove.png");
-}
-
-#supercazzolaroTranslation > .image {
-    background-image: url("/riocontra-translator/img/supercazzolaro.svg");
-}
-
-
-#advancedSettingsTranslation > .image {
-    background-image: url("/riocontra-translator/img/advancedSettings.png");
-}
-
-
 #output > .container > .image {
     height: 250px;
     max-width: 700px; 
