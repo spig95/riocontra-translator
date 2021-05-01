@@ -24,11 +24,18 @@ document.changeMode = function(newMode) {
 
 // When the site loads or when no sentence is selected we display this
 document.displayInitMessage = function() {
-  document.getElementById("finalInfo").textContent = 
-  "Scrivi una frase in italiano e premi su 'riocontralo!' per la sua " +
-  "tradunezio in riocontra. Scegli a chi affidare la " +
-  "tradunezio (rosbi, boba, chiove, supercazzolaro), o se sei un esperto " +
-  "usa le impostanezio avanteza!";
+  document.getElementById("finalInfo").innerHTML = 
+  "<p> \
+    Scrivi una frase in italiano e premi su 'riocontralo!' per la sua \
+    tradunezio in riocontra. Scegli a chi affidare la \
+    tradunezio (rosbi, boba, chiove, supercazzolaro), o se sei un esperto \
+    usa le impostanezio avanteza! \
+   </p> \
+   <p> \
+    <b>Non sai cos'è il riocontra?</b>  \
+    <a href='/riocontra-translator/html/riocontra.html' target='_blank'>Qua </a> \
+    proviamo a spiegarlo. \
+   </p>"
 }
 
 // When the mode is undefined but the user wants a translation we display this
