@@ -70,6 +70,19 @@ footer{
     color: #f2f2f2;
 }
 
+/* Class added when scrolling in essentials.js */
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1020; /* As in Bootstrap */
+}
+
+/* When sticky is added by js, the content has a padding */
+.sticky ~ .content{
+    padding-top: 50px;
+  }
+
 #collapsableLinks > hr {
     border-color: #f2f2f2;
 }
