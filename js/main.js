@@ -40,8 +40,6 @@ document.displayInitMessage = function() {
 
 // When the mode is undefined but the user wants a translation we display this
 document.displayUndefinedModeError = function() {
-  document.getElementById("finalInfo").textContent = 
-  "Attenezio! Seleziona uno dei traduttori prima di premere riocontralo!";
   $("#selectTranslatorPopUp").modal();
 }
 
