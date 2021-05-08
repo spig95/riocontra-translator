@@ -176,6 +176,10 @@ hr.first-hr {
     margin-top: 0;
 }
 
+#verticalSpacer {
+    height: 5rem;
+}
+
 
 @media (max-width: 992px)  {
     #buttons > .row > div > .btn,
@@ -244,6 +248,10 @@ hr.first-hr {
 
     .form-control.num-input {
         margin-left: 2rem;
+    }
+
+    #verticalSpacer {
+        height: 2.5rem;
     }
   }
 
