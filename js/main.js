@@ -26,9 +26,7 @@ document.changeMode = function(newMode) {
 document.displayInitMessage = function() {
   document.getElementById("finalInfoText").textContent = " \
     Scrivi una frase in italiano e premi su 'riocontralo!' per la sua \
-    tradunezio in riocontra. Scegli a chi affidare la \
-    tradunezio (rosbi, boba, chiove, supercazzolaro), o se sei un esperto \
-    usa le impostanezio avanteza!";
+    traduzione.";
 }
 
 // When the mode is undefined but the user wants a translation we display this
