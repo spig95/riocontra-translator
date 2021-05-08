@@ -3,19 +3,18 @@
   }
 
 #buttons {
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
 }
 
 #input-div,
 #currentModeInfo,
 #finalInfo {
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
+    margin-top: .5rem;
+    margin-bottom: .5rem;
 }
 
 #finalInfo {
-    margin-top: 5rem;
     clear: both;
     font-style: italic;
 }

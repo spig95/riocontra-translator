@@ -24,18 +24,11 @@ document.changeMode = function(newMode) {
 
 // When the site loads or when no sentence is selected we display this
 document.displayInitMessage = function() {
-  document.getElementById("finalInfo").innerHTML = 
-  "<p> \
+  document.getElementById("finalInfoText").textContent = " \
     Scrivi una frase in italiano e premi su 'riocontralo!' per la sua \
     tradunezio in riocontra. Scegli a chi affidare la \
     tradunezio (rosbi, boba, chiove, supercazzolaro), o se sei un esperto \
-    usa le impostanezio avanteza! \
-   </p> \
-   <p> \
-    <b>Non sai cos'è il riocontra?</b>  \
-    <a href='/riocontra-translator/html/riocontra.html' target='_blank'>Qua </a> \
-    proviamo a spiegarlo. \
-   </p>"
+    usa le impostanezio avanteza!";
 }
 
 // When the mode is undefined but the user wants a translation we display this
@@ -59,6 +52,8 @@ document.writeTranslationOutput = function(translation, divID) {
     "</div>";
   // Show the "cancel element"
   document.getElementById("eraseTranslation").classList = "close";
+  // Hides the spacer element
+  document.getElementById("verticalSpacer").classList = "d-none";
 }
 
 /**
@@ -71,6 +66,8 @@ document.eraseTranslation = function(x) {
   document.getElementById("wannabe-translated").value = "";
   // Hides the "cancel element"
   document.getElementById("eraseTranslation").classList = "close d-none";
+  // Shows the spacer element
+  document.getElementById("verticalSpacer").classList = "";
 }
 
 document.addEventListener("DOMContentLoaded",
@@ -194,11 +191,16 @@ document.addEventListener("DOMContentLoaded",
             "advancedSettingsTranslation");
         }
 
+        let finalInfoText = "Cacli ancora su 'Riocontralo!' per una nuova \
+        traduzione. Insoddisfatto? Prova a cambiare traduttore. "
+
+        if (document.mode != "supercazzolaro") {
+          finalInfoText += "Tip: scegli il <b>supercazzolaro</b> per usare  \
+            tutte le regole e tradurre tutte le parole!"
+        }
+
         // Give some final info
-        document.getElementById("finalInfo").textContent = 
-          "Seleziona un altro traduttore (rosbi, boba, chiove, supercazzolaro ...) " +
-          "e cacli ancora su 'Riocontralo!' " +
-          "per una nuova traduzione.";
+        document.getElementById("finalInfoText").innerHTML = finalInfoText;
       }
 
     }
