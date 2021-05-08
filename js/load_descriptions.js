@@ -12,7 +12,7 @@ $(function(){
     $("#boba-description").html(
         '<p>Il boba è un timido, reso tale dal bullismo dei tefra a lascuo.</p> \
         <p> Per via della sua timidezza, traduce solo il \
-        <a href="#" data-toggle="modal" data-target="#percentagePopUp">25%</a> delle parole. \
+        <a href="#" data-toggle="modal" data-target="#percentagePopUp">50%</a> delle parole. \
         Inoltre conosce poche tecniche, tra cui quella del \
         <a href="#" data-toggle="modal" data-target="#nezioPopUp">nezio</a> \
         e dell\'<a href="#" data-toggle="modal" data-target="#erreMossaPopUp">erre mossa</a>.</p>'
@@ -21,7 +21,7 @@ $(function(){
     $("#chiove-description").html(
         '<p>Il chiove ne sa, e non ha paura di mostrarlo.</p> \
         <p>Il chiove traduce il \
-        <a href="#" data-toggle="modal" data-target="#percentagePopUp">50%</a> \
+        <a href="#" data-toggle="modal" data-target="#percentagePopUp">75%</a> \
         delle parole, e dalla sua elevata esperienza conosce tutte le \
         tecniche del riocontra, perfino il \
         <a href="#" data-toggle="modal" data-target="#supertofePopUp">supertofe</a>.</p>'

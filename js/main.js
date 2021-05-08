@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded",
 
     function setBobaSettings(event) {
       document.changeMode("boba")
-      document.getElementById('percentageInput').value = 25;
+      document.getElementById('percentageInput').value = 50;
       document.getElementById("nezioCheckbox").checked = true;
       document.getElementById("erreMossaCheckbox").checked = true;
       document.getElementById("supertofeNo").checked = true;
@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded",
 
     function setChioveSettings(event) {
       document.changeMode("chiove")
-      document.getElementById('percentageInput').value = 50;
+      document.getElementById('percentageInput').value = 75;
       document.getElementById("nezioCheckbox").checked = true;
       document.getElementById("erreMossaAllConsonantsCheckbox").checked = true;
       document.getElementById("supertofeSometimes").checked = true;
