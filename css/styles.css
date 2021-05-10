@@ -183,14 +183,8 @@ hr.first-hr {
 
 @media (max-width: 992px)  {
     #buttons > .row > div > .btn,
-    #advancedSettingsButton,
-    #eraseTranslation,
-    #finalInfo {
+    #advancedSettingsButton {
         font-size: 0.8rem;
-    }
-
-    #finalInfo {
-        margin-top: 1.5rem
     }
 
     #buttons > .row > div > .btn,
