@@ -4,6 +4,7 @@
 
 import { splitSentence, isSpecialChar } from './utils.js'
 import { isVowel, divide } from './syllabator.js'
+import { LCG } from './lcg.js'
 
 var bad_pairs = ["gc", "cg", "mc", "cm", "sn"]
 
@@ -14,7 +15,18 @@ export class Translator {
         nezioTechnique,
         erreMossa,
         erreMossaToAllConsonants,
-        supertofePercentage) {
+        supertofePercentage,
+        randomSeed) {
+        
+        console.log(
+        "Instantating Translator: \n \
+        - percentage -> " + percentage + " \n \
+        - nezioTechnique -> " + nezioTechnique + " \n \
+        - erreMossa -> " + erreMossa + " \n \
+        - erreMossaToAllConsonants -> " + erreMossaToAllConsonants + " \n \
+        - supertofePercentage -> " + supertofePercentage + " \n \
+        - randomSeed -> " + randomSeed + " \n "
+        )
         
         if ((percentage == undefined) || (percentage < 0) || (percentage > 100)
         ) {
@@ -54,7 +66,16 @@ export class Translator {
         } else {
             this.supertofePercentage = supertofePercentage;
         }
-
+        
+        this.customRandomGenerator = null;
+        if ((randomSeed != undefined) && (randomSeed != "")) {
+            try {
+                this.customRandomGenerator = new LCG(randomSeed);
+            } catch (error) {
+                console.log("Error instantiating LCG (I will use the JS default). \
+                    Error: " + error);
+            }
+        }
     };
 
     translateSentence (sentence) {
