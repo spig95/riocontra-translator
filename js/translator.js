@@ -164,8 +164,8 @@ export class Translator {
         };
 
         // At this point, we can apply the real riocontra!
-        let u = Math.random();
-        if (100 * u < this.percentage) { // We do not translate all the words
+        let translate = this.getBernoullyOutcome(this.percentage / 100);
+        if (translate) { // We do not translate all the words
             let syllabs = divide(word)
             let translatedWord = this.getRiocontraFromSyllabs(syllabs)
             if (this.translateWord === null) {
@@ -258,8 +258,8 @@ export class Translator {
             } else {
                 // Two ways of defining the second chunck, equally valid. We
                 // take one of them with 50% chance
-                let u = Math.random();
-                if (u < 0.5) {
+                let translate = this.getBernoullyOutcome(0.5);
+                if (translate) {
                     firstChunk = syllabs.slice(0, -1).reduce((a, b) => a + b, "");
                     secondChunk = syllabs.slice(-1).reduce((a, b) => a + b, "");
                     console.log("First case " + firstChunk + "," + secondChunk)
@@ -322,9 +322,9 @@ export class Translator {
     };
 
     invertFourSyllabs (syllabs) {
-        let u = Math.random()
+        let translate = this.getBernoullyOutcome(this.supertofePercentage / 100)
         // If supertofe is on, apply it only sometimes
-        if (100 * u < this.supertofePercentage) {
+        if (translate) {
             // Supertofe: invert first two, invert last two and then concatenate
             let firstInverted = this.basicInversion(syllabs.slice(0, 2));
             let lastInverted = this.basicInversion(syllabs.slice(-2));
@@ -349,9 +349,9 @@ export class Translator {
             throw "Apply only on words with at least 5 syllabs. Got " + syllabs
         }
 
-        let u = Math.random();
+        let translate = this.getBernoullyOutcome(this.supertofePercentage / 100);
         // If supertofe is on, apply it only sometimes
-        if (100 * u < this.supertofePercentage) {
+        if (translate) {
             // This is a advanced supertofe technique
             let firstInverted = this.basicInversion(syllabs.slice(0, 2))
             let lastInverted = this.basicInversion(syllabs.slice(-3))
