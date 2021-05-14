@@ -410,6 +410,27 @@ export class Translator {
             word.slice(1).toLowerCase();
     }
 
+    // Aux function: return True or False following a Bernoully distribution
+    getBernoullyOutcome (p) {
+        if ( (p < 0) || (p > 1) ) {
+            throw "Got p (" + p + ") not in [0, 1].";
+        }
+
+        let u;
+
+        if (this.customRandomGenerator == null) {
+            u = Math.random()
+        } else {
+            u = this.customRandomGenerator.getUniform();
+        }
+
+        if (u < p) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 
 };
 
