@@ -123,10 +123,12 @@ document.addEventListener("DOMContentLoaded",
     function onClickTranslate (event) {
       // Instantiate translator with correct parameters
       let percentage = document.getElementById('percentageInput').value;
-      let nezioCheckBox = document.getElementById("nezioCheckbox");
-      let erreMossaCheckbox = document.getElementById("erreMossaCheckbox")
-      let erreMossaAllConsonantsCheckbox = 
-        document.getElementById("erreMossaAllConsonantsCheckbox")
+      let nezioTechnique = document.getElementById("nezioCheckbox").checked;
+      let erreMossa = document.getElementById("erreMossaCheckbox").checked;
+      let erreMossaToAllConsonants = 
+        document.getElementById("erreMossaAllConsonantsCheckbox").checked;
+      let randomSeed =
+        document.getElementById("seedInput").value;
       let supertofePercentage;
 
       if (document.getElementById("supertofeNo").checked) {
@@ -139,10 +141,11 @@ document.addEventListener("DOMContentLoaded",
 
       var translator = new Translator(
         percentage,
-        nezioCheckBox.checked,
-        erreMossaCheckbox.checked,
-        erreMossaAllConsonantsCheckbox.checked,
+        nezioTechnique,
+        erreMossa,
+        erreMossaToAllConsonants,
         supertofePercentage,
+        randomSeed
       )
 
       // Get text to be translated
