@@ -4,6 +4,7 @@
 
 import { splitSentence, isSpecialChar } from './utils.js'
 import { isVowel, divide } from './syllabator.js'
+import { LCG } from './lcg.js'
 
 var bad_pairs = ["gc", "cg", "mc", "cm", "sn"]
 
@@ -14,7 +15,18 @@ export class Translator {
         nezioTechnique,
         erreMossa,
         erreMossaToAllConsonants,
-        supertofePercentage) {
+        supertofePercentage,
+        randomSeed) {
+        
+        console.log(
+        "Instantating Translator: \n \
+        - percentage -> " + percentage + " \n \
+        - nezioTechnique -> " + nezioTechnique + " \n \
+        - erreMossa -> " + erreMossa + " \n \
+        - erreMossaToAllConsonants -> " + erreMossaToAllConsonants + " \n \
+        - supertofePercentage -> " + supertofePercentage + " \n \
+        - randomSeed -> " + randomSeed + " \n "
+        )
         
         if ((percentage == undefined) || (percentage < 0) || (percentage > 100)
         ) {
@@ -54,7 +66,16 @@ export class Translator {
         } else {
             this.supertofePercentage = supertofePercentage;
         }
-
+        
+        this.customRandomGenerator = null;
+        if ((randomSeed != undefined) && (randomSeed != "")) {
+            try {
+                this.customRandomGenerator = new LCG(randomSeed);
+            } catch (error) {
+                console.log("Error instantiating LCG (I will use the JS default). \
+                    Error: " + error);
+            }
+        }
     };
 
     translateSentence (sentence) {
@@ -143,8 +164,8 @@ export class Translator {
         };
 
         // At this point, we can apply the real riocontra!
-        let u = Math.random();
-        if (100 * u < this.percentage) { // We do not translate all the words
+        let translate = this.getBernoullyOutcome(this.percentage / 100);
+        if (translate) { // We do not translate all the words
             let syllabs = divide(word)
             let translatedWord = this.getRiocontraFromSyllabs(syllabs)
             if (this.translateWord === null) {
@@ -237,8 +258,8 @@ export class Translator {
             } else {
                 // Two ways of defining the second chunck, equally valid. We
                 // take one of them with 50% chance
-                let u = Math.random();
-                if (u < 0.5) {
+                let translate = this.getBernoullyOutcome(0.5);
+                if (translate) {
                     firstChunk = syllabs.slice(0, -1).reduce((a, b) => a + b, "");
                     secondChunk = syllabs.slice(-1).reduce((a, b) => a + b, "");
                     console.log("First case " + firstChunk + "," + secondChunk)
@@ -301,9 +322,9 @@ export class Translator {
     };
 
     invertFourSyllabs (syllabs) {
-        let u = Math.random()
+        let translate = this.getBernoullyOutcome(this.supertofePercentage / 100)
         // If supertofe is on, apply it only sometimes
-        if (100 * u < this.supertofePercentage) {
+        if (translate) {
             // Supertofe: invert first two, invert last two and then concatenate
             let firstInverted = this.basicInversion(syllabs.slice(0, 2));
             let lastInverted = this.basicInversion(syllabs.slice(-2));
@@ -328,9 +349,9 @@ export class Translator {
             throw "Apply only on words with at least 5 syllabs. Got " + syllabs
         }
 
-        let u = Math.random();
+        let translate = this.getBernoullyOutcome(this.supertofePercentage / 100);
         // If supertofe is on, apply it only sometimes
-        if (100 * u < this.supertofePercentage) {
+        if (translate) {
             // This is a advanced supertofe technique
             let firstInverted = this.basicInversion(syllabs.slice(0, 2))
             let lastInverted = this.basicInversion(syllabs.slice(-3))
@@ -387,6 +408,27 @@ export class Translator {
         console.log("Capitalizing " + word)
         return word.charAt(0).toUpperCase() +
             word.slice(1).toLowerCase();
+    }
+
+    // Aux function: return True or False following a Bernoully distribution
+    getBernoullyOutcome (p) {
+        if ( (p < 0) || (p > 1) ) {
+            throw "Got p (" + p + ") not in [0, 1].";
+        }
+
+        let u;
+
+        if (this.customRandomGenerator == null) {
+            u = Math.random()
+        } else {
+            u = this.customRandomGenerator.getUniform();
+        }
+
+        if (u < p) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
 
