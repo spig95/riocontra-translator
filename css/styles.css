@@ -86,7 +86,6 @@ footer{
     border-color: #f2f2f2;
 }
 
-
 .my-dark-link {
     color: #f2f2f2;
     font-style: normal;
@@ -122,21 +121,17 @@ footer{
     font-size: x-large;
 }
 
-#pageSubTitle,
+/* Vertical alignment */
+#pageTitle,
+.headersubtitle,
 #pageCredits,
 #burgerButton {
     margin-top: auto;
     margin-bottom: auto;
 }
 
-#extraSmallPagesSubTitle,
-#pageSubTitle {
-    font-style: italic;
-}
-
-#extraSmallPagesSubTitle {
-    visibility: hidden;
-    height: 0;
+.headersubtitle {
+    font-weight: 100;
 }
 
 #supertofeSec > .form-check,
@@ -170,7 +165,6 @@ footer {
     max-width: 6rem;
 }
 
-
 /* Avoid jumping transition in desktop mode*/
 hr.first-hr {
     margin-top: 0;
@@ -180,6 +174,11 @@ hr.first-hr {
     height: 5rem;
 }
 
+@media (min-width: 1200px) {
+    #pageTitle {
+        font-size: xx-large;
+    }
+}
 
 @media (max-width: 992px)  {
     #buttons > .row > div > .btn,
@@ -193,10 +192,10 @@ hr.first-hr {
     }
 
     #pageTitle {
-        font-size: medium;
+        font-size: large;
     }
 
-    #pageSubTitle,
+    .headersubtitle,
     #pageCredits,
     #copyRight,
     .navbar-toggler-icon {
@@ -205,11 +204,11 @@ hr.first-hr {
 }
 
 @media (max-width: 767px) {
-    #currentModeInfo {
-        text-align: center;
+    #pageTitle {
+        font-size: medium;
     }
 
-    #pageTitle {
+    #currentModeInfo {
         text-align: center;
     }
 
@@ -249,24 +248,8 @@ hr.first-hr {
     }
   }
 
-@media (max-width: 365px) {
-    #pageTitle{
-        font-size: 0.8rem;
-    }
-
-    #pageSubTitle {
-        visibility: hidden;
-        width: 0px; 
-        height: 0px;
-    }
-
-    #extraSmallPagesSubTitle {
-        text-align: center;
-        visibility: visible;
-        height: 100%;
-    }
-
-    #extraSmallPagesSubTitle,
+@media (max-width: 375px) {
+    .headersubtitle,
     #copyRight,
     #pageCredits {
         font-size: 0.6rem !important;
