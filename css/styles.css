@@ -8,7 +8,6 @@
 }
 
 #input-div,
-#currentModeInfo,
 #finalInfo {
     margin-top: .5rem;
     margin-bottom: .5rem;
@@ -97,9 +96,22 @@ footer{
     color: black;
 }
 
+.highlighted-box,
 #levelSelection {
     background-color: #d9d9d9;
+}
+
+#levelSelection{
     padding-bottom: 2px;
+}
+
+.highlighted-box {
+    font-size: large;
+    font-style: normal !important;
+    padding: 1rem;
+    max-width: 90%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 20px;
 }
 
 /*Up-arrow to collapse level description */
@@ -208,10 +220,6 @@ hr.first-hr {
         font-size: medium;
     }
 
-    #currentModeInfo {
-        text-align: center;
-    }
-
     #buttons > .row > div > #advancedSettingsButton {
         text-align: center;
         width: 100%;
@@ -246,6 +254,9 @@ hr.first-hr {
     #verticalSpacer {
         height: 2.5rem;
     }
+
+    .highlighted-box {
+        font-size: 1.15rem;
   }
 
 @media (max-width: 375px) {

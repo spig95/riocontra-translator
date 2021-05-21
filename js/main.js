@@ -24,9 +24,10 @@ document.changeMode = function(newMode) {
 
 // When the site loads or when no sentence is selected we display this
 document.displayInitMessage = function() {
-  document.getElementById("finalInfoText").textContent = " \
-    Scrivi una frase in italiano e premi su 'riocontralo!' per la sua \
+  document.getElementById("finalInfoText").innerHTML = " \
+    Scrivi una frase in italiano e premi su <b>riocontralo!</b> per la sua \
     traduzione.";
+  document.getElementById("finalInfo").classList = "highlighted-box";
 }
 
 // When the mode is undefined but the user wants a translation we display this
@@ -191,17 +192,23 @@ document.addEventListener("DOMContentLoaded",
             translation, 
             "advancedSettingsTranslation");
         }
+        
+        let finalInfoText = ""
 
-        let finalInfoText = "Cacli ancora su 'Riocontralo!' per una nuova \
-        traduzione. Insoddisfatto? Prova a cambiare traduttore. "
-
-        if (document.mode != "supercazzolaro") {
-          finalInfoText += "Tip: scegli il <b>supercazzolaro</b> per usare  \
-            tutte le regole e tradurre tutte le parole!"
+        if (document.mode == "supercazzolaro") {
+          finalInfoText = "Hai tradotto usando il <b>supercazzolaro</b>. \
+            Prova anche gli altri traduttori e scopri le loro abilità.";
+        } else if (document.mode == "advancedSettings") { 
+          finalInfoText = "Hai tradotto utilizzando le impostanezio avanteza."
+        } else {
+          finalInfoText = "Hai tradotto utilizzando le abilità del <b>" + document.mode + "</b>. \
+            Insoddisfatto? Scegli il <b>supercazzolaro</b> per usare tutte le regole e tradurre tutte le parole!"
         }
 
-        // Give some final info
+        // Give some final info (remove highlighting from finalInfo, we want it
+        // only when we call displayInitMessage())
         document.getElementById("finalInfoText").innerHTML = finalInfoText;
+        document.getElementById("finalInfo").classList = ""
       }
 
     }
@@ -216,14 +223,8 @@ document.addEventListener("DOMContentLoaded",
         }
         if ((document.mode != "advancedSettings") & 
             (document.mode != "none")) {
-          document.getElementById(document.mode + "Button")
-            .classList.add("focus")
-          document.getElementById("currentModeInfo").innerHTML = "\
-            Traduttore in <span class='font-weight-bold'>" + 
-            document.mode + " </span> mode.";
-        } else {
-          document.getElementById("currentModeInfo").innerHTML = "Stai \
-            usando le impostanezio avanteza!";
+          let buttonId = document.mode + "Button";
+          document.getElementById(buttonId).classList.add("focus");
         }
     }
 
