@@ -1,319 +1,204 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Riocontra Translator è l'unico sito italiano che ti permette di affrontare la vita 
-    della dastra. Un utilissimo traduttore dall'italiano al riocontra.">
+    della strada. Un utilissimo traduttore dall'italiano al riocontra.">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
-    <link rel="stylesheet" href="bootstrap-4.6.0-dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/comics.css">
+    <link rel="stylesheet" href="lib/bootstrap-5.2.3-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/output-styles.css">
-    <link rel="stylesheet" href="css/images_links.css">
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="js/essentials.js"></script> 
-    <script src="/riocontra-translator/js/load_descriptions.js"></script>
-    
-    <script type="module" src="js/main.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
     <title>Riocontra Translator | Traduttore dall'italiano al riocontra</title>
   </head>
   
-  <body>
-
-    <div id="content-wrapper"> <!-- Allow a sticky footer -->
-
-    <div id="header"></div> <!-- Load header with jquery essentials -->
-    <div id="pop-ups-placeholder"></div> <!-- Load pop-ups with jquery essentials -->
-
-    <div id="levelSelection" class="content">
-      <div class="container">
-        <div id="buttons">
-          <div class="row">
-            <div class="col-md col-6">
-              <button id="rosbiButton" class="btn btn-level collapsed" data-toggle="collapse" data-target="#rosbiContent" aria-expanded="false" aria-controls="rosbiContent" title="Rosbi - Lo Sbirro">
-                Rosbi
-              </button>
-            </div>
-          
-            <div class="col-md col-6">
-              <button id="bobaButton" class="btn btn-level collapsed" data-toggle="collapse" data-target="#bobaContent" aria-expanded="false" aria-controls="bobaContent" title="Boba - Il Babbo">
-                Boba
-              </button>
-            </div>
-
-            <div class="col-md col-6">
-              <button id="chioveButton" class="btn btn-level collapsed" data-toggle="collapse" data-target="#chioveContent" aria-expanded="false" aria-controls="#chioveContent" title="Chiove - Il Vecchio">
-                Chiove
-              </button>
-            </div>
-
-            <div class="col-md col-6">
-              <button id="oziButton" type="button" class="btn btn-level" data-toggle="modal" data-target="#oziPopUp" title="Ozi - Lo Zio">
-                <a data-toggle="tooltip" data-placement="top" title="Non esiste intelligenza artifilecia in grado di imitare l'Ozi.">
-                  <a>Ozi della Dastra<a>
-                </a>
-              </button>
-            </div>
-
-            <div class="col-md col-6">
-              <button id="supercazzolaroButton" class="col btn btn-level collapsed" data-toggle="collapse" data-target="#supercazzolaroContent" aria-expanded="false" aria-controls="supercazzolaroContent" title="Il Supercazzolaro">
-                Supercazzolaro
-              </button>
-            </div>
-
-          
-          <div class="col-md-12 col-6 text-left">
-            <button id="advancedSettingsButton" class="btn btn-link collapsed" data-toggle="collapse" data-target="#advancedSettings" role="button" aria-expanded="false" aria-controls="advancedSettings">
-                Impostanezio avanteza
-            </button>
-          </div>
-
-        </div>
-
-        </div> <!-- buttons -->
-
-        <div id="rosbiContent" class="level-description collapse" data-parent="#levelSelection">
-          <hr class="first-hr">
-          <span id="rosbi-description"></span>
-          <p>
-            Consulta le 
-            <a href="#" data-toggle="collapse" data-target="#advancedSettings">impostanezio avanteza</a>
-            per saperne di più.
-          </p>
-          <div class="up-arrow-button text-right">
-            <button class="btn collapsed" data-toggle="collapse" data-target="#rosbiContent" aria-expanded="false" aria-controls="rosbiContent">
-              <img src="img/arrow-bar-up.svg" alt="Collapse">
-            </button>
-          </div>
-        </div>
-
-        <div id="bobaContent" class="level-description collapse" data-parent="#levelSelection">
-          <hr class="first-hr">
-          <span id="boba-description"></span>
-          <p>
-            Consulta le 
-            <a href="#" data-toggle="collapse" data-target="#advancedSettings">impostanezio avanteza</a>
-            per saperne di più.
-          </p>
-          </p>
-          <div class="up-arrow-button text-right">
-            <button class="btn collapsed" data-toggle="collapse" data-target="#bobaContent" aria-expanded="false" aria-controls="bobaContent">
-              <img src="img/arrow-bar-up.svg" alt="Collapse">
-            </button>
-          </div>
-        </div>
-
-        <div id="chioveContent" class="level-description collapse" data-parent="#levelSelection">
-          <hr class="first-hr">
-          <span id="chiove-description"></span>
-          <p>
-            Consulta le 
-            <a href="#" data-toggle="collapse" data-target="#advancedSettings">impostanezio avanteza</a>
-            per saperne di più.
-          </p>
-          </p>
-          <div class="up-arrow-button text-right">
-            <button class="btn collapsed" data-toggle="collapse" data-target="#chioveContent" aria-expanded="false" aria-controls="chioveContent">
-              <img src="img/arrow-bar-up.svg" alt="Collapse">
-            </button>
-          </div>
-        </div>
-
-        <div id="oziPopUp" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title">Non disponibile</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <p>
-                  Non esiste intelligenza artifilecia in grado di imitare l'ozi della dastra.
-                </p>
-                <p>
-                  A pensarci nebe, le intelligenze artifilece si allenano nel cloud, ma il riocontra si può
-                  imparare solo nella dastra!
-                </p>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Scegli un altro traduttore!</button>
-              </div>
-            </div>
-          </div>
-        </div> <!-- oziPopUp -->
-
-        <div id="supercazzolaroContent" class="level-description collapse" data-parent="#levelSelection">
-          <hr class="first-hr">
-          <span id="supercazzolaro-description"></span>
-          <p>
-            Consulta le 
-            <a href="#" data-toggle="collapse" data-target="#advancedSettings">impostanezio avanteza</a>
-            per saperne di più.
-          </p>
-          </p>
-          <div class="up-arrow-button text-right">
-            <button class="btn collapsed" data-toggle="collapse" data-target="#supercazzolaroContent" aria-expanded="false" aria-controls="supercazzolaroContent">
-              <img src="img/arrow-bar-up.svg" alt="Collapse">
-            </button>
-          </div>
-        </div>
-
-        <div id="advancedSettings" class="collapse" data-parent="#levelSelection">
-          
-          <hr class="first-hr">
-          
-          Nutobenve nelle <span class="font-weight-bold">impostanezio avanteza</span>. Qui i veri indenditori possono sperimentare la migliore 
-          combinezio di riocontra, o semplicemente vedere nei dettagli le impostanezio del traduttore selezionato.
-
-          <hr>
-          
-          <section class="input-group input-group-sm">
-            <div class="num-input-instruction">Quante parole traduci in 
-              <a href="#" data-toggle="modal" data-target="#percentagePopUp">media</a>?
-            </div>  
-            <input id="percentageInput" type="number" min="1" max="100" value="50" class="form-control num-input" aria-label="">
-            <div class="input-group-append">
-                <span class="input-group-text">%</span>
-            </div>
-          </section>
-
-          <hr>
-
-          <section class="form-check">
-              <input id="nezioCheckbox" class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-              <label class="form-check-label" for="defaultCheck1">
-                Spunta se vuoi usare la tecnica del <a href="#" data-toggle="modal" data-target="#nezioPopUp">nezio</a>.
-              </label>
-          </section>
-
-          <hr>
-
-          <section id="erreMossaSec">
-              Vuoi usare la tecnica dell'<a href="#" data-toggle="modal" data-target="#erreMossaPopUp">erre mossa</a>?
-              <div class="form-check">
-                <label class="form-check-label">
-                  <input id="noErreMossaCheckbox" checked type="radio" class="form-check-input" name="optErreMossa">No ziegra
-                </label>
-              </div>
-              <div class="form-check">
-                <label class="form-check-label">
-                  <input id="erreMossaCheckbox" type="radio" class="form-check-input" name="optErreMossa">Erre mossa tradizionale
-                </label>
-              </div>
-              <div class="form-check">
-                <label class="form-check-label">
-                  <input id="erreMossaAllConsonantsCheckbox" type="radio" class="form-check-input" name="optErreMossa">Erre mossa a tutte le consonanti
-                </label>
-              </div>
-          </section>
-
-          <hr>
-
-          <section id="supertofeSec">
-              Vuoi usare la tecnica del <a href="#" data-toggle="modal" data-target="#supertofePopUp">supertofe</a>?
-              <div class="form-check">
-                <label class="form-check-label">
-                  <input id="supertofeNo" checked type="radio" class="form-check-input" name="optSupertofe">No ziegra
-                </label>
-              </div>
-              <div class="form-check">
-                <label class="form-check-label">
-                  <input id="supertofeSometimes" type="radio" class="form-check-input" name="optSupertofe">Qualche volta
-                </label>
-              </div>
-              <div class="form-check">
-                <label class="form-check-label">
-                  <input id="supertofeAlways" type="radio" class="form-check-input" name="optSupertofe">Sempre
-                </label>
-              </div>
-          </section>
-            
-          <hr>
-
-          <section class="input-group input-group-sm">
-              <div class="num-input-instruction">Fissa il 
-                <a href="#" data-toggle="modal" data-target="#seedPopUp">random seed</a> (per i veri nerd):</div> 
-              <input id="seedInput" type="number" min="0" class="form-control num-input" aria-label="" placeholder="..." title="Prova con 20131">
-          </section>
-
-          <div class="up-arrow-button text-right">
-            <button class="btn collapsed" data-toggle="collapse" data-target="#advancedSettings" aria-expanded="false" aria-controls="advancedSettings">
-              <img src="img/arrow-bar-up.svg" alt="Collapse">
-            </button>
-          </div>
-
-        </div> <!-- advancedSettings-->
-
-      </div>
-    </div> <!-- levelSelection -->
-
+  <nav class="navbar navbar-dark bg-primary">
     <div class="container">
-      <div id="input-div" class="input-group">
-        <input id="wannabe-translated" type="text" class="form-control" 
-               placeholder="Inserisci una frase per l'ozi..." aria-label="Cosa dici all'ozi?" aria-describedby="basic-addon2"
-               data-toggle="tooltip" title="Cosa vuoi dire all'ozi in riocontra? Scrivilo qui."
-        >
-        <div class="input-group-append">
-          <button id="translate-button" class="btn btn-outline-secondary btn-main-action" type="button"
-                  data-toggle="tooltip" title="Premi qua per vedere la tua frase in riocontra.">
-            riocontralo!
+      <a class="navbar-brand on-primary-text" href="#">Riocontra Translator</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="html/what_is_riocontra.html">Il riocontra</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="html/what_is_riocontra.html#all-rules">Le regole del riocontra</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="html/site_description.html">Cosa fa questo sito</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="html/credits.html">Credits</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+    <div id="input-translation-wrapper" class="container shadow bg-white mt-4 position-relative"><!-- input-translation-wrapper -->
+      <div id="translation-header" class="row justify-content-center">
+        <div class="col-auto my-auto">Italiano</div>
+        <div class="col-auto text-center my-auto">
+            <img src="../img/right-arrow-white.svg" class="icon-normal mb-1">
+        </div>
+        <div class="col-auto my-auto">
+          <span class="translator-mode-text"></span> 
+          <span class="dropdown fs-s">
+            <img src="../img/down-arrow-white.svg" class="icon-normal btn-img-outline-white rounded-pill mb-1" data-bs-toggle="dropdown" aria-expanded="false">
+            <div class="dropdown-menu dropdown-menu-end m-2" aria-labelledby="dropdownMenuButton1" style="width: 96vw; max-width: 500px;">
+              <div class="row m-1">
+                <div class="col-auto">
+                  <img class="translator-img" src="../img/rosbi.svg">
+                </div>
+                <div class="col-auto my-auto fs-l">
+                  Il rosbi
+                </div>
+                <div class="col-12 fs-s">
+                  <span id="rosbi-descr"></span>
+                  <div class="text-end">
+                    <button id="select-rosbi" class="btn btn-primary btn-sm rounded-pill">Usa il rosbi</button>
+                  </div>
+                </div>
+              </div>
+              <hr class="dropdown-divider">
+              <div class="row m-1">
+                <div class="col-auto">
+                  <img class="translator-img" src="../img/boba.png">
+                </div>
+                <div class="col-auto my-auto fs-l">
+                  Il boba
+                </div>
+                <div class="col-12 fs-s">
+                  <span id="boba-descr"></span>
+                  <div class="text-end">
+                    <button id="select-boba" class="btn btn-primary btn-sm rounded-pill">Usa il boba</button>
+                  </div>
+                </div>
+              </div>
+              <hr class="dropdown-divider">
+              <div class="row m-1">
+                <div class="col-auto fs-s">
+                  <img class="translator-img" src="../img/chiove.png">
+                </div>
+                <div class="col-auto my-auto fs-l">
+                  Il chiove
+                </div>
+                <div class="col-12 fs-s">
+                  <span id="chiove-descr"></span>
+                  <div class="text-end">
+                    <button id="select-chiove" class="btn btn-primary btn-sm rounded-pill">Usa il chiove</button>
+                  </div>
+                </div>
+              </div>
+              <hr class="dropdown-divider">
+              <div class="row m-1">
+                <div class="col-auto fs-s">
+                  <img class="translator-img" src="../img/ozi.png">
+                </div>
+                <div class="col-auto my-auto fs-l">
+                  L'ozi della dastra
+                </div>
+                <div class="col-12 fs-s">
+                  Lo zio della strada è il maestro del riocontra.<br>
+                  Conosce tutte le tecniche e le usa con sapienza e moderazione. 
+                  Raggiunge il bilanciamento perfetto tra parole italiane e parole in riocontra.
+                  <div class="text-end">
+                    <button id="ozi-button" class="btn btn-primary btn-sm rounded-pill text-decoration-line-through" data-bs-toggle="modal" data-bs-target="#ozi-not-available-modal" title="Ozi - Lo Zio">Usa l'ozi</button>
+                  </div>
+                </div>
+              </div>
+              <hr class="dropdown-divider">
+              <div class="row m-1">
+                <div class="col-auto">
+                  <img class="translator-img" src="../img/supercazzolaro.svg">
+                </div>
+                <div class="col-auto my-auto fs-l">
+                  Il supercazzolaro
+                </div>
+                <div class="col-12 fs-s">
+                  <span id="supercazzolaro-descr"></span>
+                  <div class="text-end">
+                    <button id="select-supercazzolaro" class="btn btn-primary btn-sm rounded-pill">Usa il supercazzolaro</button>
+                  </div>
+                </div>
+              </div>
+              <hr class="dropdown-divider">
+            </div>
+          </span>
+        </div>
+      </div>
+      <div id="translation-input">
+        <textarea id="translation-input-text" placeholder="Scrivi qualcosa per l'ozi..." autofocus></textarea>
+        <button id="translate-button" class="btn btn-primary rounded-pill m-2 fs-l">Traduci</button>
+      </div>
+    </div><!-- close input-translation-wrapper -->
+
+    <div id="output-translation" class="container shadow bg-white mt-4 position-relative text-center p-2 d-none"><!-- output-translation -->
+      <div>
+        <span class="translator-mode-text"></span>: '<span id="translation-output-text"></span>'.
+      </div>
+      <hr class="border-2 border-top border-dark m-2">
+      <div class="fst-italic fs-s">
+        Hai tradotto usando le abilità del <span class="translator-mode-text"></span>. Prova anche gli altri traduttori!
+      </div>
+    </div><!-- close output-translation -->
+
+    <div class="container text-center"> <!-- navigation -->
+      <div class="fs-l mt-4">Esplora</div>
+      <div class="row justify-content-center">
+        <div class="col-7 col-lg-auto my-1">
+          <button class="btn btn-outline-primary rounded-pill" onclick="location.href='../html/what_is_riocontra.html'">
+            Il riocontra
+          </button>
+        </div>
+        <div class="col-7 col-lg-auto my-1">
+          <button class="btn btn-outline-primary rounded-pill" onclick="location.href='../html/what_is_riocontra.html#all-rules'">
+            Le regole del riocontra
+          </button>  
+        </div>
+        <div class="col-7 col-lg-auto my-1">
+          <button class="btn btn-outline-primary rounded-pill" onclick="location.href='../html/site_description.html'">
+            Cosa fa questo sito
+          </button>
+        </div>
+        <div class="col-7 col-lg-auto my-1">
+          <button class="btn btn-outline-primary rounded-pill" onclick="location.href='../html/credits.html'">
+            Credits
           </button>
         </div>
       </div>
-    </div>
+    </div> <!-- close navigation -->
 
-    <div id="output">
-    </div>
-
-    <div class="container">
-      <button id='eraseTranslation' type='button' class='d-none' aria-label='Close'>
-        <span> Cancella</span> 
-        <span aria-hidden='true'>
-          &times;
-        </span>
-      </button>
-    </div>
-    
-    <div class="container mt-5 mb-5 d-flex justify-content-center text-center">
-      <div id="verticalSpacer"></div>
-      <div id="finalInfo">
-      <p id="finalInfoText"></p>
-      Non sai cos'è il riocontra? Clicca
-      <a href='/riocontra-translator/html/riocontra.html' title="Scopri Cos'è il Riocontra!">qui</a>.  
-      </div>
-    </div>  
-
-    <div id="selectTranslatorPopUp" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+    <div id="ozi-not-available-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title">Non hai ancora selezionato un traduttore.</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
+            <h5 class="modal-title">Non disponibile</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-              Per favore seleziona uno dei traduttori cliccando su  <b>rosbi,
-              boba, chiove, supercazzolaro </b> in cima alla pagina
-              per visualizzare la tradunezio. Se sei un pro, usa le 
-              impostazioni avanteza!
+            <p>
+              Non esiste intelligenza artifilecia in grado di imitare l'ozi della dastra.
+            </p>
+            <p>
+              A pensarci nebe, le intelligenze artifilece si allenano nel cloud, ma il riocontra si può
+              imparare solo nella dastra!
             </p>
           </div>
         </div>
       </div>
-    </div> <!-- selectTranslatorPopUp -->
-  
-  </div> <!-- content-wrapper -->
-  <footer id="footer">
-  </footer>
+    </div> <!-- ozi-not-available-modal -->
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
-  <script src="bootstrap-4.6.0-dist/js/bootstrap.min.js"></script>
+    <script src="lib/bootstrap-5.2.3-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script type="module" src="js/index.js"></script>
+    <script src="js/load_rules_modals.js"></script>
+    <script src="js/load_descriptions.js"></script>
   </body>
 </html>
