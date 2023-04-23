@@ -1,0 +1,19 @@
+{
+  "name": "riocontra-translator-main",
+  "version": "1.0.0",
+  "description": "[Riocontra Translator](https://spig95.github.io/riocontra-translator/) is the  only website that allows you to impress your friends with astonishing skills in  translating from Italian to Riocontra!  :sunglasses:",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.38.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.27.5"
+  }
+}
