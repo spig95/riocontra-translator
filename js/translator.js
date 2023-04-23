@@ -2,11 +2,11 @@
  *  Core functions to translate a sentence in riocontra.
  */
 
-import { splitSentence, isSpecialChar, capitalizeWord } from './utils.js';
+import {
+	splitSentence, isSpecialChar, capitalizeWord, removeDoubleLetters, doesItSoundBad,
+} from './utils.js';
 import { isVowel, divide } from './syllabator.js';
 import LCG from './lcg.js';
-
-const badPairs = ['gc', 'cg', 'mc', 'cm', 'sn'];
 
 export default class Translator {
 	constructor(
@@ -178,9 +178,9 @@ export default class Translator {
 		if (nSyllabs <= 3) {
 			invertedSyllabs = this.basicInversion(syllabs);
 		} else if (nSyllabs == 4) {
-			invertedSyllabs = this.invertFourSyllabs(syllabs);
+			invertedSyllabs = this.invertFourSyllabsWithSupertofe(syllabs);
 		} else if (nSyllabs > 4) {
-			invertedSyllabs = this.invertLongWords(syllabs);
+			invertedSyllabs = this.invertMoreThanFourSyllabsWithSupertofe(syllabs);
 		} else {
 			invertedSyllabs = syllabs;
 		}
@@ -193,7 +193,8 @@ export default class Translator {
 
 	// Divide the word in two chunks and inverts them, applying some easy rules.
 	// It also checks if impertofe needs to be applied
-	basicInversion(syllabs) {
+	basicInversion(inputSyllabs) {
+		const syllabs = inputSyllabs;
 		console.log(`Basic inversion of ${syllabs}`);
 		const originalSyllabs = syllabs.slice();
 		const nSyllabs = syllabs.length;
@@ -264,7 +265,7 @@ export default class Translator {
 
 		// Remove doubles from the original world
 		if (!skipDoublesRemoval) {
-			chunks = this.removeDoubleLetters(chunks);
+			chunks = removeDoubleLetters(chunks);
 			console.log(`Doubles removed ${chunks}`);
 		}
 
@@ -274,7 +275,7 @@ export default class Translator {
 
 		// We need to remove doubles once again
 		if (!skipDoublesRemoval) {
-			invertedChunks = this.removeDoubleLetters(invertedChunks);
+			invertedChunks = removeDoubleLetters(invertedChunks);
 			console.log(`Doubles removed ${chunks}`);
 		}
 
@@ -296,14 +297,14 @@ export default class Translator {
 		}
 
 		// Check if we can pronounce the final outcome
-		if (this.doesItSoundBad(invertedChunks)) {
+		if (doesItSoundBad(invertedChunks)) {
 			return originalSyllabs;
 		}
-		console.log(`Returning ${invertedChunks}`);
+		console.log(`Returning ${invertedChunks} from ${originalSyllabs}`);
 		return invertedChunks;
 	}
 
-	invertFourSyllabs(syllabs) {
+	invertFourSyllabsWithSupertofe(syllabs) {
 		const translate = this.getBernoullyOutcome(this.supertofePercentage / 100);
 		// If supertofe is on, apply it only sometimes
 		if (translate) {
@@ -312,22 +313,23 @@ export default class Translator {
 			const lastInverted = this.basicInversion(syllabs.slice(-2));
 			const invertedSyllabs = firstInverted.concat(lastInverted);
 			// Check if we can pronounce it
-			if (this.doesItSoundBad(invertedSyllabs)) {
+			if (doesItSoundBad(invertedSyllabs)) {
 				return syllabs;
 			}
 			return invertedSyllabs;
 		}
+		// No supertofe, just cesempli
 		const toInvert = [syllabs.slice(0, -1).reduce((a, b) => a + b, ''), syllabs.pop()];
 		return this.basicInversion(toInvert);
 	}
 
-	invertLongWords(syllabs) {
+	invertMoreThanFourSyllabsWithSupertofe(syllabs) {
 		if (syllabs.length < 5) {
 			throw new Error(`Apply only on words with at least 5 syllabs. Got ${syllabs}`);
 		}
 
 		const translate = this.getBernoullyOutcome(this.supertofePercentage / 100);
-		// If supertofe is on, apply it only sometimes
+
 		if (translate) {
 			// This is a advanced supertofe technique
 			const firstInverted = this.basicInversion(syllabs.slice(0, 2));
@@ -336,51 +338,20 @@ export default class Translator {
 				.concat(syllabs.slice(2, syllabs.length - 3))
 				.concat(lastInverted);
 			// Check if we can pronounce it
-			if (this.doesItSoundBad(invertedSyllabs)) {
+			if (doesItSoundBad(invertedSyllabs)) {
 				return syllabs;
 			}
 			return invertedSyllabs;
 		}
-		// Cesempli
-		return this.basicInversion(
-			new Array(
-				syllabs.slice(0, -1).reduce((a, b) => a + b, ''),
-				syllabs.pop(), // Last elem
-			),
-		);
-	}
-
-	doesItSoundBad(syllabs) {
-		// Check if the syllabs, when merged into a word, generate two letters
-		// that are in badPairs
-		console.log(`Pronounciation check on ${syllabs}`);
-		for (let i = 0; i < syllabs.length - 1; i++) {
-			const curr = syllabs[i];
-			const lastLetterCurr = curr.slice(-1)[0];
-			const next = syllabs[i + 1];
-			const firstLetterNext = next[0];
-			if (badPairs.includes(lastLetterCurr + firstLetterNext)) {
-				return true;
-			}
-		}
-		return false;
-	}
-
-	removeDoubleLetters(syllabs) {
-		for (let i = 0; i < syllabs.length - 1; i++) {
-			const prev = syllabs[i];
-			const succ = syllabs[i + 1];
-			if (prev.slice(-1)[0] == succ[0]) {
-				syllabs[i] = prev.slice(0, -1);
-			}
-		}
-		return syllabs;
+		// No supertofe, just cesempli
+		const toInvert = [syllabs.slice(0, -1).reduce((a, b) => a + b, ''), syllabs.pop()];
+		return this.basicInversion(toInvert);
 	}
 
 	// Aux function: return True or False following a Bernoully distribution
 	getBernoullyOutcome(p) {
 		if ((p < 0) || (p > 1)) {
-			throw `Got p (${p}) not in [0, 1].`;
+			throw new Error(`Got p (${p}) not in [0, 1].`);
 		}
 
 		let u;
@@ -397,11 +368,3 @@ export default class Translator {
 		return false;
 	}
 }
-
-// Todo: skeleton for seba translation
-// def search_basic_translation(word):
-// synonims = find_synonims(word)
-// translation = None
-// for s in synonims:
-//     translation = basics_translations.get(s, None)
-// return translation
