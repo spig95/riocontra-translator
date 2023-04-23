@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/36990714/233835485-ba78db92-f43b-4583-8ca3-082ff0048475.png" width="300">
+</p>
+
 # Welcome to the Riocontra Translator :fire:
 
 [Riocontra Translator](https://spig95.github.io/riocontra-translator/) is the
