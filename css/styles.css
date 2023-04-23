@@ -1,20 +1,19 @@
 * {
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
+    font-family: Roboto, sans-serif;
   }
 
 :root {
-  --primary-color-lightest: hsl(3, 84%, 71%);
-  --primary-color-light: hsl(3, 84%, 64%);
-  --primary-color: hsl(3, 84%, 57%);
-  --primary-color-dark: hsl(3, 84%, 40%);
-  --primary-color-darkest: hsl(3, 84%, 30%);
-
+  --primary-color-lightest: hsl(3deg 84% 71%);
+  --primary-color-light: hsl(3deg 84% 64%);
+  --primary-color: hsl(3deg 84% 57%);
+  --primary-color-dark: hsl(3deg 84% 40%);
+  --primary-color-darkest: hsl(3deg 84% 30%);
   --on-primary: white;
-  --on-primary-transparent: rgba(255, 255, 255, 0.7);
+  --on-primary-transparent: hsla(0deg 0% 100% 70%);
   --secondary-color: #F48325;
   --on-secondary: white;
-  --on-secondary-transparent: rgba(255, 255, 255, 0.7 );
+  --on-secondary-transparent: hsla(0deg 0% 100% 70%);
   
   /* font size (fs) */
   --fs-small: 0.9rem;
@@ -23,7 +22,7 @@
   --fs-xl: 1.25rem;
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (width >= 992px) {
   :root {
     /* font size (fs) */
     --fs-small: 1rem;
@@ -90,17 +89,17 @@ body {
 }
 
 .btn-img-outline-white {
-  border-color: (--on-primary);
+  border-color: var(--on-primary);
   border-style: solid;
   border-width: 1px;
 }
 
 .btn-img-outline-white:hover, .btn-img-outline-white:focus {
-  background-color: hsla(0, 0%, 100%, 0.25);
+  background-color: rgba(255 255 255 25%);
 }
 
 .btn-img-outline-white:active {
-  background-color: rgba(255, 255, 255, 0.35);
+  background-color: rgba(255 255 255 35%);
 }
 
 /* Ozi button never appear on focus, even after click */
@@ -148,9 +147,7 @@ body {
   resize: none;
   width: 100%;
   height: 100%;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-       box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 #translate-button {
