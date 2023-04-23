@@ -95,11 +95,11 @@ body {
 }
 
 .btn-img-outline-white:hover, .btn-img-outline-white:focus {
-  background-color: hsla(0deg 0% 100% 25%);
+  background-color: rgba(255 255 255 25%);
 }
 
 .btn-img-outline-white:active {
-  background-color: hsla(0deg 0% 100% 35%);
+  background-color: rgba(255 255 255 35%);
 }
 
 /* Ozi button never appear on focus, even after click */
