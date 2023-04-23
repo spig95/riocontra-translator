@@ -14,6 +14,7 @@
     "rules": {
         "no-console": "warn",
         "no-tabs": ["error", { "allowIndentationTabs": true }],
+        "import/extensions": "off",
         "indent": ["error", "tab"],
         "max-len": ["error", { "code": 120 }],
         "eqeqeq": "off"

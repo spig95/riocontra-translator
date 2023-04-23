@@ -25,6 +25,35 @@ export function isSpecialChar(word) {
 	return (matchingSpecialChars != null);
 }
 
+export function removeDoubleLetters(originalSyllabs) {
+	const syllabs = originalSyllabs;
+	for (let i = 0; i < syllabs.length - 1; i += 1) {
+		const prev = syllabs[i];
+		const succ = syllabs[i + 1];
+		if (prev.slice(-1)[0] == succ[0]) {
+			syllabs[i] = prev.slice(0, -1);
+		}
+	}
+	return syllabs;
+}
+
+const badPairs = ['gc', 'cg', 'mc', 'cm', 'sn'];
+
+export function doesItSoundBad(syllabs) {
+	// Check if the syllabs, when merged into a word, generate two letters
+	// that are in badPairs
+	for (let i = 0; i < syllabs.length - 1; i += 1) {
+		const curr = syllabs[i];
+		const lastLetterCurr = curr.slice(-1)[0];
+		const next = syllabs[i + 1];
+		const firstLetterNext = next[0];
+		if (badPairs.includes(lastLetterCurr + firstLetterNext)) {
+			return true;
+		}
+	}
+	return false;
+}
+
 export function capitalizeWord(word) {
 	return word.charAt(0).toUpperCase()
 		+ word.slice(1).toLowerCase();
