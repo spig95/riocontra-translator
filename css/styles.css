@@ -159,3 +159,13 @@ body {
 .icon-normal {
   height: var(--fs-normal);
 }
+
+#navbar-padding-when-sticky {
+  height: calc(2.5 * var(--fs-xl));
+}
+
+@media screen and (width < 270px) {
+  #navbar-padding-when-sticky {
+    height: calc(4.75 * var(--fs-xl));
+  }
+}
